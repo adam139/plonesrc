@@ -1,0 +1,54 @@
+./browser/settings.pt:12:75:
+-WARNING- - i18n:translate missing for this:
+"""
+Title
+"""
+-------------------------------------------------------------------------------
+Processing of ./browser/settings.pt finished. (1 warnings, 0 errors)
+===============================================================================
+./browser/templates/pager-titles.pt:8:8:
+-WARNING- - i18n:translate missing for this:
+"""
+Banner Title
+"""
+-------------------------------------------------------------------------------
+Processing of ./browser/templates/pager-titles.pt finished. (1 warnings, 0 errors)
+===============================================================================
+Processing of ./browser/templates/pager-base.pt finished. (0 warnings, 0 errors)
+===============================================================================
+Processing of ./browser/templates/banner-base.pt finished. (0 warnings, 0 errors)
+===============================================================================
+./browser/templates/pager-classic.pt:4:78:
+-WARNING- - i18n:translate missing for this:
+"""
+Banner Title
+"""
+-------------------------------------------------------------------------------
+Processing of ./browser/templates/pager-classic.pt finished. (1 warnings, 0 errors)
+===============================================================================
+Processing of ./browser/templates/pager-numbers.pt finished. (0 warnings, 0 errors)
+===============================================================================
+Processing of ./browser/templates/banner-default.pt finished. (0 warnings, 0 errors)
+===============================================================================
+./browser/templates/pager-none.pt:1:159:
+-FATAL- - ERROR in document:
+<unknown>:1:159: no element found
+===============================================================================
+Processing of ./browser/templates/pager-prevnext.pt finished. (0 warnings, 0 errors)
+===============================================================================
+./browser/viewlet.pt:8:4:
+-ERROR- - i18n:translate missing for this:
+"""
+Banners
+"""
+-------------------------------------------------------------------------------
+./browser/viewlet.pt:13:4:
+-ERROR- - i18n:translate missing for this:
+"""
+Pager
+"""
+-------------------------------------------------------------------------------
+Processing of ./browser/viewlet.pt finished. (0 warnings, 2 errors)
+===============================================================================
+Processing of ./analytics/banner.pt finished. (0 warnings, 0 errors)
+===============================================================================

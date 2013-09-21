@@ -1,0 +1,55 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: membrane\n"
+"POT-Creation-Date: 2013-04-26 09:16+0000\n"
+"PO-Revision-Date: 2013-04-26 17:20+0800\n"
+"Last-Translator: adam <yuejun.tang@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: dexterity.membrane\n"
+
+#: ./profiles/default/actions.xml
+msgid "ConferenceFolder"
+msgstr "活动"
+
+#: ./profiles/default/actions.xml
+msgid "Created conferences"
+msgstr "我创建的活动"
+
+#: ./profiles/default/actions.xml
+msgid "MemberFolder"
+msgstr "会员"
+
+#: ./profiles/default/actions.xml
+msgid "conference manage"
+msgstr "活动管理"
+
+#: ./profiles/default/actions.xml
+msgid "member manage"
+msgstr "会员管理"
+
+#: ./profiles/default/actions.xml
+msgid "member properties"
+msgstr "会员信息"
+
+#: ./profiles/default/actions.xml
+msgid "my conferences"
+msgstr "我加入的活动"
+
+#: ./profiles/default/actions.xml
+msgid "my followed"
+msgstr "我的关注"
+
+#: ./profiles/default/actions.xml
+msgid "my speeches"
+msgstr "我的演讲"
+

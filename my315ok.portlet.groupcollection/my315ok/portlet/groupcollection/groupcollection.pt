@@ -1,0 +1,223 @@
+<div tal:omit-tag ="" tal:condition="python:view.available">
+<div tal:omit-tag ="" tal:condition="python:view.available1">
+        <h2 class="kuputab-tab-definer-default"  tal:content="view/data/header">
+           Header
+        </h2>
+<dl class="portlet portletgroupcollection"
+    i18n:domain="my315ok.portlet.groupcollection"
+    tal:define="url view/data/target_collection;
+                collection_url python:view.collection_url(url);
+                plone_view context/@@plone;
+                length view/data/wordsnum;
+                toLocalizedTime nocall:plone_view/toLocalizedTime;
+                getIcon nocall:plone_view/getIcon;">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a tal:attributes="href collection_url" tal:omit-tag="not:view/data/show_more">
+            <span tal:content="view/data/header" />
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+    
+    <tal:events tal:repeat="obj python:view.results(url)">
+    <dd class="portletItem"
+        tal:define="oddrow repeat/obj/odd;
+                    item_icon python:getIcon(obj);
+                    ttl obj/Title"
+        tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+        <a href="#"
+           class="tile"
+           tal:attributes="href obj/getURL;
+                           title obj/Description">
+            <img tal:replace="structure item_icon/html_tag" />
+            <span tal:replace="python:plone_view.cropText(ttl, length)">
+             Title
+            </span>
+            <span class="portletItemDetails"
+                  tal:condition="view/data/show_dates"
+                  tal:content="python:toLocalizedTime(obj.Date)">
+                Date
+            </span>
+        </a>
+    </dd>
+    </tal:events>
+    
+    <dd class="portletFooter" tal:condition="view/data/show_more">
+        <span class="portletBottomLeft"></span>
+        <span>
+        <a tal:attributes="href collection_url" i18n:translate="more_url">
+             More&hellip;
+             </a>
+        </span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+</div>
+<div tal:omit-tag ="" tal:condition="python:view.available2">
+        <h2 class="kuputab-tab-definer"  tal:content="view/data/header2">
+           Header
+        </h2>
+<dl class="portlet portletgroupcollection"
+    i18n:domain="my315ok.portlet.groupcollection"
+    tal:define="url view/data/target_collection2;
+                collection_url python:view.collection_url(url);
+                plone_view context/@@plone;
+                length view/data/wordsnum;                
+                toLocalizedTime nocall:plone_view/toLocalizedTime;
+                getIcon nocall:plone_view/getIcon;">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a tal:attributes="href collection_url" tal:omit-tag="not:view/data/show_more">
+            <span tal:content="view/data/header2" />
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+    
+    <tal:events tal:repeat="obj python:view.results(url)">
+    <dd class="portletItem"
+        tal:define="oddrow repeat/obj/odd;
+                    item_icon python:getIcon(obj);
+                    ttl obj/Title"
+        tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+        <a href="#"
+           class="tile"
+           tal:attributes="href obj/getURL;
+                           title obj/Description">
+            <img tal:replace="structure item_icon/html_tag" />
+            <span tal:replace="python:plone_view.cropText(ttl, length)">
+             Title
+            </span>
+            <span class="portletItemDetails"
+                  tal:condition="view/data/show_dates"
+                  tal:content="python:toLocalizedTime(obj.Date)">
+                Date
+            </span>
+        </a>
+    </dd>
+    </tal:events>
+    
+    <dd class="portletFooter" tal:condition="view/data/show_more">
+        <span class="portletBottomLeft"></span>
+        <span>
+        <a tal:attributes="href collection_url" i18n:translate="more_url">
+             More&hellip;
+             </a>
+        </span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+</div>
+<div tal:omit-tag ="" tal:condition="python:view.available3">
+        <h2 class="kuputab-tab-definer"  tal:content="view/data/header3">
+           Header
+        </h2>
+<dl class="portlet portletgroupcollection"
+    i18n:domain="my315ok.portlet.groupcollection"
+    tal:define="url view/data/target_collection3;
+                collection_url python:view.collection_url(url);
+                plone_view context/@@plone;
+                length view/data/wordsnum;                
+                toLocalizedTime nocall:plone_view/toLocalizedTime;
+                getIcon nocall:plone_view/getIcon;">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a tal:attributes="href collection_url" tal:omit-tag="not:view/data/show_more">
+            <span tal:content="view/data/header3" />
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+    
+    <tal:events tal:repeat="obj python:view.results(url)">
+    <dd class="portletItem"
+        tal:define="oddrow repeat/obj/odd;
+                    item_icon python:getIcon(obj);
+                    ttl obj/Title"
+        tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+        <a href="#"
+           class="tile"
+           tal:attributes="href obj/getURL;
+                           title obj/Description">
+            <img tal:replace="structure item_icon/html_tag" />
+            <span tal:replace="python:plone_view.cropText(ttl, length)">
+             Title
+            </span>
+            <span class="portletItemDetails"
+                  tal:condition="view/data/show_dates"
+                  tal:content="python:toLocalizedTime(obj.Date)">
+                Date
+            </span>
+        </a>
+    </dd>
+    </tal:events>
+    
+    <dd class="portletFooter" tal:condition="view/data/show_more">
+        <span class="portletBottomLeft"></span>
+        <span>
+        <a tal:attributes="href collection_url" i18n:translate="more_url">
+             More&hellip;
+             </a>
+        </span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+</div>
+<div tal:omit-tag ="" tal:condition="python:view.available4">
+        <h2 class="kuputab-tab-definer"  tal:content="view/data/header4">
+           Header
+        </h2>
+<dl class="portlet portletgroupcollection"
+    i18n:domain="my315ok.portlet.groupcollection"
+    tal:define="url view/data/target_collection4;
+                collection_url python:view.collection_url(url);
+                plone_view context/@@plone;
+                length view/data/wordsnum;                
+                toLocalizedTime nocall:plone_view/toLocalizedTime;
+                getIcon nocall:plone_view/getIcon;">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a tal:attributes="href collection_url" tal:omit-tag="not:view/data/show_more">
+            <span tal:content="view/data/header4" />
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+    
+    <tal:events tal:repeat="obj python:view.results(url)">
+    <dd class="portletItem"
+        tal:define="oddrow repeat/obj/odd;
+                    item_icon python:getIcon(obj);
+                    ttl obj/Title"
+        tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+        <a href="#"
+           class="tile"
+           tal:attributes="href obj/getURL;
+                           title obj/Description">
+            <img tal:replace="structure item_icon/html_tag" />
+            <span tal:replace="python:plone_view.cropText(ttl, length)">
+             Title
+            </span>
+            <span class="portletItemDetails"
+                  tal:condition="view/data/show_dates"
+                  tal:content="python:toLocalizedTime(obj.Date)">
+                Date
+            </span>
+        </a>
+    </dd>
+    </tal:events>
+    
+    <dd class="portletFooter" tal:condition="view/data/show_more">
+        <span class="portletBottomLeft"></span>
+        <span>
+        <a tal:attributes="href collection_url" i18n:translate="more_url">
+             More&hellip;
+             </a>
+        </span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+</div>
+</div>
+
