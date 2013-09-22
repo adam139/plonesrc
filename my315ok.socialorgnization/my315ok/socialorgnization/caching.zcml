@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cache="http://namespaces.zope.org/cache"
+    i18n_domain="my315ok.socialorgnization">
+    
+    <include package="z3c.caching" file="meta.zcml" />
+    
+    <cache:ruleset
+        for=".browser.orgnization_listing.Orgnizations_adminView"
+        ruleset="plone.content.folderView"
+        />
+    <cache:ruleset
+        for=".browser.orgnization_listing.OrgnizationsView"
+        ruleset="plone.content.folderView"
+        />
+    <cache:ruleset
+        for=".browser.orgnization_listing.Orgnizations_annualsurveyView"
+        ruleset="plone.content.folderView"
+        />
+    <cache:ruleset
+        for=".browser.orgnization_listing.Orgnizations_administrativeView"
+        ruleset="plone.content.folderView"
+        />                        
+
+    <cache:ruleset
+        for=".browser.orgnization_listing.Orgnizations_annualsurveyView"
+        ruleset="plone.content.itemView"
+        />
+    
+    <cache:ruleset
+        for=".browser.orgnization_listing.AdministrativeLicenceView"
+        ruleset="plone.content.itemView"
+        />
+    
+
+    
+</configure>
