@@ -6,7 +6,6 @@
 <script src="modernizr-2.6.2.min.js"
   tal:define="navroot context/@@plone_portal_state/navigation_root_url"	
 	tal:attributes="src string:${navroot}/++resource++my315ok.socialorgnization/roll.js"></script>
-
 <link rel="stylesheet" type="text/css"
             tal:define="navroot context/@@plone_portal_state/navigation_root_url"
             tal:attributes="href string:${navroot}/++resource++my315ok.socialorgnization/rollstyle.css"
@@ -34,8 +33,7 @@
         </tr></tbody>
     </table>
     </div>
-	  <div id="oRollV2">
-
+	  <div id="oRollV2"><!--roll placeholder-->
     </div>    
     </div>
     </td>
