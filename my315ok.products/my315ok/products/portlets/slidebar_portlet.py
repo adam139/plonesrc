@@ -136,12 +136,12 @@ class Renderer(base.Renderer):
         imgsrc = self.goodimgsrc()
  
         intervalset = self.data.interval
-        out="""jq(document).ready(function()
+        out="""$(document).ready(function()
         {imgPlayer("%(slideid)s", "%(url)s",function()
-          {setTimeout(function(){ jq("#%(slideid)s").show();},200);});
+          {setTimeout(function(){ $("#%(slideid)s").show();},200);});
          var interval = setInterval('showNumImg("%(slideid)s")', %(ms)s);
-         jq("#%(slideid)s .num").bind("mouseenter",function(){clearInterval(interval);})
-         jq("#%(slideid)s .num").bind("mouseleave",function(){interval = setInterval('showNumImg("%(slideid)s")', %(ms)s);})
+         $("#%(slideid)s .num").bind("mouseenter",function(){clearInterval(interval);})
+         $("#%(slideid)s .num").bind("mouseleave",function(){interval = setInterval('showNumImg("%(slideid)s")', %(ms)s);})
  });""" % dict(slideid=outid,url=imgsrc,ms=intervalset)
         return out
 

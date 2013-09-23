@@ -7,12 +7,7 @@
 	<browser:resourceDirectory
   		name="my315ok.socialorgnization"
   		directory="static" />
-<!--  		
-  <browser:defaultView
-        name="view"
-        for=".conference.IConference"
-    />  
-  -->  		
+ 		
     <browser:page
         name="my315ok-socialorgnization-macros"
         for="*"

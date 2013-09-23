@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: my315ok.products\n"
-"POT-Creation-Date: 2013-09-20 01:12+0000\n"
-"PO-Revision-Date: 2013-09-20 09:13+0800\n"
+"POT-Creation-Date: 2013-09-23 09:53+0000\n"
+"PO-Revision-Date: 2013-09-23 18:18+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -15,11 +15,11 @@ msgstr ""
 "Domain: DOMAIN\n"
 "X-Poedit-Language: Chinese\n"
 
-#: ./browser/templates/orgnization_view.pt:33
+#: ./browser/templates/orgnization_view.pt:35
 msgid "Add administrative licence"
 msgstr "添加行政许可"
 
-#: ./browser/templates/orgnization_view.pt:24
+#: ./browser/templates/orgnization_view.pt:26
 msgid "Add annual survey"
 msgstr "添加年检记录"
 
@@ -31,9 +31,17 @@ msgstr "添加社会组织"
 msgid "Address"
 msgstr "住所"
 
+#: ./profiles/default/types/my315ok.socialorgnization.administrativelicencefolder.xml
+msgid "Administrative Licence Folder"
+msgstr "行政许可报表"
+
+#: ./profiles/default/types/my315ok.socialorgnization.annualsurveyfolder.xml
+msgid "Annual survey Folder"
+msgstr "年检结果报表"
+
 #: ./browser/templates/orgnization_administrative_licence.pt:24
 #: ./browser/templates/orgnization_annual_survey.pt:24
-#: ./browser/templates/orgnization_view.pt:42
+#: ./browser/templates/orgnization_view.pt:44
 msgid "Edit"
 msgstr "编辑"
 
@@ -81,6 +89,14 @@ msgstr "批准时间"
 #: ./browser/templates/orgnization_listing_admin.pt:47
 msgid "Title"
 msgstr "组织名称"
+
+#: ./profiles/default/types/my315ok.socialorgnization.administrativelicencefolder.xml
+msgid "a folder contain some administrative licence information"
+msgstr "包含行政许可信心的页面"
+
+#: ./profiles/default/types/my315ok.socialorgnization.annualsurveyfolder.xml
+msgid "a folder contain some annual survey information"
+msgstr "包含年检结果信息的页面"
 
 #: ./profiles/default/types/my315ok.socialorgnization.orgnizationfolder.xml
 msgid "a folder contain some orgnizations"

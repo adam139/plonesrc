@@ -4,8 +4,7 @@ import json
 import datetime
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
-from Products.ATContentTypes.interfaces.topic import IATTopic
-from Products.ATContentTypes.interfaces.folder import IATFolder
+
 from plone.memoize.instance import memoize
 
 from zope.i18n.interfaces import ITranslationDomain
@@ -214,7 +213,7 @@ class Orgnizations_annualsurveyView(Orgnizations_adminView):
 
             
             out = """<tr>
-            <td class="title"><a href="%(objurl)s">%(title)s</a></td>
+            <td class="title"><a target="_blank" href="%(objurl)s">%(title)s</a></td>
             <td class="item">%(year)s</td>
             <td class="result">%(annual_survey)s</td></tr>""" % dict(objurl=objurl,
                                             title=objtitle,
@@ -254,7 +253,7 @@ class Orgnizations_administrativeView(Orgnizations_adminView):
 
             
             out = """<tr>
-            <td class="title"><a href="%(objurl)s">%(title)s</a></td>
+            <td class="title"><a target="_blank" href="%(objurl)s">%(title)s</a></td>
             <td class="item">%(audit_item)s</td>
             <td class="result">%(audit_result)s</td></tr>""" % dict(objurl=objurl,
                                             title=objtitle,
