@@ -7,7 +7,7 @@
   <property name="title" i18n:translate="">Orgnization administrative licence</property>
   <property name="description"
     i18n:translate="">Orgnization administrative licence</property>
-  <property name="content_icon">document_icon.gif</property>
+  <property name="content_icon">document_icon.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">False</property>  
   <property name="allowed_content_types" />

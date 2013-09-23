@@ -4,8 +4,7 @@ import json
 import datetime
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
-from Products.ATContentTypes.interfaces.topic import IATTopic
-from Products.ATContentTypes.interfaces.folder import IATFolder
+
 from plone.memoize.instance import memoize
 
 from zope.i18n.interfaces import ITranslationDomain

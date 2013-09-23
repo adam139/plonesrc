@@ -25,7 +25,11 @@ class TestView(unittest.TestCase):
 
         portal.invokeFactory('my315ok.socialorgnization.orgnizationfolder', 'orgnizationfolder1',
                              title="orgnizationfolder1",description="demo orgnizationfolder")     
-     
+        portal.invokeFactory('my315ok.socialorgnization.administrativelicencefolder', 'licencefolder1',
+                             title="orgnizationfolder1",description="demo orgnizationfolder") 
+        portal.invokeFactory('my315ok.socialorgnization.annualsurveyfolder', 'surveyfolder1',
+                             title="orgnizationfolder1",description="demo orgnizationfolder")          
+   
         portal['orgnizationfolder1'].invokeFactory('my315ok.socialorgnization.orgnization','orgnization1',
                                                    title=u"宝庆商会",
                                                    description=u"运输业",
@@ -101,7 +105,46 @@ class TestView(unittest.TestCase):
         browser.open(obj)
 
         outstr = "8341"        
-        self.assertTrue(outstr in browser.contents)        
+        self.assertTrue(outstr in browser.contents)     
+        
+    def test_survey_folder_view(self):
+
+        app = self.layer['app']
+        portal = self.layer['portal']
+       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
+        
+        import transaction
+        transaction.commit()
+        obj = portal['surveyfolder1'].absolute_url()       
+        browser.open(obj)
+
+
+        outstr = "不合格"        
+        self.assertTrue(outstr in browser.contents)               
+
+    def test_licence_folder_view(self):
+
+        app = self.layer['app']
+        portal = self.layer['portal']
+       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
+        
+        import transaction
+        transaction.commit()
+        obj = portal['licencefolder1'].absolute_url() + '/@@view'        
+        browser.open(obj)
+
+        outstr = "准予"
+#        import pdb
+#        pdb.set_trace()
+#        outstr = outstr.decode('utf-8')  # plone output page use utf-8
+      
+        self.assertTrue(outstr in browser.contents)    
         
     def test_orgnizations_administrative_view(self):
         app = self.layer['app']

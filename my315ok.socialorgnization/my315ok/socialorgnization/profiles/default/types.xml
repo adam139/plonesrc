@@ -12,4 +12,6 @@
   <object name="my315ok.socialorgnization.orgnizationfolder" meta_type="Dexterity FTI" />
   <object name="my315ok.socialorgnization.orgnizationsurvey" meta_type="Dexterity FTI" />
   <object name="my315ok.socialorgnization.orgnizationadministrative" meta_type="Dexterity FTI" /> 
+  <object name="my315ok.socialorgnization.administrativelicencefolder" meta_type="Dexterity FTI" /> 
+  <object name="my315ok.socialorgnization.annualsurveyfolder" meta_type="Dexterity FTI" />     
 </object>

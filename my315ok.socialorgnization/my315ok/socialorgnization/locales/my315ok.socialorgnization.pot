@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-09-20 01:12+0000\n"
+"POT-Creation-Date: 2013-09-23 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/templates/orgnization_view.pt:33
+#: ./browser/templates/orgnization_view.pt:35
 msgid "Add administrative licence"
 msgstr ""
 
-#: ./browser/templates/orgnization_view.pt:24
+#: ./browser/templates/orgnization_view.pt:26
 msgid "Add annual survey"
 msgstr ""
 
@@ -30,9 +30,17 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
+#: ./profiles/default/types/my315ok.socialorgnization.administrativelicencefolder.xml
+msgid "Administrative Licence Folder"
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.annualsurveyfolder.xml
+msgid "Annual survey Folder"
+msgstr ""
+
 #: ./browser/templates/orgnization_administrative_licence.pt:24
 #: ./browser/templates/orgnization_annual_survey.pt:24
-#: ./browser/templates/orgnization_view.pt:42
+#: ./browser/templates/orgnization_view.pt:44
 msgid "Edit"
 msgstr ""
 
@@ -79,6 +87,14 @@ msgstr ""
 
 #: ./browser/templates/orgnization_listing_admin.pt:47
 msgid "Title"
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.administrativelicencefolder.xml
+msgid "a folder contain some administrative licence information"
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.annualsurveyfolder.xml
+msgid "a folder contain some annual survey information"
 msgstr ""
 
 #: ./profiles/default/types/my315ok.socialorgnization.orgnizationfolder.xml

@@ -1,32 +1,33 @@
 <?xml version="1.0"?>
-<object name="my315ok.socialorgnization.orgnizationsurvey"
+<object name="my315ok.socialorgnization.annualsurveyfolder"
    meta_type="Dexterity FTI"
    i18n:domain="my315ok.socialorgnization" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">Orgnization annual survey</property>
+  <property name="title" i18n:translate="">Annual survey Folder</property>
   <property name="description"
-    i18n:translate="">Orgnization annual survey</property>
-  <property name="content_icon">document_icon.png</property>
-  <property name="global_allow">False</property>
-  <property name="filter_content_types">False</property>  
-  <property name="allowed_content_types" />
+    i18n:translate="">a folder contain some annual survey information</property>
+  <property name="content_icon">folder_icon.png</property>
+  <property name="global_allow">True</property>
+  <property name="filter_content_types">True</property>  
+  <property name="allowed_content_types">
+  	 <element value="my315ok.socialorgnization.orgnizationsurvey" />	  
+  </property>
   <property name="allow_discussion">False</property>
 
  <!-- schema interface FIXME: this is ugly -->
- <property name="schema">my315ok.socialorgnization.content.orgnization.IOrgnization_annual_survey</property> 
+ <property name="schema">my315ok.socialorgnization.content.annualsurveyfolder.IAnnualSurveyFolder</property> 
 
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Item</property>
+ <property name="klass">plone.dexterity.content.Container</property>
 <!--
   <property name="product">my315ok.socialorgnization</property>
-  <property name="factory">addOrgnization</property>
+  <property name="factory">addOrgnizationFolder</property>
 -->
  <property name="add_permission">cmf.AddPortalContent</property>
  <property name="behaviors">
-    <element value="plone.app.content.interfaces.INameFromTitle" />
-<!--     <element value="my315ok.socialorgnization.behavior.customizetitle.INameFromParentId" />  
-     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/> -->
+     <element value="plone.app.content.interfaces.INameFromTitle" />
+     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
  </property>
 
   <!-- View information -->
