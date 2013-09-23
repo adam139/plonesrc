@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<layers>
-    <layer name="Products.ATMediaPage" 
-           interface="Products.ATMediaPage.interfaces.IATMediaPageSpecific" />
-</layers>

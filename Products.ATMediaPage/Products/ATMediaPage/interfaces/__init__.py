@@ -1,2 +1,0 @@
-from browserlayer import IATMediaPageSpecific
-from mediapage import IMediaPage
