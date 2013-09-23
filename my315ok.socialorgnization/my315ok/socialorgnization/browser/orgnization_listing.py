@@ -214,7 +214,7 @@ class Orgnizations_annualsurveyView(Orgnizations_adminView):
 
             
             out = """<tr>
-            <td class="title"><a href="%(objurl)s">%(title)s</a></td>
+            <td class="title"><a target="_blank" href="%(objurl)s">%(title)s</a></td>
             <td class="item">%(year)s</td>
             <td class="result">%(annual_survey)s</td></tr>""" % dict(objurl=objurl,
                                             title=objtitle,
@@ -254,7 +254,7 @@ class Orgnizations_administrativeView(Orgnizations_adminView):
 
             
             out = """<tr>
-            <td class="title"><a href="%(objurl)s">%(title)s</a></td>
+            <td class="title"><a target="_blank" href="%(objurl)s">%(title)s</a></td>
             <td class="item">%(audit_item)s</td>
             <td class="result">%(audit_result)s</td></tr>""" % dict(objurl=objurl,
                                             title=objtitle,
