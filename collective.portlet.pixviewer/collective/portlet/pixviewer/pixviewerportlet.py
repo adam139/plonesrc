@@ -34,8 +34,9 @@ class IPixviewerPortlet(IPortletDataProvider):
     target_collection = schema.Choice(title=_a(u"Target collection"),
                                   description=_a(u"Find the collection which provides the items to list"),
                                   required=True,
-                                  source=SearchableTextSourceBinder({'object_provides' : IATTopic.__identifier__},
-                                                                    default_query='path:'))
+                                  source=SearchableTextSourceBinder(
+            {'portal_type': ('Topic', 'Collection')},
+            default_query='path:'))
     local_id = schema.TextLine(title=_(u"video id"),
                              description=_(u"the video player's position will put"),
                              required=False,
