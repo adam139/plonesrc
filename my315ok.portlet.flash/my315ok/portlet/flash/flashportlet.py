@@ -46,8 +46,9 @@ class IFlashPortlet(IPortletDataProvider):
     target_collection = schema.Choice(title=_a(u"Target collection"),
                                   description=_a(u"Find the collection which provides the items to list"),
                                   required=False,
-                                  source=SearchableTextSourceBinder({'object_provides' : IATTopic.__identifier__},
-                                                                    default_query='path:'))
+                                  source=SearchableTextSourceBinder(
+            {'portal_type': ('Topic', 'Collection')},
+            default_query='path:'))
     target_flash = schema.Choice(title=_a(u"Target flash"),
                                   description=_a(u"Find the flash file which provides the flash source"),
                                   required=False,                                
