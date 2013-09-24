@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<object name="portal_javascripts">
-
- <javascript
-    id="++theme++owasp.theme/js/theme.js"/>
-
-</object>
