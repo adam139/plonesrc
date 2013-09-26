@@ -35,12 +35,22 @@ class Orgnizations_adminView(grok.View):
     def update(self):
         # Hide the editable-object border
         self.request.set('disable_border', True)
+
+    @memoize    
+    def catalog(self):
+        context = aq_inner(self.context)
+        pc = getToolByName(context, "portal_catalog")
+        return pc
     
+    @memoize    
+    def pm(self):
+        context = aq_inner(self.context)
+        pm = getToolByName(context, "portal_membership")
+        return pm    
+            
     @property
     def isEditable(self):
-        context = aq_inner(self.context)
-        pm = getToolByName(context, 'portal_membership')
-        return pm.checkPermission(permissions.ManagePortal,context) 
+        return self.pm().checkPermission(permissions.ManagePortal,self.context) 
 
     def tranVoc(self,value):
         """ translate vocabulary value to title"""
@@ -57,8 +67,8 @@ class Orgnizations_adminView(grok.View):
     def fromid2title(self,id):
         """根据对象id，获得对象title"""
        
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog({'id':id})
+        
+        brains = self.catalog()({'id':id})
         if len(brains) >0:
             return brains[0].Title
         else:
@@ -66,12 +76,10 @@ class Orgnizations_adminView(grok.View):
         
     @memoize         
     def getOrgnizationFolder(self):
-        context = aq_inner(self.context)
-        tfc = getToolByName(context, 'portal_catalog')
-        topicfolder = tfc({'object_provides': IOrgnizationFolder.__identifier__})
-        
-        mt = getToolByName(context,'portal_membership')
-        canManage = mt.checkPermission(permissions.AddPortalContent,context)        
+
+        topicfolder = self.catalog()({'object_provides': IOrgnizationFolder.__identifier__})
+
+        canManage = self.pm().checkPermission(permissions.AddPortalContent,self.context)        
         if (len(topicfolder) > 0) and  canManage:
             tfpath = topicfolder[0].getURL()
         else:
@@ -82,8 +90,8 @@ class Orgnizations_adminView(grok.View):
     def getMemberList(self):
         """获取申请的会议列表"""
         mlist = []        
-        catalog = getToolByName(self.context, "portal_catalog")
-        memberbrains = catalog({'object_provides':IOrgnization.__identifier__, 
+        
+        memberbrains = self.catalog()({'object_provides':IOrgnization.__identifier__, 
                                 'path':"/".join(self.context.getPhysicalPath()),
                              'sort_order': 'reverse',
                              'sort_on': 'created'}                              
@@ -119,8 +127,8 @@ class OrgnizationsView(Orgnizations_adminView):
     def getAnnualSurveyList(self):
         """获取年检结果列表"""
        
-        catalog = getToolByName(self.context, "portal_catalog")
-        braindata = catalog({'object_provides':IOrgnization_annual_survey.__identifier__, 
+        
+        braindata = self.catalog()({'object_provides':IOrgnization_annual_survey.__identifier__, 
                                 'path':"/".join(self.context.getPhysicalPath()),
                              'sort_order': 'reverse',
                              'sort_on': 'created'})
@@ -147,8 +155,8 @@ class OrgnizationsView(Orgnizations_adminView):
     def getAdministrativeLicenceList(self):
         """获取行政许可列表"""
        
-        catalog = getToolByName(self.context, "portal_catalog")
-        braindata = catalog({'object_provides':IOrgnization_administrative_licence.__identifier__, 
+        
+        braindata = self.catalog()({'object_provides':IOrgnization_administrative_licence.__identifier__, 
                                 'path':"/".join(self.context.getPhysicalPath()),
                              'sort_order': 'reverse',
                              'sort_on': 'created'}                              
@@ -197,8 +205,8 @@ class Orgnizations_annualsurveyView(Orgnizations_adminView):
     def getMemberList(self):
         """获取年检结果列表"""
        
-        catalog = getToolByName(self.context, "portal_catalog")
-        braindata = catalog({'object_provides':IOrgnization_annual_survey.__identifier__, 
+        
+        braindata = self.catalog()({'object_provides':IOrgnization_annual_survey.__identifier__, 
                                 'path':"/".join(self.context.getPhysicalPath()),
                              'sort_order': 'reverse',
                              'sort_on': 'created'})
@@ -235,8 +243,8 @@ class Orgnizations_administrativeView(Orgnizations_adminView):
     def getMemberList(self):
         """获取行政许可列表"""
        
-        catalog = getToolByName(self.context, "portal_catalog")
-        braindata = catalog({'object_provides':IOrgnization_administrative_licence.__identifier__, 
+        
+        braindata = self.catalog()({'object_provides':IOrgnization_administrative_licence.__identifier__, 
                                 'path':"/".join(self.context.getPhysicalPath()),
                              'sort_order': 'reverse',
                              'sort_on': 'created'}                              
@@ -263,7 +271,7 @@ class Orgnizations_administrativeView(Orgnizations_adminView):
         return outhtml
              
     
-class SiteRootOrgnizationListingView(grok.View):
+class SiteRootOrgnizationListingView(Orgnizations_adminView):
     grok.context(ISiteRoot)
     grok.template('orgnization_listings')
     grok.name('orgnization_listings')
@@ -274,12 +282,10 @@ class SiteRootOrgnizationListingView(grok.View):
   
     
     def getOrgnizationFolder(self):
-        context = aq_inner(self.context)
-        tfc = getToolByName(context, 'portal_catalog')
-        topicfolder = tfc({'object_provides': IOrgnizationFolder.__identifier__})
-        
-        mt = getToolByName(context,'portal_membership')
-        canManage = mt.checkPermission(permissions.AddPortalContent,context)        
+
+        topicfolder = self.catalog()({'object_provides': IOrgnizationFolder.__identifier__})
+
+        canManage = self.pm().checkPermission(permissions.AddPortalContent,context)        
         if (len(topicfolder) > 0) and  canManage:
             tfpath = topicfolder[0].getURL()
         else:
@@ -290,16 +296,16 @@ class SiteRootOrgnizationListingView(grok.View):
  
         """返回前num个conference
         """
-        catalog = getToolByName(self.context, 'portal_catalog')
+
         
-        maxlen = len(catalog({'object_provides': IOrgnization.__identifier__}))
+        maxlen = len(self.catalog()({'object_provides': IOrgnization.__identifier__}))
         if maxlen > num:
-            return catalog({'object_provides': IOrgnization.__identifier__,
+            return self.catalog()({'object_provides': IOrgnization.__identifier__,
                              'sort_order': 'reverse',
                              'sort_on': 'conference_passDate',
                              'sort_limit': num})
         else:
-            return catalog({'object_provides': IOrgnization.__identifier__,
+            return self.catalog()({'object_provides': IOrgnization.__identifier__,
                              'sort_order': 'reverse',
                              'sort_on':'conference_passDate'})    
 
@@ -323,9 +329,9 @@ class SiteRootAllOrgnizationListingView(SiteRootOrgnizationListingView):
  
         """返回 all conference
         """
-        catalog = getToolByName(self.context, 'portal_catalog')
 
-        return catalog({'object_provides': IOrgnization.__identifier__,
+
+        return self.catalog()({'object_provides': IOrgnization.__identifier__,
                              'sort_order': 'reverse',
                              'sort_on':'created'})
 #翻译 社团，民非，基金会          
@@ -347,8 +353,8 @@ class SiteRootAllOrgnizationListingView(SiteRootOrgnizationListingView):
             return "zhuxiao"
          
     def search_multicondition(self,query):
-        catalog = getToolByName(self.context, 'portal_catalog')    
-        return catalog(query)        
+#        catalog = getToolByName(self.context, 'portal_catalog')    
+        return self.catalog()(query)        
 
                 
  # ajax multi-condition search       

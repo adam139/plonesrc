@@ -23,35 +23,8 @@ from my315ok.socialorgnization.content.orgnization import IOrgnization_annual_su
 from my315ok.socialorgnization.content.orgnizationfolder import IOrgnizationFolder
 
 
-class maintain(grok.View):
-    grok.context(IOrgnizationFolder)
-    grok.name('maintainview')
-    grok.require('zope2.View')    
-    
-    def getMemberList(self):
-        """获取申请的会议列表"""
-#        mlist = []        
-        catalog = getToolByName(self.context, "portal_catalog")
-        memberbrains = catalog({'object_provides':IOrgnization.__identifier__, 
-                                'path':"/".join(self.context.getPhysicalPath()),
-                             'sort_order': 'reverse',
-                             'sort_on': 'created'}                              
-                                              ) 
-        return memberbrains
-    
-    def render(self):
-        catalog = getToolByName(self.context, "portal_catalog")
-        
-        for i in self.getMemberList():
-            title = i.Title
-            brains = catalog({'path':i.getPath()})
-#            import pdb
-#            pdb.set_trace()
-            for m in brains:
-                obj = m.getObject()
-                obj.title = title
-                obj.reindexObject()
-        return "pass" 
+
+
 
 class EditOrgnizationSurvey(dexterity.EditForm):
     grok.name('ajaxedit')
