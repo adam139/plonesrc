@@ -37,7 +37,7 @@
                 			<tbody>
                 					<tr tal:repeat="file python:itemlist">
                 						<td class="span8" tal:content="python:file.Title">中国中亚友好协会</td>
-                						<td class="span2" tal:content="python:file.created.strftime('%Y-%M-%D')">2013-12-03</td>
+                						<td class="span2" tal:content="python:file.created.strftime('%Y-%m-%d')">2013-12-03</td>
                 						<td class="span2"><a href="" tal:attributes="href python:file.getURL() + '/download'" title="下载这个文件">下载</a></td>
                 					</tr>
                 			</tbody>
