@@ -10,27 +10,27 @@ class TestSetup(unittest.TestCase):
     
     def test_portal_title(self):
         portal = self.layer['portal']
-        self.assertEqual("OWASP中国", portal.getProperty('title'))
+        self.assertEqual("湘潭社会组织信息网", portal.getProperty('title'))
     
-    def test_portal_description(self):
-        portal = self.layer['portal']
-        self.assertEqual("OWASP中国", portal.getProperty('description'))
-   
+#    def test_portal_description(self):
+#        portal = self.layer['portal']
+#        self.assertEqual("OWASP中国", portal.getProperty('description'))
+#   
 
 
-    def test_PloneFormGen_installed(self):
-        portal = self.layer['portal']
-        portal_types = getToolByName(portal, 'portal_types')
-        
-        self.assertTrue("dexterity.membrane.member" in portal_types)
-        self.assertTrue("dexterity.membrane.memberfolder" in portal_types)        
-    
-    def test_diazo960_installed(self):
-        portal = self.layer['portal']
-        portal_types = getToolByName(portal, 'portal_types')
-        
-        self.assertTrue('collective.conference.conference' in portal_types)
-        self.assertTrue('collective.conference.session' in portal_types)        
+#    def test_PloneFormGen_installed(self):
+#        portal = self.layer['portal']
+#        portal_types = getToolByName(portal, 'portal_types')
+#        
+#        self.assertTrue("dexterity.membrane.member" in portal_types)
+#        self.assertTrue("dexterity.membrane.memberfolder" in portal_types)        
+#    
+#    def test_diazo960_installed(self):
+#        portal = self.layer['portal']
+#        portal_types = getToolByName(portal, 'portal_types')
+#        
+#        self.assertTrue('collective.conference.conference' in portal_types)
+#        self.assertTrue('collective.conference.session' in portal_types)        
     
 #    def test_metaTypesNotToList_configured(self):
 #        portal = self.layer['portal']
@@ -73,12 +73,5 @@ class TestSetup(unittest.TestCase):
 #                [r['name'] for r in 
 #                    portal.permissionsOfRole('Member')
 #                        if r['selected']])
-#    
-    def test_add_portal_member_permission(self):
-        portal = self.layer['portal']
-        
-        self.assertTrue('Add portal member' in
-                [r['name'] for r in 
-                    portal.permissionsOfRole('Anonymous')
-                    if r['selected']])
+
 

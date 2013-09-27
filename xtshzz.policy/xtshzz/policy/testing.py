@@ -21,7 +21,7 @@ class SitePolicy(PloneSandboxLayer):
         z2.installProduct(app, 'Products.TALESField')
         z2.installProduct(app, 'Products.TemplateFields')
         z2.installProduct(app, 'Products.PloneFormGen')
-        z2.installProduct(app, 'Products.membrane')        
+#        z2.installProduct(app, 'Products.membrane')        
     
     def tearDownZope(self, app):
         # Uninstall products installed above
@@ -29,7 +29,7 @@ class SitePolicy(PloneSandboxLayer):
         z2.uninstallProduct(app, 'Products.TemplateFields')
         z2.uninstallProduct(app, 'Products.TALESField')
         z2.uninstallProduct(app, 'Products.PythonField')
-        z2.uninstallProduct(app, 'Products.membrane')        
+#        z2.uninstallProduct(app, 'Products.membrane')        
         
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'xtshzz.policy:default')
