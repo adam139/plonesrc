@@ -1,5 +1,6 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:monkey="http://namespaces.plone.org/monkey">
 
 
 
@@ -14,6 +15,16 @@
       provides="plone.i18n.normalizer.interfaces.IURLNormalizer"
       component=".zh.normalizer"
       permission="zope.Public" />
+      
+  <include package="collective.monkeypatcher" />
 
+
+
+    <monkey:patch
+     description="patch file field class for file download"
+     class ="plone.app.blob.field.BlobWrapper"
+     original="index_html"
+     replacement=".filedownload.index_html"
+  /> 
 
 </configure>
