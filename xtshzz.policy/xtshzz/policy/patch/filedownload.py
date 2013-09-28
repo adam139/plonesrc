@@ -28,12 +28,19 @@ def index_html(self, REQUEST=None, RESPONSE=None, charset='utf-8', disposition='
         if filename is not None:
             if not isinstance(filename, unicode):
                 if REQUEST.HTTP_USER_AGENT.find('MSIE') != -1:
+#                    filename = unicode(filename).encode('gb18030')
 #            if type(filename) is UnicodeType:
 #                filename = filename.encode('gb18030')
 #            else:
-                    filename = unicode(filename,'gb18030',errors="ignore")
+                    filename = unicode(filename,charset,errors="ignore")
+                    filename = filename.encode('gb18030')
                 else:
                     filename = unicode(filename, charset, errors="ignore")
+            else:
+                if REQUEST.HTTP_USER_AGENT.find('MSIE') != -1:
+                    filename = filename.encode('gb18030')
+                    
+                        
 #            filename = IUserPreferredFileNameNormalizer(REQUEST).normalize(
 #                filename)
             header_value = contentDispositionHeader(
