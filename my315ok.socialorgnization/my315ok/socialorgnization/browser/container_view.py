@@ -26,7 +26,7 @@ grok.templatedir('templates')
 class maintain(grok.View):
     grok.context(IOrgnizationFolder)
     grok.name('maintainview')
-    grok.require('zope2.View')    
+    grok.require('cmf.ManagePortal')     
     
     def getMemberList(self):
         """获取申请的会议列表"""
@@ -57,7 +57,7 @@ class maintain(grok.View):
 class maintainmarkinterface(grok.View):
     grok.context(ISiteRoot)
     grok.name('maintainmarker')
-    grok.require('zope2.View')    
+    grok.require('cmf.ManagePortal')     
     
     def getMemberList(self):
         """获取申请的会议列表"""
@@ -121,7 +121,40 @@ class ContainerDownloadableListView(OrgnizationsView):
                              'sort_on': 'created'}                              
                                               ) 
 
-        return braindata     
+        return braindata 
+
+    @memoize
+    def getDownloadFileList(self):
+        """获取行政许可列表"""
+       
+        
+        braindata = self.catalog()({'object_provides':IATFile.__identifier__,
+                             'path':"/".join(self.context.getPhysicalPath()),                                     
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}                              
+                                              )
+        outhtml = """<table class="table table-striped table-bordered table-condensed"><thead>
+        <tr><th class="span7">文件名称</th><th class="span3" >发布时间</th><th class="span2" >下载链接</th></tr>
+        </thead><tbody>"""
+        brainnum = len(braindata)
+        
+        for i in range(brainnum):
+            objurl = braindata[i].getURL()
+            objtitle = braindata[i].Title
+            pubtime = braindata[i].created.strftime('%Y-%m-%d')
+            downloadlink = objurl + "/download"
+
+            
+            out = """<tr>
+            <td class="span7 title">%(title)s</td>
+            <td class="span3 item">%(pubtime)s</td>
+            <td class="span2 result"><a href="%(downloadlink)s">下载</a></td></tr>""" % dict(objurl=objurl,
+                                            title = objtitle,
+                                            pubtime = pubtime,
+                                            downloadlink = downloadlink)           
+            outhtml = outhtml + out
+        outhtml = outhtml + "</tbody></table>"
+        return outhtml        
 
 class AdministrativeLicenceFolderView(OrgnizationsView):
     grok.context(IAdministrativeLicenceFolder)
