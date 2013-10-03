@@ -61,4 +61,7 @@ class view(grok.View):
         link = self.img_url() + "/@@images/" + fieldname + "/" + large
         return link
     def img_url(self):
-        return self.context.absolute_url()        
+        return self.context.absolute_url()
+    
+  
+            

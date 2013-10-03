@@ -68,6 +68,26 @@ class TestProductsFolderView(unittest.TestCase):
 #        open('/tmp/test.html', 'w').write(browser.contents)
 
         self.assertTrue('<div id="multiproducts">' in browser.contents)
+
+    def test_bootstrapview(self):
+        app = self.layer['app']
+        portal = self.layer['portal']
+       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
+        
+        import transaction
+        transaction.commit()
+        
+        page = portal.absolute_url() + '/productfolder1/@@bootstrapview'
+
+        browser.open(page)
+        obj = portal.absolute_url() + '/productfolder1/product1'    
+        open('/tmp/test.html', 'w').write(browser.contents)
+        outstr = '<a href="%s/@@images/image/large" title="a gif image" class="lightbox">'  % obj
+
+        self.assertTrue(outstr in browser.contents)
         
     def test_mediapageview(self):
 

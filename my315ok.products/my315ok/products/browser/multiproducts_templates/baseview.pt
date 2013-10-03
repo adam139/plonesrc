@@ -65,7 +65,7 @@
             tal:attributes="src string:${navroot}/++resource++my315ok.products/js/jquery.jqzoom-core-pack.js">				
 			</script>
 		   <script type="text/javascript">
-        jq(document).ready(function(){
+        $(document).ready(function(){
 	         var options3 =
             {
                 zoomWidth: 400,
@@ -74,7 +74,7 @@
                 title: false,
                 lens:false
             }
-            jq(".jqzoom").jqzoom(options3);
+            $(".jqzoom").jqzoom(options3);
                                       });
        </script>	
 </metal:js>

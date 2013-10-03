@@ -40,7 +40,7 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+  <!-- -*- cusomize indexer -*- -->
         <adapter factory=".product.text" name="text" />   
         <adapter factory=".product.linkurl" name="linkurl" />           
 </configure>

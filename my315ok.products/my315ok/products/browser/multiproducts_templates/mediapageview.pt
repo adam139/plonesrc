@@ -28,8 +28,8 @@
 <metal:js fill-slot="javascript_bottom_slot">
 			   <script type="text/javascript" tal:attributes="src string:http://images.315ok.org/jquery.lightbox-0.5.pack.js" />
 <script type="text/javascript">
-jq(function() {
-	jq('a.lightbox').lightBox(
+$(function() {
+	$('a.lightbox').lightBox(
 {
 	overlayBgColor: '#FFF',
 	overlayOpacity: 0.6,

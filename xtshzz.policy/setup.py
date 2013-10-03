@@ -26,6 +26,7 @@ setup(name='xtshzz.policy',
       install_requires=[
           'setuptools',
           'Products.CMFPlone',
+          'z3c.jbot',          
           'collective.conference',
           'dexterity.membrane',
           'membrane.usersinout',          

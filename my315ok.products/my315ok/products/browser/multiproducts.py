@@ -139,7 +139,8 @@ class baseview(grok.View):
         
     @memoize
     def details(self,fieldname="text"):
-        imglists = {}         
+        imglists = {} 
+       
         cpara = [i.text for i in self.prdt_images()]                         
         imglists["comments"] = cpara        
         return imglists
@@ -148,8 +149,66 @@ class baseview(grok.View):
         if a:
             return b
         else:
-            return c    
+            return c
+            
+class BootstrapView(baseview):
+    grok.context(Iproductfolder)
+    grok.require('zope2.View')
+    grok.name('bootstrapview')
 
+    @memoize
+    def outtable(self):
+        out = """
+            <div class="row-fluid">
+            <div class="span12"> 
+            <h2 class="title">%(context_title)s</h2>
+            </div>                     
+            <div class="row-fluid">
+            <div class="%(class)s">
+            <h3 class="title"><a href="%(url)s">%(title)s</a></h3>            
+            <div class="mainphoto"><a href="%(url)s" class="lightbox">%s</a></div>
+            <div class="richtext">%(richtext)s</div>
+            </div>
+             </div>
+             </div>
+             """
+#        output = ''
+        output = '<div class="row-fluid"><div class="span12"><h2 class="title">%s</h2></div>' %(self.context.title)
+        colsnum = self.PerRowPrdtNum
+        imglists = self.mainimage()
+        total = len(imglists['title'])
+        span_num = self.span_num()
+        rowsnum = (total + colsnum - 1)/colsnum
+
+        for i in range(rowsnum):
+            output = output + '<div class="row-fluid">'
+#            import pdb
+#            pdb.set_trace()
+            for j in range(colsnum):
+                s2 = i * colsnum + j
+
+                if s2 == total:
+                    break
+                richtext = self.overview(s2)
+#                import pdb
+#                pdb.set_trace()                
+                output = output + """
+                <div class="%(spanclass)s">
+                <h3 class="title"><a href="%(url)s">%(title)s</a></h3>
+                <div class="mainphoto"><a href="%(largeurl)s" title="%(imgtitle)s" class="lightbox">%(preview)s</a></div>
+                <div class="richtext"><a href="%(url)s" title="点击查看详情">%(richtext)s</a></div>
+                </div>""" % dict(spanclass = span_num,
+                url = imglists['imgurl'][s2],
+                title = imglists['title'][s2],
+                preview = imglists['preview'][s2],
+                largeurl = imglists['large'][s2],
+                imgtitle = imglists['caption'][s2],
+                richtext = richtext)
+
+            output = output + '</div>'
+            
+        return output    
+        
 
 class mediapageview(baseview):
     grok.context(Iproductfolder)
@@ -161,7 +220,7 @@ class mediapageview(baseview):
             <div class="row-fluid">
             <div class="span2"> 
             <h2 class="title"><a href="%s">%s</a></h2>                     
-            <div class="mainphoto grid_3"><a href="%s" class="lightbox">%s</a></div>
+            <div class="mainphoto grid_3"><a href="%s" title="%s" class="lightbox">%s</a></div>
              </div>
              </div>
              """
@@ -172,18 +231,16 @@ class mediapageview(baseview):
         total = len(imglists['title'])
         span_num = self.span_num()
         rowsnum = (total + colsnum - 1)/colsnum
-#        import pdb 
-#        pdb.set_trace()
+
         for i in range(rowsnum):
             output = output + rowstr
             for j in range(colsnum):
-                s = i * colsnum + j
-#                import pdb
-#                pdb.set_trace()
-                if s == total:
+                s2 = i * colsnum + j
+
+                if s2 == total:
                     break
                 output = output + '<div class="%s"><h2 class="title"><a title="%s" href="%s">%s</a></h2><div class="mainphoto grid_3"><a href="%s" title="%s" class="lightbox">%s</a></div></div>' \
-                %(span_num,imglists['title'][s],imglists['imgurl'][s],imglists['title'][s],imglists['large'][s],imglists['caption'][s],imglists['preview'][s])
+                %(span_num,imglists['title'][s2],imglists['imgurl'][s2],imglists['title'][s2],imglists['large'][s2],imglists['caption'][s2],imglists['preview'][s2])
             output = output + '</div>'
             
         return output
@@ -199,15 +256,15 @@ class storeview(baseview):
     @memoize
     def swich_img(self):
         out = """
-        jq("li.imgli").bind("mouseenter",function(){
-        imgobj = jq(this).find('img');
+        $("li.imgli").bind("mouseenter",function(){
+        imgobj = $(this).find('img');
         tit = imgobj.attr('alt');
         smsrc = imgobj.attr('src');
         bgsrc = smsrc.replace('/tile','/large');
         mdsrc = smsrc.replace('/tile','/mini');        
         newa="<a id='bigphoto' href='"+bgsrc+"' class='jqzoom' title='"+tit+"'><img src='"+mdsrc+"' alt='"+tit+"' /></a>";
-        jq("#bigphoto").replaceWith(newa);
-        jq(".jqzoom").jqzoom(); 
+        $("#bigphoto").replaceWith(newa);
+        $(".jqzoom").jqzoom(); 
         })"""
         return out
             
