@@ -23,7 +23,7 @@
         />                        
 
     <cache:ruleset
-        for=".browser.orgnization_listing.Orgnizations_annualsurveyView"
+        for=".browser.orgnization_listing.AnnualsurveyView"
         ruleset="plone.content.itemView"
         />
     
