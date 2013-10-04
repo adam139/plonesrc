@@ -40,8 +40,8 @@ $("#search_input").keypress(function(event) {
      var a = $("#search_input").val();
 var b2 = encodeURIComponent(a);
     window.location.href = "http://www2.xtshzz.org/@@allorgnization_listings?orgname=" + b2;
-return false;
-
+return false;}
+else {
 return false;
     }
 });

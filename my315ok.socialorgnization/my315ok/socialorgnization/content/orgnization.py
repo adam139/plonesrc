@@ -62,7 +62,7 @@ class IOrgnization(form.Schema,IBasic):
     ) 
 # 批准日期
 
-    passDate = schema.Datetime(
+    passDate = schema.Date(
         title=_(u"Pass Date"),
         description=u'',
         required=True,
