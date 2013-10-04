@@ -57,24 +57,20 @@
              <tr>
                 <td class="span1" tal:content="python:lists['number']">
                                     </td>
-
                                     <td class="span3 title" >
                                         <a tal:attributes="href python:lists['url']">
                                         	<span tal:content="python:lists['name']"></span>
                                         </a>
                                     </td>
-                                    
                                     <td class="span1"  tal:content="python:lists['register_code']">
                                     </td>
-                                   
-                                    <td class="span3 title"  tal:content="python:lists['address']">
+                                    <td class="span2 title"  tal:content="python:lists['address']">
                                     </td>
                                     <td class="span2 title"  tal:content="python:lists['sponsor']">
-                                    </td>  
-                                                 
+                                    </td>
                                     <td class="span1" tal:content="python:lists['legal_person']">
  																</td>
-                                    <td class="span1" tal:content="python:lists['orgnization_passDate']">
+                                    <td class="span2" tal:content="python:lists['orgnization_passDate']">
  																</td>                                                          
                                 </tr>
                             </tal:block>
