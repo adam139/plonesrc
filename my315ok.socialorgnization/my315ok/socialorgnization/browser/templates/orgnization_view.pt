@@ -53,40 +53,40 @@
 				<table class="table table-striped table-bordered table-condensed">
         <tbody>
              <tr>
-                <td class="span6" >
+                <td class="span6 title" >
                 	<span class="label">名称：</span>
                 	<span class="content" tal:content="python:context.title">宝庆商会</span>
                 </td>
-                <td class="span3" >
+                <td class="span3 title" >
                 	<span class="label">登记证号：</span>
                 	<span class="content" tal:content="python:context.register_code">8341</span>
                 </td>                
-                <td class="span3" >
+                <td class="span3 title" >
                 	<span class="label">法人：</span>
                 	<span class="content" tal:content="python:context.legal_person"></span>
                 </td>
              </tr>
              <tr>
-                <td class="span6" >
+                <td class="span6 title" >
                 	<span class="label">住所：</span>
                 	<span class="content" tal:content="python:context.address">建设北路</span>
                 </td>
-                <td class="span6" colspan="2" >
+                <td class="span6 title" colspan="2" >
                 	<span class="label">业务主管单位：</span>
                 	<span class="content" tal:content="python:context.supervisor">民政局</span>
                 </td>            
 
              </tr>
              <tr>
-                <td class="span6" >
+                <td class="span6 title" >
                 	<span class="label">业务范围：</span>
                 	<span class="content" tal:content="python:context.description">零售业</span>
                 </td>
-                <td class="span3" >
+                <td class="span3 title" >
                 	<span class="label">组织类型：</span>
                 	<span class="content" tal:content="python:view.tranVoc(context.organization_type)">社会团体</span>
                 </td>                
-                <td class="span3" >
+                <td class="span3 title" >
                 	<span class="label">批准时间：</span>
                 	<span class="content" tal:content="python:context.passDate.strftime('%Y-%m-%d')">2012-07-22</span>
                 </td>
