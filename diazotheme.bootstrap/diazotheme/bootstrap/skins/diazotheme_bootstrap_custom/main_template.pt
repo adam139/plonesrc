@@ -166,9 +166,16 @@
             <div id="kss-spinner">
                 <img tal:attributes="src string:http://images.315ok.org/spinner.gif" alt="" />
             </div>
+
         </div>
     </div>
+
 </div>
+   <div id="script_reg" tal:define="scripts provider:plone.resourceregistries.scripts"
+        tal:condition="scripts" tal:content="structure scripts">
+     The resouces register script resource will move to here.
+   </div>
+
 	<div id="bottom-js" class="hidden">
  		<metal:javascriptslot define-slot="javascript_bottom_slot" />	
 	</div>

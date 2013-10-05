@@ -19,5 +19,5 @@
       />
 
    <include package=".portlet"/>
-
+   <include package=".browser"/>
 </configure>

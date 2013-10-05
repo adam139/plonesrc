@@ -3,12 +3,18 @@
     xmlns:plone="http://namespaces.plone.org/plone">
 
   <include package="plone.app.portlets" />
+  <include package="collective.quickupload" /> 
+   
    <plone:portletRenderer
     portlet="plone.app.portlets.portlets.search.ISearchPortlet"
     layer="xtshzz.policy.browser.interfaces.IXtshzzThemeSpecific"
     template="search.pt"
    />    
-
+   <plone:portletRenderer
+    portlet="collective.quickupload.portlet.quickuploadportlet.IQuickUploadPortlet"
+    layer="xtshzz.policy.browser.interfaces.IXtshzzThemeSpecific"
+    template="quickuploadportlet.pt"
+   />   
 
 </configure>
 
