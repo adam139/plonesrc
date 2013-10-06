@@ -19,7 +19,7 @@
    <div metal:fill-slot="content-description"></div>
 
    <div metal:fill-slot="content-core">
-      <script tal:attributes="src string:${view/static}/equalHeights.js"></script>
+      <script tal:attributes="src string:${portal_url}/++resource++collective.conference/equalHeights.js"></script>
       <script>
          $(document).ready(function () {
             $('.card').equalHeights();

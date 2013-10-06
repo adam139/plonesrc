@@ -16,7 +16,7 @@
    <div metal:fill-slot="content-title"></div>
    <div metal:fill-slot="content-description"></div>
 
-   <div metal:fill-slot="content-core">
+   <div metal:fill-slot="main">
        <section id="profile" 
             tal:define="text_to_html nocall:here/@@collective-conference-macros/text_to_html">
        <div class="page-header">

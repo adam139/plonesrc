@@ -40,13 +40,13 @@
             <div  id="follow-box" tal:define="follow python:view.isFollowed();">            	
 					<span id="fire-follow" class="ajaxbutton" tal:attributes="style python: follow and 'display:none;;' or 'display:inline;;';
 						data-ajax-target string:${portal_url}/@@ajax-follow">
-						<img tal:attributes="src string:${view/static}/plus.png" />&nbsp;
+						<img tal:attributes="src string:${portal_url}/++resource++collective.conference/plus.png" />&nbsp;
 						<a class="followjq btn btn-primary" href="javascript:void(0)" i18n:translate="follow">follow</a>
 						<input type="hidden" tal:attributes="value id" />
 					</span>
 					<span id="fire-unfollow" class="ajaxbutton" tal:attributes="style python: follow and 'display:inline;;' or 'display:none;;';
 						data-ajax-target string:${portal_url}/@@ajax-unfollow">
-						<img  tal:attributes="src string:${view/static}/subtract.png"/>&nbsp;
+						<img  tal:attributes="src string:${portal_url}/++resource++collective.conference/subtract.png"/>&nbsp;
 						<a class="unfollowjq btn btn-primary" href="javascript:void(0)" i18n:translate="unfollowed">unfollowed</a>
 						<input type="hidden" tal:attributes="value id" />						
 					</span>

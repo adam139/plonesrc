@@ -14,7 +14,8 @@
     <theme href="owasp.html" css:if-content="#visual-portal-wrapper"/>
     <theme href="dialog.html" css:if-content="#content.dialog-wrapper"/>
     <drop css:content="meta[http-equiv='X-UA-Compatible']"/>
-    <drop css:content="link[href$='favicon.ico']" />    
+    <drop css:content="link[href$='favicon.ico']" /> 
+<drop content="html/head/script" />        
     <rules css:if-content="#content.dialog-wrapper">
         <prepend theme="/html/head" content="/html/head/base"/>
         <after css:theme="meta[http-equiv='X-UA-Compatible']" 
@@ -49,7 +50,9 @@
     <prepend theme="/html/head" content="/html/head/base"/>
 
     <replace theme="//*[@id='logo']/h1" content="//*[@id='content']/h1"/>
-
+        <drop css:content="link[href*='portal_css']" />
+        <drop css:content="script[src$='plone.app.jquery.js']" />         
+        <drop css:content="script[src*='plone.app.jquery-cachekey']" />         
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
         
@@ -301,6 +304,7 @@
     </replace>
 
     <xi:include href="facetednavigation-rules.xml"/>
+    <replace css:theme="#script_reg" css:content-children="#script_reg"/>    
     <append css:theme="#site-scripts" css:content="#portal-footer-wrapper > div > script"/>
     <append css:theme="#site-scripts" css:content-children="#bottom-js"/>
    

@@ -11,7 +11,6 @@
    </metal:block>
 </head>
 <body>
-
 	<div metal:fill-slot="main">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajaxsearch"></div>
 		<div id="ajaxmorearea" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-province"></div>		
@@ -122,8 +121,8 @@
 
                 <!--快速翻页-->
                 <div id="fastPageList" class="q_page span3"><a href="javascript:void(0)">
-                	<img tal:attributes="src string:${view/static}/event_list_bg10.png"/></a>
-                	<span>1/16</span><a href="javascript:searchEvent(2,10)"><img tal:attributes="src string:${view/static}/event_list_bg11.png"/></a></div>
+                	<img tal:attributes="src string:++resource++collective.conference/event_list_bg10.png"/></a>
+                	<span>1/16</span><a href="javascript:searchEvent(2,10)"><img tal:attributes="src string:++resource++collective.conference/event_list_bg11.png"/></a></div>
                 <!--快速翻页 End-->
             </div>
             <!--搜索选择结果排序 End-->
@@ -411,11 +410,11 @@ var generatePageLink = function(c, n, a) {
         m = ""
     }
     if (l <= 1) {
-        e += "<a href='javascript:void(0)'><img src='++resource++collective.conference.browser/event_list_bg10.png'/></a>";
+        e += "<a href='javascript:void(0)'><img src='++resource++collective.conference/event_list_bg10.png'/></a>";
         d += "<a href='javascript:void(0)' class='page'>首页</a>";
         d += "<a href='javascript:void(0)' class='page'>上一页</a>"
     } else {
-        e += "<a href='javascript:searchEvent(" + (l - 1) + ",10)'><img src='++resource++collective.conference.browser/event_list_bg10.png'/></a>";
+        e += "<a href='javascript:searchEvent(" + (l - 1) + ",10)'><img src='++resource++collective.conference/event_list_bg10.png'/></a>";
         d += "<a href=javascript:searchEvent(1,10) class='page'>首页</a><a href=javascript:searchEvent(" + (l - 1) + ",10) class='page'>上一页</a>"
     }
     e += "<span>" + l + "/" + k + "</span>";
@@ -447,11 +446,11 @@ var generatePageLink = function(c, n, a) {
         }
     }
     if (l == k || k < 2) {
-        e += "<a href='javascript:void(0)'><img src='++resource++collective.conference.browser/event_list_bg11.png'/></a>";
+        e += "<a href='javascript:void(0)'><img src='++resource++collective.conference/event_list_bg11.png'/></a>";
         d += "<a href='javascript:void(0)' class='page'>下一页</a>";
         d += "<a href='javascript:void(0)' class='page'>末页</a>"
     } else {
-        e += "<a href='javascript:searchEvent(" + (l + 1) + ",10)'><img src='++resource++collective.conference.browser/event_list_bg11.png'/></a>";
+        e += "<a href='javascript:searchEvent(" + (l + 1) + ",10)'><img src='++resource++collective.conference/event_list_bg11.png'/></a>";
         d += "<a href=javascript:searchEvent(" + (l + 1) + ",10) class='page'>下一页</a><a href=javascript:searchEvent(" + (k) + ",10) class='page'>末页</a>"
     }
     f.innerHTML = d;
@@ -572,7 +571,7 @@ function quickPage() {
     var e = c + 1;
     b += '<a href="javascript:pageButtonAction(' + a + ')">style="vertical-align:middle"</a>';
     b += "<span >" + c + "/" + d + "</span>";
-    b += '<a href="javascript:pageButtonAction(' + e + ')"><img src="++resource++collective.conference.browser/event_list_bg11.png"/></a>';
+    b += '<a href="javascript:pageButtonAction(' + e + ')"><img src="++resource++collective.conference/event_list_bg11.png"/></a>';
     $("#quick_page").html(b)
 }
 function iReplace(c, b) {

@@ -8,7 +8,7 @@ $(document).ready(function () {
             $(el).remove();
         }
     });
-    jQuery17('.dropdown-toggle').click(function () {
+    jQuery('.dropdown-toggle').click(function () {
         var self = $(this).parent();
         $('.dropdown.open').each(function (idx, item) {
             if ($(item)[0] != self[0]) {
@@ -17,5 +17,5 @@ $(document).ready(function () {
         })
     });
 
-    jQuery17('.carousel').carousel();
+    jQuery('.carousel').carousel();
 })

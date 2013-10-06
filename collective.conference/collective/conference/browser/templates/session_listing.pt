@@ -5,21 +5,18 @@
       metal:use-macro="here/main_template/macros/master"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
       i18n:domain="collective.conference">        
-      <head>
-
-   <metal:block fill-slot="style_slot">
+      <head><metal:block fill-slot="style_slot">
    <metal:block use-macro="here/@@collective-conference-macros/macros/styles"/>
    </metal:block>
-
-</head>
+   </head>
 <body>
    <div metal:fill-slot="content-title">
       <h1 tal:content="view/title">Listing</h1>
    </div>
    <div metal:fill-slot="content-description"></div>
 
-   <div metal:fill-slot="content-core">
-      <script tal:attributes="src string:${view/static}/equalHeights.js"></script>
+   <div metal:fill-slot="content-core" tal:define="navroot context/@@plone_portal_state/navigation_root_url">
+      <script tal:attributes="src string:${navroot}/++resource++collective.conference/equalHeights.js"></script>
       <script>
          $(document).ready(function () {
             $('.conference-session').equalHeights();
