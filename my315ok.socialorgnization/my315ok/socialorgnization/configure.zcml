@@ -18,7 +18,7 @@
     <!-- Register an extension profile to make the product installable -->
   <include package=".behavior" />
   <include package=".browser" />  
-
+  <include file="caching.zcml" /> 
   <genericsetup:registerProfile
       name="default"
       title="a social orgnization management content type based dexterity"

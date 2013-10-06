@@ -47,15 +47,15 @@
 	<script type="text/javascript">
 	var start = 0;
 
-	jq("#ajaxmore").live("click", function(){
-		var action = jq("#ajaxdisplay").attr('data-ajax-target');
+	$("#ajaxmore").live("click", function(){
+		var action = $("#ajaxdisplay").attr('data-ajax-target');
 		start++;
-		jq.post(action, {formstart: start}, function(data){
+		$.post(action, {formstart: start}, function(data){
 			var outhtml = data['outhtml'];
-			jq(outhtml).insertBefore('#ajaxmore-link');
+			$(outhtml).insertBefore('#ajaxmore-link');
 			var ifmore = data['ifmore'];
 			if (ifmore == 1){
-				jq('#ajaxmore-link').remove();}
+				$('#ajaxmore-link').remove();}
 		}, 'json');
 		return false;
 	});

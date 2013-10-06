@@ -35,6 +35,7 @@ setup(name='collective.conference',
           'collective.js.fullcalendar',
           'collective.js.jqueryui',
           'z3c.table',
+          'z3c.caching',             
           'plone.z3ctable',
           'Products.AdvancedQuery',
           'collective.z3cform.colorpicker'

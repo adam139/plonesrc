@@ -160,81 +160,81 @@
    <metal:js fill-slot="javascript_bottom_slot">
 			  <script type="text/javascript">
 
-jq(document).ready(function(){
+$(document).ready(function(){
     searchEvent();
-    jq("#dateRangeSearchUl li").live("click",function() {
+    $("#dateRangeSearchUl li").live("click",function() {
         
-                 if (jq(this).attr("class") == "title") {} else {
-                    jq("#dateRangeSearchUl > .over").removeClass("over");
-                    jq(this).addClass("over");
-                    jq("#dateSearch").attr("value", $(this).attr("name"));
+                 if ($(this).attr("class") == "title") {} else {
+                    $("#dateRangeSearchUl > .over").removeClass("over");
+                    $(this).addClass("over");
+                    $("#dateSearch").attr("value", $(this).attr("name"));
                     searchEvent();}       
        return false;
     });
 
-   jq("#addressSelectSearch li span").live("click",function() {
-                if (jq(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
+   $("#addressSelectSearch li span").live("click",function() {
+                if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
                 {
-                    jq("#addressSelectSearch li> .over").removeClass("over");
-                    jq(this).addClass("over");
-                    jq("#addressSearch").attr("value", $(this).attr("name"));
+                    $("#addressSelectSearch li> .over").removeClass("over");
+                    $(this).addClass("over");
+                    $("#addressSearch").attr("value", $(this).attr("name"));
                     searchEvent();
                     document.getElementById("address_more_div").style.display = "none"
                 }
        return false; 
     }); 
-   jq("#categorySelectSearch li span").live("click",function() {    
-                    if (jq(this).attr("class") == "title" || jq(this).attr("class") == "more") {} else 
+   $("#categorySelectSearch li span").live("click",function() {    
+                    if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
                     {
-                    jq("#categorySelectSearch li> .over").removeClass("over");
-                    jq(this).addClass("over");
-                    jq("#categorySearch").attr("value", jq(this).attr("name"));
+                    $("#categorySelectSearch li> .over").removeClass("over");
+                    $(this).addClass("over");
+                    $("#categorySearch").attr("value", $(this).attr("name"));
                     searchEvent();
                     document.getElementById("cata_more_div").style.display = "none"
                 }
        return false; 
     });                   
 
-   jq("#eventListSort a").live("click",function() {             
-                jq("#solrSortColumn").attr("value", jq(this).attr("name"));
-                if (jq(this).attr("class") == "a") {
-                    jq(this).attr("class", "b");
-                    jq("#solrSortDirection").attr("value", "ascending")
+   $("#eventListSort a").live("click",function() {             
+                $("#solrSortColumn").attr("value", $(this).attr("name"));
+                if ($(this).attr("class") == "a") {
+                    $(this).attr("class", "b");
+                    $("#solrSortDirection").attr("value", "ascending")
                 } else {
-                    jq(this).attr("class", "a");
-                    jq("#solrSortDirection").attr("value", "reverse")
+                    $(this).attr("class", "a");
+                    $("#solrSortDirection").attr("value", "reverse")
                 }
                 searchEvent();
        return false; 
         });
         
-   jq("#eventListSort a").live("click",function() { 
-                jq("#eventListSort > .over").removeClass("over");
-                jq("#eventListSort a").attr("style", "");
-                jq(this).attr("style", "font-weight:bold;color:#279006;");
+   $("#eventListSort a").live("click",function() { 
+                $("#eventListSort > .over").removeClass("over");
+                $("#eventListSort a").attr("style", "");
+                $(this).attr("style", "font-weight:bold;color:#279006;");
        return false;               
         }); 
                  
 });
 function closeEventMore() {
-    jq("#cata_more_div").hide();
-    jq("#address_more_div").hide();
+    $("#cata_more_div").hide();
+    $("#address_more_div").hide();
 }
 
 function innerMoreArea() {        
-      var action = jq("#ajaxmorearea").attr('data-ajax-target');
+      var action = $("#ajaxmorearea").attr('data-ajax-target');
 	   var senddata = {"demo":2}	   
-       jq.post(action, 
+       $.post(action, 
            senddata,
            function(data) {
            try {
-                jq("#addressSearchMore1").html("");
+                $("#addressSearchMore1").html("");
                 var str = data['provincelist'];
-                jq(str).appendTo("#province_list_div");
-                jq("#li_province_more").hide();
+                $(str).appendTo("#province_list_div");
+                $("#li_province_more").hide();
 
-//                    jq("#addressSearchMore1").html(str);
-//                    jq("#addressSearchMore1 > .over").removeClass("over");
+//                    $("#addressSearchMore1").html(str);
+//                    $("#addressSearchMore1 > .over").removeClass("over");
 //                    document.getElementById("address_more_div").style.display = "block";               
 
             } catch (e) {
@@ -246,19 +246,19 @@ function innerMoreArea() {
 
 function closeSearchEventsDiv(flag) {
     if (flag == 1) {
-        jq("#dateSearch").val("0");
-        jq("#dateRangeSearchUl > .over").removeClass("over");
-        jq("#dateRangeSearchUl").find("li[name='0']").addClass("over");
+        $("#dateSearch").val("0");
+        $("#dateRangeSearchUl > .over").removeClass("over");
+        $("#dateRangeSearchUl").find("li[name='0']").addClass("over");
         searchEvent();
     } else if (flag == 2) {
-        jq("#addressSearch").val("0");
-        jq("#addressSelectSearch li> .over").removeClass("over");
-        jq("#addressSelectSearch").find("li span[name='0']").addClass("over");
+        $("#addressSearch").val("0");
+        $("#addressSelectSearch li> .over").removeClass("over");
+        $("#addressSelectSearch").find("li span[name='0']").addClass("over");
         searchEvent();
     } else if (flag == 3) {
-        jq("#categorySearch").val("0");
-        jq("#categorySelectSearch li> .over").removeClass("over");
-        jq("#categorySelectSearch").find("li span[name='0']").addClass("over");
+        $("#categorySearch").val("0");
+        $("#categorySelectSearch li> .over").removeClass("over");
+        $("#categorySelectSearch").find("li span[name='0']").addClass("over");
         searchEvent();
     }
 }
@@ -272,13 +272,13 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
     if (initKeyword != undefined && initKeyword != "") {
         keyword = initKeyword
     } else {
-        keyword = jq("#searchKeyword").val()
+        keyword = $("#searchKeyword").val()
     }
-    var dateSearchType = jq("#dateSearch").val();
-    var address = jq("#addressSearch").val();
-    var categoryId = jq("#categorySearch").val();   
-    var sortColumn = jq("#solrSortColumn").val();    
-    var sortDirection = jq("#solrSortDirection").val();
+    var dateSearchType = $("#dateSearch").val();
+    var address = $("#addressSearch").val();
+    var categoryId = $("#categorySearch").val();   
+    var sortColumn = $("#solrSortColumn").val();    
+    var sortDirection = $("#solrSortDirection").val();
         
     var data = {'datetype':dateSearchType,'province':address,'type':categoryId};
     data['sortcolumn'] = sortColumn;
@@ -297,8 +297,8 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
         data['start'] = 0;
         data['size'] =10;
     }        
-       var action = jq("#ajaxsearch").attr('data-ajax-target');
-       jq.post(action, 
+       var action = $("#ajaxsearch").attr('data-ajax-target');
+       $.post(action, 
            data,
            function(resp) {
                        try {
@@ -363,7 +363,7 @@ function showResultRemind(d, a, c, e) {
         b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>有关“<span id='keyworkshow'>" + d + "</span>”的活动信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     }
     document.getElementById("all_result_recordinfo").innerHTML = b
-//    jq("#all_result_recordinfo").html(b)
+//    $("#all_result_recordinfo").html(b)
 }
 var addDate = function(d, a, e) {
     var b = new Date(e);
@@ -402,11 +402,11 @@ var generatePageLink = function(c, n, a) {
         k = 1
     }
     var l = Math.floor(c / n) + 1;
-    var j = jq("#fastPageList");
+    var j = $("#fastPageList");
     j.html("");
     var d = "";
     var e = "";
-    var m = jq("#searchtext").val();
+    var m = $("#searchtext").val();
     if (m == undefined || m == null || m == "") {
         m = ""
     }
@@ -522,10 +522,10 @@ function createStringSearch(d, a, c, g) {
 
 
 function pageAction() {
-    var a = jq("#pageNow").val() * 1;
+    var a = $("#pageNow").val() * 1;
     var b = a - 1;
     var c = a + 1;
-    var e = jq("#pageTotal").val() * 1;
+    var e = $("#pageTotal").val() * 1;
     var d = pageCenterString(a, e);
     var f = "<div class='page_div'>";
     f += '<a href="javascript:pageButtonAction(1)" class="page">首页</a><a href="javascript:pageButtonAction(' + b + ')" class="page">上一页</a>  ';
@@ -552,7 +552,7 @@ function pageCenterString(e, b) {
             if (e == 2 && b == 2) {
                 f += '<a href="javascript:pageButtonAction(' + a + ')" class="page num">' + a + '</a><a href="javascript:pageButtonAction(' + e + ')" class="page_over num">' + e + "</a>"
             } else {
-                if (e == jq("#pages").val() && b > 2) {
+                if (e == $("#pages").val() && b > 2) {
                     f += '<a href="javascript:pageButtonAction(' + c + ')" class="page num">' + c + '</a><a href="javascript:pageButtonAction(' + a + ')" class="page num">' + a + '</a><a href="javascript:pageButtonAction(' + e + ')" class="page_over num">' + e + "</a>"
                 } else {
                     if (b > 2) {
@@ -566,18 +566,18 @@ function pageCenterString(e, b) {
 }
 function quickPage() {
     var b = "";
-    var c = jq("#pageNow").val() * 1;
-    var d = jq("#pageTotal").val() * 1;
+    var c = $("#pageNow").val() * 1;
+    var d = $("#pageTotal").val() * 1;
     var a = c - 1;
     var e = c + 1;
     b += '<a href="javascript:pageButtonAction(' + a + ')">style="vertical-align:middle"</a>';
     b += "<span >" + c + "/" + d + "</span>";
     b += '<a href="javascript:pageButtonAction(' + e + ')"><img src="++resource++collective.conference.browser/event_list_bg11.png"/></a>';
-    jq("#quick_page").html(b)
+    $("#quick_page").html(b)
 }
 function iReplace(c, b) {
     try {
-        jq("#" + c).val(b);
+        $("#" + c).val(b);
         document.getElementById(c).onfocus = function() {
             if (this.value != "") {
                 this.value = ""

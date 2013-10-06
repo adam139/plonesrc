@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cache="http://namespaces.zope.org/cache"
+    i18n_domain="my315ok.socialorgnization">
+    
+    <include package="z3c.caching" file="meta.zcml" />
+    
+    <cache:ruleset
+        for=".browser.conference_listing.Conferences_adminView"
+        ruleset="plone.content.folderView"
+        />
+    <cache:ruleset
+        for=".browser.conference_listing.FolderConferenceListingView"
+        ruleset="plone.content.folderView"
+        />
+    <cache:ruleset
+        for=".browser.conference_listing.SiteRootConferenceListingView"
+        ruleset="plone.content.folderView"
+        />
+    <cache:ruleset
+        for=".browser.conference_listing.ConferenceFolderListingView"
+        ruleset="plone.content.folderView"
+        />                        
+
+
+    <cache:ruleset
+        for=".browser.listings.SessionListingView"
+        ruleset="plone.content.folderView"
+        />  
+    <cache:ruleset
+        for=".browser.listings.VegetarianListingView"
+        ruleset="plone.content.folderView"
+        />
+    <cache:ruleset
+        for=".browser.listings.PendingSessionListingView"
+        ruleset="plone.content.folderView"
+        />  
+    <cache:ruleset
+        for=".browser.session_listing.SessionListView"
+        ruleset="plone.content.folderView"
+        /> 
+    <cache:ruleset
+        for=".browser.speaker_listing.ConfSpeakersListView"
+        ruleset="plone.content.folderView"
+        />  
+    <cache:ruleset
+        for=".browser.profile_listing.ParticipantListView"
+        ruleset="plone.content.folderView"
+        />                                             
+
+</configure>
