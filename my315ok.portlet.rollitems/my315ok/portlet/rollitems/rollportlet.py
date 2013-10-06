@@ -2,7 +2,7 @@ from zope.interface import implements
 from AccessControl import getSecurityManager
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
-from plone.portlet.collection.collection import Renderer as baseRenderer
+#from plone.portlet.collection.collection import Renderer as baseRenderer
 from zope.component import getMultiAdapter
 from Acquisition import aq_inner
 
@@ -94,7 +94,7 @@ class Assignment(base.Assignment):
         return self.header
 
 
-class Renderer(baseRenderer):
+class Renderer(base.Renderer):
     """Portlet renderer.
     
     This is registered in configure.zcml. The referenced page template is
@@ -104,9 +104,9 @@ class Renderer(baseRenderer):
 
     render = ViewPageTemplateFile('rollportlet.pt')
    
-
-    def __init__(self, *args):
-        base.Renderer.__init__(self, *args)
+#
+#    def __init__(self, *args):
+#        base.Renderer.__init__(self, *args)
    
     @memoize
     def render_marqueejs(self):
