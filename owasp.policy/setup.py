@@ -31,6 +31,7 @@ setup(name='owasp.policy',
           'membrane.usersinout',          
           'Products.membrane',
           'collective.monkeypatcher',
+          'z3c.jbot',
           'diazotheme.bootstrap',
           'Products.ContentWellPortlets',
                                                                      
