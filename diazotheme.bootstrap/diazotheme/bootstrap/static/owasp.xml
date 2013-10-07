@@ -15,7 +15,7 @@
     <theme href="dialog.html" css:if-content="#content.dialog-wrapper"/>
     <drop css:content="meta[http-equiv='X-UA-Compatible']"/>
     <drop css:content="link[href$='favicon.ico']" /> 
-<drop content="html/head/script" />        
+<!--<drop content="html/head/script" /> -->        
     <rules css:if-content="#content.dialog-wrapper">
         <prepend theme="/html/head" content="/html/head/base"/>
         <after css:theme="meta[http-equiv='X-UA-Compatible']" 
@@ -53,9 +53,10 @@
         <drop css:content="link[href*='portal_css']" />
         <drop css:content="script[src$='plone.app.jquery.js']" />         
         <drop css:content="script[src*='plone.app.jquery-cachekey']" />         
-    <after css:theme="meta[http-equiv='X-UA-Compatible']" 
+    <after css:theme="script[src$='jquery-1.7.2.min.js']" 
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
-        
+<!--    <after css:theme="meta[http-equiv='X-UA-Compatible']" 
+        content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" /> -->        
     <prepend  css:theme=".navbar-inner">
         <xsl:if css:test=".InHeaderPortletManager1">
             <div class="portlet">

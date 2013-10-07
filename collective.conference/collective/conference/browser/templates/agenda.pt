@@ -9,18 +9,7 @@
 
    <metal:block fill-slot="style_slot">
       <metal:block use-macro="here/@@collective-conference-macros/macros/styles"/>
-   </metal:block>
-
-</head>
-<body>
-   <div metal:fill-slot="content-title">
-      <h1 tal:content="view/title">Agenda</h1>
-   </div>
-   <div metal:fill-slot="content-description"></div>
-
-   <div metal:fill-slot="content-core">
-      <style>
-.banner {
+      <style>.banner {
    height:auto;
 }
 .fc-agenda-slots td div {height: 30px}
@@ -42,24 +31,20 @@
    float:left;
    text-align:center
 }
-      </style>
-      <script tal:content="structure view/script">
-      </script>
-      <script>
-         $(document).ready(function (){
-            $('#agenda-tabs > .nav-tabs').tabs("#agenda-tabs > .panes > div",
-               {current:'active',
-               onClick: function (obj, idx) {
-                  $.each(this.getTabs(), function (idx, tab) {
-                     $(tab).parent().removeClass('active');
-                  });
-                  $($('#agenda-tabs > .nav-tabs > li')[idx]).addClass('active');
-                  $('.conference-calendar').fullCalendar('refetchEvents');
-               }});
-         })
-      </script>
+      </style>      
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.css" media="screen"/>
+      
+   </metal:block>
 
-      <div id="agenda-tabs">
+</head>
+<body>
+   <div metal:fill-slot="content-title">
+      <h1 tal:content="view/title">Agenda</h1>
+   </div>
+   <div metal:fill-slot="content-description"></div>
+
+   <div metal:fill-slot="content-core">
+   	<div id="agenda-tabs">
          <ul class="nav nav-tabs">
             <li tal:repeat="day view/days">
                <tal:def define="curday python:day['id'] + 1">
@@ -95,5 +80,23 @@
       </div>
                <div class="visualClear"></div>
       </div>
+<metal:js fill-slot="javascript_bottom_slot">     
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script>
+      <script tal:content="structure view/script">
+      </script>
+      	      <script>
+         $(document).ready(function (){
+            $('#agenda-tabs > .nav-tabs').tabs("#agenda-tabs > .panes > div",
+               {current:'active',
+               onClick: function (obj, idx) {
+                  $.each(this.getTabs(), function (idx, tab) {
+                     $(tab).parent().removeClass('active');
+                  });
+                  $($('#agenda-tabs > .nav-tabs > li')[idx]).addClass('active');
+                  $('.conference-calendar').fullCalendar('refetchEvents');
+               }});
+         })
+      </script>
+      </metal:js>  
 </body>
 </html>
