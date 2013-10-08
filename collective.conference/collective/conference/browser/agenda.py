@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 from five import grok
 from collective.conference.conference import IConference
 from collective.conference.session import ISession
@@ -40,6 +41,7 @@ class AgendaView(grok.View):
         for day in self.days():
             for idx, room in enumerate(self.context.rooms):
                 initcode += """
+
                     $('#calendar-%s-%s').fullCalendar($.extend({
                         events: "%s",
                         year: %s,
@@ -67,7 +69,21 @@ class AgendaView(grok.View):
                height:1000,
                minTime:8,
                maxTime:18,
+               monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],  
+               monthNamesShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],  
+               dayNames: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],  
+               dayNamesShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],  
+               today: ["今天"],  
+               firstDay: 1,  
+               buttonText: {  
+                  today: '本日',  
+                  month: '月',  
+                  week: '周',  
+                  day: '日',  
+                  prev: '上一月',  
+                  next: '下一月' }, 
                allDaySlot: false,
+               currentTimezone: 'Asia/Beijing',
                editable: %s,
                eventResize: function (event, dayDelta, minuteDelta, revertFunc,
                                         jsEvent, ui, view) {

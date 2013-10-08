@@ -32,7 +32,7 @@
    text-align:center
 }
       </style>      
-      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.css" media="screen"/>
+      <link rel="stylesheet" href="http://images.315ok.org/fullcalendar-1.6.4/fullcalendar/fullcalendar.css" media="screen"/>
       
    </metal:block>
 
@@ -81,7 +81,9 @@
                <div class="visualClear"></div>
       </div>
 <metal:js fill-slot="javascript_bottom_slot">     
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script>
+      <script src="http://images.315ok.org/fullcalendar-1.6.4/fullcalendar/fullcalendar.min.js"></script>
+
+      
       <script tal:content="structure view/script">
       </script>
       	      <script>
