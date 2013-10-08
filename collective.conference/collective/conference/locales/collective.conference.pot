@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-20 04:08+0000\n"
+"POT-Creation-Date: 2013-10-08 08:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: ./browser/templates/macros.pt:50
+#: ./browser/templates/macros.pt:51
 msgid "Admin"
 msgstr ""
 
@@ -51,8 +51,8 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: ./browser/agenda.py:19
-#: ./browser/templates/macros.pt:26
+#: ./browser/agenda.py:20
+#: ./browser/templates/macros.pt:27
 msgid "Agenda"
 msgstr ""
 
@@ -64,11 +64,11 @@ msgstr ""
 msgid "Agenda Text Color"
 msgstr ""
 
-#: ./browser/templates/macros.pt:55
+#: ./browser/templates/macros.pt:56
 msgid "All Participants"
 msgstr ""
 
-#: ./browser/templates/macros.pt:65
+#: ./browser/templates/macros.pt:66
 msgid "All Sessions"
 msgstr ""
 
@@ -146,7 +146,11 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: ./browser/templates/agenda.pt:70
+#: ./browser/templates/macros.pt:124
+msgid "Date"
+msgstr ""
+
+#: ./browser/templates/agenda.pt:52
 msgid "Day${curday}"
 msgstr ""
 
@@ -222,7 +226,7 @@ msgstr ""
 msgid "Invalid email address"
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:58
+#: ./browser/templates/conference_view.pt:57
 msgid "Join Conference"
 msgstr ""
 
@@ -261,7 +265,7 @@ msgid "Participant"
 msgstr ""
 
 #: ./browser/profile_listing.py:16
-#: ./browser/templates/macros.pt:32
+#: ./browser/templates/macros.pt:33
 msgid "Participants"
 msgstr ""
 
@@ -270,7 +274,7 @@ msgid "Participants list"
 msgstr ""
 
 #: ./browser/listings.py:129
-#: ./browser/templates/macros.pt:70
+#: ./browser/templates/macros.pt:71
 msgid "Pending Sessions"
 msgstr ""
 
@@ -311,7 +315,7 @@ msgstr ""
 msgid "QQ Number"
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:63
+#: ./browser/templates/conference_view.pt:62
 msgid "Quit Conference"
 msgstr ""
 
@@ -319,7 +323,7 @@ msgstr ""
 msgid "Regional Events"
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:70
+#: ./browser/templates/conference_view.pt:69
 msgid "Register Session"
 msgstr ""
 
@@ -327,11 +331,11 @@ msgstr ""
 msgid "Register for this event"
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:31
+#: ./browser/templates/conference_view.pt:30
 msgid "Register member"
 msgstr ""
 
-#: ./browser/templates/macros.pt:139
+#: ./browser/templates/macros.pt:140
 msgid "Room"
 msgstr ""
 
@@ -339,7 +343,7 @@ msgstr ""
 msgid "Roomshare"
 msgstr ""
 
-#: ./browser/templates/agenda.pt:79
+#: ./browser/templates/agenda.pt:61
 msgid "Schedule for ${curday}Day"
 msgstr ""
 
@@ -361,7 +365,7 @@ msgid "Session Type"
 msgstr ""
 
 #: ./browser/session_listing.py:16
-#: ./browser/templates/macros.pt:30
+#: ./browser/templates/macros.pt:31
 #: ./browser/templates/participant_view.pt:63
 msgid "Sessions"
 msgstr ""
@@ -379,7 +383,7 @@ msgid "Show me in attendee list"
 msgstr ""
 
 #: ./browser/speaker_listing.py:19
-#: ./browser/templates/macros.pt:28
+#: ./browser/templates/macros.pt:29
 msgid "Speakers"
 msgstr ""
 
@@ -416,7 +420,7 @@ msgstr ""
 msgid "Thank you. You are now registered."
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:34
+#: ./browser/templates/conference_view.pt:33
 msgid "Tips:"
 msgstr ""
 
@@ -426,7 +430,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ./browser/templates/macros.pt:134
+#: ./browser/templates/macros.pt:135
 msgid "To"
 msgstr ""
 
@@ -434,7 +438,7 @@ msgstr ""
 msgid "Topic Research"
 msgstr ""
 
-#: ./browser/templates/macros.pt:60
+#: ./browser/templates/macros.pt:61
 msgid "Vegetarian Attendees List"
 msgstr ""
 
@@ -499,7 +503,7 @@ msgstr ""
 msgid "created date"
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:44
+#: ./browser/templates/conference_view.pt:43
 msgid "follow"
 msgstr ""
 
@@ -548,7 +552,7 @@ msgid "province"
 msgstr ""
 
 #. Default: "Read more &raquo;"
-#: ./browser/templates/session_listing.pt:41
+#: ./browser/templates/session_listing.pt:38
 msgid "read_more"
 msgstr ""
 
@@ -574,11 +578,11 @@ msgstr ""
 msgid "the province of your company"
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:50
+#: ./browser/templates/conference_view.pt:49
 msgid "unfollowed"
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:27
+#: ./browser/templates/conference_view.pt:26
 msgid "we have ${num} follow this"
 msgstr ""
 
@@ -588,7 +592,7 @@ msgstr ""
 msgid "you need login for view followed info."
 msgstr ""
 
-#: ./browser/templates/conference_view.pt:34
+#: ./browser/templates/conference_view.pt:33
 msgid "you should register as member for join the event."
 msgstr ""
 

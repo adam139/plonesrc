@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 from five import grok
 from Products.CMFCore.utils import getToolByName
 from zope.component import getMultiAdapter
@@ -22,6 +23,33 @@ class ConferenceView(grok.View):
     def update(self):
         # Hide the editable-object border
         self.request.set('disable_border', True)
+
+    def tranVoc(self,value):
+        """ translate vocabulary value to title"""
+        translation_service = getToolByName(self.context,'translation_service')
+        title = translation_service.translate(
+                                                  value,
+                                                  domain='plonelocales',
+                                                  mapping={},
+                                                  target_language='zh_CN',
+                                                  context=self.context,
+                                                  default="month_may")
+        return title           
+
+    def transferMonth(self,monthnum):
+        """
+        >>>5月=transferMonth('May') 
+        """
+        ps = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+
+        lang = ps.language()        
+        if lang == 'zh-cn':
+            monthmsgid = "month_" + (monthnum[:3].lower())
+            monthstr = self.tranVoc(monthmsgid)
+            return monthstr
+        else:
+            return monthnum
+ 
         
     @property
     def isAnonymous(self):

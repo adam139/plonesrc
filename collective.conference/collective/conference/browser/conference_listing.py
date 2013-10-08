@@ -14,7 +14,7 @@ from zope.component import getMultiAdapter
 
 from Products.CMFCore.interfaces import ISiteRoot
 from plone.app.layout.navigation.interfaces import INavigationRoot
-from Products.AdvancedQuery import Eq, Between, Le
+#from Products.AdvancedQuery import Eq, Between, Le
 from collective.conference import MessageFactory as _
 
 from collective.conference.conference import IConference
@@ -135,7 +135,33 @@ class SiteRootConferenceListingView(grok.View):
     def update(self):
         # Hide the editable-object border
         self.request.set('disable_border', True)
-  
+        
+    def tranVoc(self,value):
+        """ translate vocabulary value to title"""
+        translation_service = getToolByName(self.context,'translation_service')
+        title = translation_service.translate(
+                                                  value,
+                                                  domain='plonelocales',
+                                                  mapping={},
+                                                  target_language='zh_CN',
+                                                  context=self.context,
+                                                  default="month_may")
+        return title           
+
+    def transferMonth(self,monthnum):
+        """
+        >>>5月=transferMonth('May') 
+        """
+        ps = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+
+        lang = ps.language()        
+        if lang == 'zh-cn':
+            monthmsgid = "month_" + (monthnum[:3].lower())
+            monthstr = self.tranVoc(monthmsgid)
+            return monthstr
+        else:
+            return monthnum
+ 
     
     def getConferenceFolder(self):
         context = aq_inner(self.context)
@@ -174,6 +200,7 @@ class SiteRootConferenceListingView(grok.View):
         catalog = getToolByName(self.context, 'portal_catalog')
         
         maxlen = len(catalog({'object_provides': IConference.__identifier__}))
+
         if maxlen > num:
             return catalog({'object_provides': IConference.__identifier__,
                              'sort_order': 'reverse',

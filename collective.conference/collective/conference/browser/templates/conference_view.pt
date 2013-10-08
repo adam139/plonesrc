@@ -13,8 +13,7 @@
 <body>
    <div metal:fill-slot="content-title"></div>
    <div metal:fill-slot="content-description"></div>
-   <div metal:fill-slot="content-core">
-   	
+   <div metal:fill-slot="content-core">   	
    		<dl id="info" class="portalMessage info hidden"><dt>信息</dt>
             <dd>您已加入Plone。</dd>
         </dl>

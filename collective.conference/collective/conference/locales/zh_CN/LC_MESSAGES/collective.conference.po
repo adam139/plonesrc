@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.conference\n"
-"POT-Creation-Date: 2013-05-20 04:08+0000\n"
-"PO-Revision-Date: 2013-05-20 12:08+0800\n"
+"POT-Creation-Date: 2013-10-08 08:38+0000\n"
+"PO-Revision-Date: 2013-10-08 16:38+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: 315ok.org <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: ./browser/templates/conference_listing_admin.pt:27
 #: ./browser/templates/session_listing_admin.pt:27
 msgid "#"
-msgstr ""
+msgstr "序号"
 
 #: ./profiles/default/types/collective.conference.conference.xml
 msgid "A conference event"
@@ -40,7 +40,7 @@ msgstr "附加信息"
 msgid "Address"
 msgstr "地址："
 
-#: ./browser/templates/macros.pt:50
+#: ./browser/templates/macros.pt:51
 msgid "Admin"
 msgstr "活动管理"
 
@@ -48,8 +48,8 @@ msgstr "活动管理"
 msgid "Advanced"
 msgstr "高级"
 
-#: ./browser/agenda.py:19
-#: ./browser/templates/macros.pt:26
+#: ./browser/agenda.py:20
+#: ./browser/templates/macros.pt:27
 msgid "Agenda"
 msgstr "日程"
 
@@ -61,11 +61,11 @@ msgstr "日程背景颜色"
 msgid "Agenda Text Color"
 msgstr "日程文本颜色"
 
-#: ./browser/templates/macros.pt:55
+#: ./browser/templates/macros.pt:56
 msgid "All Participants"
 msgstr "所有参会者"
 
-#: ./browser/templates/macros.pt:65
+#: ./browser/templates/macros.pt:66
 msgid "All Sessions"
 msgstr "所有会议"
 
@@ -143,7 +143,11 @@ msgstr "国家"
 msgid "Country:"
 msgstr "国家："
 
-#: ./browser/templates/agenda.pt:70
+#: ./browser/templates/macros.pt:124
+msgid "Date"
+msgstr "日程"
+
+#: ./browser/templates/agenda.pt:52
 msgid "Day${curday}"
 msgstr "第${curday}天"
 
@@ -219,7 +223,7 @@ msgstr "中级"
 msgid "Invalid email address"
 msgstr "无效的邮件地址"
 
-#: ./browser/templates/conference_view.pt:58
+#: ./browser/templates/conference_view.pt:57
 msgid "Join Conference"
 msgstr "申请参会"
 
@@ -258,7 +262,7 @@ msgid "Participant"
 msgstr "与会者"
 
 #: ./browser/profile_listing.py:16
-#: ./browser/templates/macros.pt:32
+#: ./browser/templates/macros.pt:33
 msgid "Participants"
 msgstr "参会者"
 
@@ -267,7 +271,7 @@ msgid "Participants list"
 msgstr "参会者列表"
 
 #: ./browser/listings.py:129
-#: ./browser/templates/macros.pt:70
+#: ./browser/templates/macros.pt:71
 msgid "Pending Sessions"
 msgstr "待批准的会议"
 
@@ -308,7 +312,7 @@ msgstr "申请一次演讲"
 msgid "QQ Number"
 msgstr "QQ号码"
 
-#: ./browser/templates/conference_view.pt:63
+#: ./browser/templates/conference_view.pt:62
 msgid "Quit Conference"
 msgstr "退出活动"
 
@@ -316,7 +320,7 @@ msgstr "退出活动"
 msgid "Regional Events"
 msgstr "区域峰会"
 
-#: ./browser/templates/conference_view.pt:70
+#: ./browser/templates/conference_view.pt:69
 msgid "Register Session"
 msgstr "申请演讲"
 
@@ -324,11 +328,11 @@ msgstr "申请演讲"
 msgid "Register for this event"
 msgstr "注册参入本次活动"
 
-#: ./browser/templates/conference_view.pt:31
+#: ./browser/templates/conference_view.pt:30
 msgid "Register member"
 msgstr "注册会员"
 
-#: ./browser/templates/macros.pt:139
+#: ./browser/templates/macros.pt:140
 msgid "Room"
 msgstr "会议厅"
 
@@ -336,7 +340,7 @@ msgstr "会议厅"
 msgid "Roomshare"
 msgstr "共用客房"
 
-#: ./browser/templates/agenda.pt:79
+#: ./browser/templates/agenda.pt:61
 msgid "Schedule for ${curday}Day"
 msgstr "第${curday}天日程安排"
 
@@ -358,7 +362,7 @@ msgid "Session Type"
 msgstr "会议类型"
 
 #: ./browser/session_listing.py:16
-#: ./browser/templates/macros.pt:30
+#: ./browser/templates/macros.pt:31
 #: ./browser/templates/participant_view.pt:63
 msgid "Sessions"
 msgstr "会议"
@@ -376,7 +380,7 @@ msgid "Show me in attendee list"
 msgstr "显示我在与会者列表中"
 
 #: ./browser/speaker_listing.py:19
-#: ./browser/templates/macros.pt:28
+#: ./browser/templates/macros.pt:29
 msgid "Speakers"
 msgstr "演讲嘉宾"
 
@@ -413,7 +417,7 @@ msgstr "您的演讲申请已成功提交，会务组审核通过后将邮件通
 msgid "Thank you. You are now registered."
 msgstr "你已完成了注册，多谢！"
 
-#: ./browser/templates/conference_view.pt:34
+#: ./browser/templates/conference_view.pt:33
 msgid "Tips:"
 msgstr "提示："
 
@@ -423,7 +427,7 @@ msgstr "提示："
 msgid "Title"
 msgstr "标题"
 
-#: ./browser/templates/macros.pt:134
+#: ./browser/templates/macros.pt:135
 msgid "To"
 msgstr "到"
 
@@ -431,7 +435,7 @@ msgstr "到"
 msgid "Topic Research"
 msgstr "专题研究"
 
-#: ./browser/templates/macros.pt:60
+#: ./browser/templates/macros.pt:61
 msgid "Vegetarian Attendees List"
 msgstr "素食与会者列表"
 
@@ -496,7 +500,7 @@ msgstr "活动文件夹"
 msgid "created date"
 msgstr "创建日期"
 
-#: ./browser/templates/conference_view.pt:44
+#: ./browser/templates/conference_view.pt:43
 msgid "follow"
 msgstr "关注"
 
@@ -545,7 +549,7 @@ msgid "province"
 msgstr "省份"
 
 #. Default: "Read more &raquo;"
-#: ./browser/templates/session_listing.pt:41
+#: ./browser/templates/session_listing.pt:38
 msgid "read_more"
 msgstr "更多"
 
@@ -571,11 +575,11 @@ msgstr "主办者"
 msgid "the province of your company"
 msgstr "所在省份"
 
-#: ./browser/templates/conference_view.pt:50
+#: ./browser/templates/conference_view.pt:49
 msgid "unfollowed"
 msgstr "取消关注"
 
-#: ./browser/templates/conference_view.pt:27
+#: ./browser/templates/conference_view.pt:26
 msgid "we have ${num} follow this"
 msgstr "有${num}人关注本活动"
 
@@ -585,7 +589,7 @@ msgstr "有${num}人关注本活动"
 msgid "you need login for view followed info."
 msgstr "你需要登录才能查看相关信心。"
 
-#: ./browser/templates/conference_view.pt:34
+#: ./browser/templates/conference_view.pt:33
 msgid "you should register as member for join the event."
 msgstr "为了能参加本站活动，你应注册成为会员。"
 
