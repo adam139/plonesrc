@@ -37,7 +37,7 @@ setup(name='collective.conference',
           'z3c.table',
           'z3c.caching',             
           'plone.z3ctable',
-          'Products.AdvancedQuery',
+#          'Products.AdvancedQuery',
           'collective.z3cform.colorpicker'
           # -*- Extra requirements: -*-
       ],
