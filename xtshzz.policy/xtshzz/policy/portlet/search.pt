@@ -7,7 +7,7 @@
   <dt class="portletHeader">
       <span class="portletTopLeft"></span>
       <a class="tile"
-         tal:attributes="href view/search_action">
+         tal:attributes="href python:'http://www2.xtshzz.org/@@allorgnization_listings'">
 <span class="actived">快捷查询</span></a>
       <span class="portletTopRight"></span>
   </dt>
