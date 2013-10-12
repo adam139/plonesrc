@@ -41,9 +41,6 @@ $("#search_input").keypress(function(event) {
 var b2 = encodeURIComponent(a);
     window.location.href = "http://www2.xtshzz.org/@@allorgnization_listings?orgname=" + b2;
 return false;}
-else {
-return false;
-    }
 });
 </script>
 </div>
