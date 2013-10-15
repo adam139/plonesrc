@@ -12,5 +12,29 @@
         name="my315ok-socialorgnization-macros"
         for="*"
         permission="zope2.View"
-        class=".macros.Macros"/>  		       
+        class=".macros.Macros"/> 
+
+<!-- data import/export-->
+    <include package="Products.CMFCore" file="permissions.zcml"
+        xmlns:zcml="http://namespaces.zope.org/zcml"
+        zcml:condition="have plone-41" />
+
+   <browser:page
+        name="datainout-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".datainout.DataInOut"
+        template="datainout.pt"
+        permission="cmf.ManagePortal"
+
+        />
+
+   <browser:page
+        name="datainout-getCSVTemplate"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".datainout.DataInOut"
+        attribute="getCSVTemplate"
+        permission="cmf.ManagePortal"
+
+        />
+		       
 </configure>
