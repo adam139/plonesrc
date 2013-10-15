@@ -129,7 +129,7 @@ class IOrgnization_administrative_licence(form.Schema,IBasic):
     audit_result = schema.Choice(
                                  title=_(u"the result of item that had been audited"),
                                  vocabulary="my315ok.socialorgnization.vocabulary.audit_result",                                 
-                                 default=u"",
+                                 default="zhunyu",
                                  required=False,)
     audit_date = schema.Date(
         title=_(u"Pass Date"),
@@ -142,4 +142,9 @@ class IOrgnization_administrative_licence(form.Schema,IBasic):
 @form.default_value(field=IOrgnization['passDate'])
 def passDefaultValue(data):
     # To get hold of the folder, do: context = data.context
-    return datetime.datetime.today() + datetime.timedelta(-1)           
+    return datetime.datetime.today() + datetime.timedelta(-1)  
+
+@form.default_value(field=IOrgnization_administrative_licence['audit_date'])
+def auditdateDefaultValue(data):
+    # To get hold of the folder, do: context = data.context
+    return datetime.datetime.today() + datetime.timedelta(-10)           
