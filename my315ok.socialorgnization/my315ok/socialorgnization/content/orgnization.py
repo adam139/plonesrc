@@ -103,7 +103,7 @@ class IOrgnization_annual_survey(form.Schema,IBasic):
     
 #年度           
     year = schema.TextLine(title=_(u"the year for survey"),
-                             default=u"",
+                             default=u"2012",
                              required=False,)
     form.omitted('description')    
 
@@ -130,7 +130,13 @@ class IOrgnization_administrative_licence(form.Schema,IBasic):
                                  title=_(u"the result of item that had been audited"),
                                  vocabulary="my315ok.socialorgnization.vocabulary.audit_result",                                 
                                  default=u"",
-                                 required=False,) 
+                                 required=False,)
+    audit_date = schema.Date(
+        title=_(u"Pass Date"),
+        description=u'',
+        required=False,
+    )
+     
     form.omitted('description')       
     
 @form.default_value(field=IOrgnization['passDate'])
