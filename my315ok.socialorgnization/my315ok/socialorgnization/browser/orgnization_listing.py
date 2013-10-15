@@ -404,8 +404,8 @@ class ajaxsearch(grok.View):
         origquery = {'object_provides': IOrgnization.__identifier__}
         origquery['sort_on'] = sortcolumn  
         origquery['sort_order'] = sortdirection
-        origquery['b_size'] = size 
-        origquery['b_start'] = start                 
+#        origquery['b_size'] = size 
+#        origquery['b_start'] = start                 
         
         if keyword != "":
             origquery['SearchableText'] = '*'+keyword+'*'        
@@ -418,13 +418,23 @@ class ajaxsearch(grok.View):
         if typekey != 0:
             origquery['orgnization_orgnizationType'] = searchview.getType(typekey)          
 
-        braindata = searchview.search_multicondition(origquery)            
+        totalquery = origquery.copy()
+        origquery['b_size'] = size 
+        origquery['b_start'] = start                         
+        totalbrains = searchview.search_multicondition(totalquery)
+        totalnum = len(totalbrains)         
+        braindata = searchview.search_multicondition(origquery)
+        brainnum = len(braindata)         
+        del origquery 
+        del totalquery,totalbrains            
        
         # Capture a status message and translate it
 #        translation_service = getToolByName(self.context, 'translation_service')        
 #        searchview = getMultiAdapter((self.context, self.request),name=u"allconference_listings")         
         outhtml = ""
-        brainnum = len(braindata)
+
+#        import pdb
+#        pdb.set_trace()
         
         for i in range(brainnum):
             objurl = braindata[i].getURL()
@@ -456,6 +466,6 @@ class ajaxsearch(grok.View):
            
             outhtml = outhtml + out 
            
-        data = {'searchresult': outhtml,'start':start,'size':size,'total':brainnum}        
+        data = {'searchresult': outhtml,'start':start,'size':size,'total':totalnum}        
         self.request.response.setHeader('Content-Type', 'application/json')
         return json.dumps(data)                          
