@@ -153,10 +153,10 @@ function showResultRemind(d, a, c, e) {
         }
     }
     if (d === "" && a == "0" && c == "0" && e == "0") {
-        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>“<span id='keyworkshow'>所有</span>”的社会组织信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
+        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>“<span id='keyworkshow'>所有</span>”的活动信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     }
     if (d !== "" && a == "0" && c == "0" && e == "0") {
-        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>有关“<span id='keyworkshow'>" + d + "</span>”的社会组织信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
+        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>有关“<span id='keyworkshow'>" + d + "</span>”的活动信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     }
 //    document.getElementById("all_result_recordinfo").innerHTML = b
     $("#all_result_recordinfo").html(b)
@@ -178,11 +178,11 @@ var generatePageLink = function(c, n, a) {
         m = ""
     }
     if (l <= 1) {
-        e += "<a href='javascript:void(0)'><img src='++resource++my315ok.socialorgnization/event_list_bg10.png'/></a>";
+        e += "<a href='javascript:void(0)'><img src='++resource++collective.conference/event_list_bg10.png'/></a>";
         d += "<a href='javascript:void(0)' class='page'>首页</a>";
         d += "<a href='javascript:void(0)' class='page'>上一页</a>"
     } else {
-        e += "<a href='javascript:searchEvent(" + (l - 1) + ",10)'><img src='++resource++my315ok.socialorgnization/event_list_bg10.png'/></a>";
+        e += "<a href='javascript:searchEvent(" + (l - 1) + ",10)'><img src='++resource++collective.conference/event_list_bg10.png'/></a>";
         d += "<a href=javascript:searchEvent(1,10) class='page'>首页</a><a href=javascript:searchEvent(" + (l - 1) + ",10) class='page'>上一页</a>"
     }
     e += "<span>" + l + "/" + k + "</span>";
@@ -214,11 +214,11 @@ var generatePageLink = function(c, n, a) {
         }
     }
     if (l == k || k < 2) {
-        e += "<a href='javascript:void(0)'><img src='++resource++my315ok.socialorgnization/event_list_bg11.png'/></a>";
+        e += "<a href='javascript:void(0)'><img src='++resource++collective.conference/event_list_bg11.png'/></a>";
         d += "<a href='javascript:void(0)' class='page'>下一页</a>";
         d += "<a href='javascript:void(0)' class='page'>末页</a>"
     } else {
-        e += "<a href='javascript:searchEvent(" + (l + 1) + ",10)'><img src='++resource++my315ok.socialorgnization/event_list_bg11.png'/></a>";
+        e += "<a href='javascript:searchEvent(" + (l + 1) + ",10)'><img src='++resource++collective.conference/event_list_bg11.png'/></a>";
         d += "<a href=javascript:searchEvent(" + (l + 1) + ",10) class='page'>下一页</a><a href=javascript:searchEvent(" + (k) + ",10) class='page'>末页</a>"
     }
    f.html(d);
@@ -231,15 +231,15 @@ function createStringSearch(d, a, c, g) {
     var h = "";
     switch (a) {
     case "1":
-        h = "最近一周";
+        h = "1天内";
         b += "<div class='select'  onclick=\"closeSearchEventsDiv(1)\" >时间：<span id='search_site_desc' style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
         break;
     case "2":
-        h = "最近一月";
+        h = "2天内";
         b += "<div class='select'  onclick=\"closeSearchEventsDiv(1)\" >时间：<span  style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
         break;
     case "3":
-        h = "最近一年";
+        h = "7天内";
         b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<span  style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
         break;
     case "4":
@@ -256,7 +256,7 @@ function createStringSearch(d, a, c, g) {
         f = "所有"
     } else {
         f = $(document.getElementById("addressSelectSearch")).find("span[name='" + c + "'] a").html();
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(2)\">公告类别：<span style='cursor: pointer;vertical-align: middle;' >" + f + " </span></div>"
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(2)\">地点：<span style='cursor: pointer;vertical-align: middle;' >" + f + " </span></div>"
     }
     var e = "";
     if (g == "0") {
@@ -271,7 +271,7 @@ function createStringSearch(d, a, c, g) {
         b += "</li><li class='info' id='searchresultinfor'>中有关“<span>" + d + "</span>”的信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     }
     return b
-	}
+}	
 
 
 $(document).ready(function(){
@@ -302,6 +302,7 @@ $(document).ready(function(){
                     $(this).addClass("over");
                     $("#addressSearch").attr("value", $(this).attr("name"));
                     searchEvent();
+                    document.getElementById("address_more_div").style.display = "none"
                 }
        return false; 
     }); 
@@ -312,6 +313,7 @@ $(document).ready(function(){
                     $(this).addClass("over");
                     $("#categorySearch").attr("value", $(this).attr("name"));
                     searchEvent();
+                    document.getElementById("cata_more_div").style.display = "none"
                 }
        return false; 
     });                 

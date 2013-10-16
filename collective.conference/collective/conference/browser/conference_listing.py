@@ -319,8 +319,8 @@ class ajaxsearch(grok.View):
         origquery = {'object_provides': IConference.__identifier__}
         origquery['sort_on'] = sortcolumn  
         origquery['sort_order'] = sortdirection
-        origquery['b_size'] = size 
-        origquery['b_start'] = start                 
+#        origquery['b_size'] = size 
+#        origquery['b_start'] = start                 
         
         if keyword != "":
             origquery['SearchableText'] = '*'+keyword+'*'        
@@ -331,10 +331,13 @@ class ajaxsearch(grok.View):
         if datekey != 0:
             origquery['conference_startDate'] = self.Datecondition(datekey)           
         if typekey != 0:
-            origquery['conference_type'] = searchview.getType(typekey)          
-#        import pdb
-#        pdb.set_trace()
-        braindata = searchview.search_multicondition(origquery)            
+            origquery['conference_type'] = searchview.getType(typekey)
+        totalquery = origquery.copy()          
+        origquery['b_size'] = size 
+        origquery['b_start'] = start
+        totalnum = len(searchview.search_multicondition(totalquery))                          
+        braindata = searchview.search_multicondition(origquery)
+        del origquery,totalquery            
        
         # Capture a status message and translate it
 #        translation_service = getToolByName(self.context, 'translation_service')        
@@ -405,7 +408,7 @@ class ajaxsearch(grok.View):
            
             outhtml = outhtml + out  
            
-        data = {'searchresult': outhtml,'start':start,'size':size,'total':brainnum}
+        data = {'searchresult': outhtml,'start':start,'size':size,'total':totalnum}
         
         self.request.response.setHeader('Content-Type', 'application/json')
         return json.dumps(data)                          
