@@ -15,7 +15,7 @@ function StartRollV() {
 	var ooRollV1=document.getElementById("oRollV1");
 	var ooRollV2=document.getElementById("oRollV2");
 	if (ooRollV) {
-		if (parseInt(ooRollV.style.height)>=ooRollV2.offsetTop) {
+		if (parseInt(ooRollV.style.height,10)>=ooRollV2.offsetTop) {
 			ooRollV.style.height = ooRollV2.offsetTop;
 			return;
 		}
@@ -40,7 +40,7 @@ function StartRollH() {
 	var ooRollH1=document.getElementById("oRollH1");
 	var ooRollH2=document.getElementById("oRollH2");
 	if (ooRollH) {
-		if (parseInt(ooRollH.style.width)>=ooRollH2.offsetLeft) {
+		if (parseInt(ooRollH.style.width,10)>=ooRollH2.offsetLeft) {
 			oRollH.style.width = oRollH2.offsetLeft;
 			return;
 		}

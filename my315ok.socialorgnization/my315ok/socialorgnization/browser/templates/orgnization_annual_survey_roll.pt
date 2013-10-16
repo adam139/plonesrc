@@ -5,7 +5,7 @@
 <title>湘潭市社会组织管理信息网－－年检结果公示</title>
 <script src="modernizr-2.6.2.min.js"
   tal:define="navroot context/@@plone_portal_state/navigation_root_url"	
-	tal:attributes="src string:${navroot}/++resource++my315ok.socialorgnization/roll.js"></script>
+	tal:attributes="src string:${navroot}/++resource++my315ok.socialorgnization/roll.min.js"></script>
 <link rel="stylesheet" type="text/css"
             tal:define="navroot context/@@plone_portal_state/navigation_root_url"
             tal:attributes="href string:${navroot}/++resource++my315ok.socialorgnization/rollstyle.css"
