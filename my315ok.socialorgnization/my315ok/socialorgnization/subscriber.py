@@ -71,9 +71,10 @@ def CreateOrgEvent(event):
                
             item.passDate = datetime.date(*val)  
         else:
-            item.passDate = datetime.date.today()                
-        membrane = getToolByName(item, 'membrane_tool')
-        membrane.reindexObject(item)        
+            item.passDate = datetime.date.today()
+        item.reindexObject()                
+#        membrane = getToolByName(item, 'membrane_tool')
+#        membrane.reindexObject(item)        
     except:
         return
     
