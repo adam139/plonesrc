@@ -45,8 +45,8 @@ class baseview(grok.View):
         sepath= '/'.join(self.context.getPhysicalPath()) 
         query = {'object_provides': Iproduct.__identifier__,
                  'review_status':'published',
-                 'sort_on':'getObjPositionInParent',
-                 'sort_order':'forward',
+                 'sort_on':'created',
+                 'sort_order':'reverse',
                  'path':sepath,
                  }        
         sd = catalog(query)

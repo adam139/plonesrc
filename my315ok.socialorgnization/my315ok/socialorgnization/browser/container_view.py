@@ -42,6 +42,57 @@ class maintain(grok.View):
                                               ) 
         return memberbrains
 # set default annual survey recoder    
+    def render3(self):
+        catalog = getToolByName(self.context, "portal_catalog")
+        jibenhege = ["湘潭市杂文学会",
+"湘潭市农村经济学会",
+"湘潭市护理学会",
+"湘潭市医学会",
+"湘潭市粮食经济科技学会",
+"湘潭市民俗文化学会",
+"湘潭市干部教育研究会",
+"湘潭市集邮协会",
+"湘潭市电子信息行业协会",
+"湘潭市农业机械流通行业协会",
+"湘潭市烟草学会",
+"湘潭钢铁公司职工技术协会",
+"湘潭市戏剧家协会","湘潭海峡两岸经贸发展促进会","湘潭齐白石研究会",
+"湘潭市政策科学研究会",
+"湘潭市少年儿童文学艺术家协会",
+"湘潭市音乐家协会",
+"湘潭市专业技术人员奖励工作促进会",
+"湘潭市妇女人才联谊会",
+"湘潭市市场发展促进会",
+"湘潭市房地产开发协会",
+"湘潭市民间文艺家协会",
+"湘潭市国际标准舞协会",
+"湘潭市气象学会",
+"湘潭市翻译工作者协会",
+"湘潭市九华示范区个体劳动者私营企业协会",
+"湘潭市心理学会",
+"湘潭市振兴湘宁经济联谊会",
+"湘潭市舞蹈家协会"
+]
+#title value is bytestr that encoded by utf-8        
+        for i in self.getMemberList():
+            title = i.Title            
+            brains = catalog({'path':i.getPath(),'object_provides':IOrgnization_annual_survey.__identifier__})
+            num = len(brains)
+            if num == 0:
+                newid = u"2012年检"
+                if not isinstance(newid, unicode):
+                    newid = unicode(newid, 'utf-8')
+                surveyid = IUserPreferredFileNameNormalizer(self.request).normalize(newid)
+                item =createContentInContainer(i.getObject(),"my315ok.socialorgnization.orgnizationsurvey",checkConstraints=False,id=surveyid)
+                item.title = title
+                if title in jibenhege:
+                    item.annual_survey = "jibenhege"
+                else:                                                                                
+                    item.annual_survey = "hege"
+                item.year = "2012"
+                item.reindexObject()
+        return "pass"
+     
     def render(self):
         catalog = getToolByName(self.context, "portal_catalog")
         jibenhege = ["湘潭市杂文学会",
@@ -75,36 +126,14 @@ class maintain(grok.View):
 ]
 #title value is bytestr that encoded by utf-8        
         for i in self.getMemberList():
-            title = i.Title
-            
-            brains = catalog({'path':i.getPath(),'object_provides':IOrgnization_annual_survey.__identifier__})
-            num = len(brains)
-            if num == 0:
-#                import pdb
-#                pdb.set_trace()
+            obj = i.getObject()
+            if obj.organization_type == None:
+                obj.organization_type = "shetuan"
+            if obj.announcement_type == None:
+                obj.announcement_type = "chengli"
+            obj.reindexObject()          
 
-                newid = u"2012年检"
-                if not isinstance(newid, unicode):
-                    newid = unicode(newid, 'utf-8')
-                surveyid = IUserPreferredFileNameNormalizer(self.request).normalize(newid)
-                item =createContentInContainer(i.getObject(),"my315ok.socialorgnization.orgnizationsurvey",checkConstraints=False,id=surveyid)
-                item.title = title
-                if title in jibenhege:
-                    item.annual_survey = "jibenhege"
-                else:                                                                                
-                    item.annual_survey = "hege"
-                item.year = "2012"
-                item.reindexObject()
-                 
-            
-#            import pdb
-#            pdb.set_trace()
-#            for m in brains:
-#                obj = m.getObject()
-#                obj.title = title
-#                obj.reindexObject()
         return "pass" 
-
 
 class maintainmarkinterface(grok.View):
     grok.context(ISiteRoot)
