@@ -54,15 +54,17 @@ def CreateOrgEvent(event):
         item.supervisor = event.supervisor
         item.register_code = event.register_code
         ot = event.organization_type
-        if ot == '\xe6\xb0\x91\xe9\x9d\x9e':
+        if  isinstance(ot, unicode):
+            ot = ot.encode("utf-8")
+        if ot == '\xe6\xb0\x91\xe9\x9d\x9e':  # 民非
             item.organization_type == "minfei"
-        elif ot == '\xe7\xa4\xbe\xe4\xbc\x9a\xe5\x9b\xa2\xe4\xbd\x93':
+        elif ot == '\xe7\xa4\xbe\xe4\xbc\x9a\xe5\x9b\xa2\xe4\xbd\x93':  #社会团体
             item.organization_type == "shetuan"
         else:
             item.organization_type == "jijinhui"
         
 
-#        at = event.announcement_type
+#        item.announcement_type = event.announcement_type
         
         import datetime
         datearray = event.passDate.split('-')
