@@ -297,7 +297,9 @@ class HomepageView(grok.View):
             return folder[0].getObject()
         else:
             self.context.invokeFactory(type_name="Folder", id='pub')
-            folder = self.context['pub'] 
+            folder = self.context['pub']
+            folder.setExcludeFromNav(True)
+            folder.reindexObject() 
             return folder            
 
 

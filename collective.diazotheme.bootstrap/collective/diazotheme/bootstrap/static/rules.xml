@@ -34,7 +34,8 @@
     <prepend theme="/html/head" content="/html/head/base"/>
 
     <replace theme="//*[@id='logo']/h1" content="//*[@id='content']/h1"/>
-
+    <drop css:content="meta[name='viewport']" />     
+    <drop css:content="link[href$='favicon.ico']" />
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/meta" />
         
