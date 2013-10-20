@@ -14,11 +14,11 @@
 
     	 <div class="container homepage">
        <div class="row">         
-         <div class="col-md-4">
+         <div class="col-xs-12 col-md-4">
          	<div tal:content="structure python: view.carouselresult()">outer</div>        	
          </div>
          
-         <div class="col-md-4">
+         <div class="col-xs-12 col-md-4">
          	<dl class="portlet rolltext_portlet">
          		<dt class="portletHeader text-center">
          			<a tal:attributes="href python:view.rollmore()" >
@@ -34,7 +34,7 @@
 	           </dd>
 	         </dl>
          </div>
-         <div class="col-md-4">
+         <div class="col-xs-12 col-md-4">
     <dl class="portlet portletFetchOuterPortlet">
 	  <dt  class="portletHeader text-center">
          <a tal:attributes="href python:view.outhtmlmore()">
