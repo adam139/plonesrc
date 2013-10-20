@@ -5,7 +5,7 @@ from collective.conference.session import ISession
 from Products.CMFCore.utils import getToolByName
 import json
 from datetime import datetime, timedelta
-from Products.AdvancedQuery import Le, Ge, Generic, And, Eq
+#from Products.AdvancedQuery import Le, Ge, Generic, And, Eq
 from zope.security import checkPermission
 from collective.conference import MessageFactory as _
 
