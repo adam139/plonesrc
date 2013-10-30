@@ -102,7 +102,11 @@ class Renderer(base.Renderer):
             return True
         except:
             return False
-                  
+    @memoize                  
+    def fullviewurl(self):
+        oldsrc = self.data.framesrc
+        return oldsrc + "_fullview"
+    
     @property
     @memoize    
     def goodsrc(self):

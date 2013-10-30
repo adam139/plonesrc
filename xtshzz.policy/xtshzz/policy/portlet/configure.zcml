@@ -15,6 +15,10 @@
     layer="xtshzz.policy.browser.interfaces.IXtshzzThemeSpecific"
     template="quickuploadportlet.pt"
    />   
-
+   <plone:portletRenderer
+    portlet="my315ok.portlet.embediframe.embediframeportlet.IEmbedIframePortlet"
+    layer="xtshzz.policy.browser.interfaces.IXtshzzThemeSpecific"
+    template="embediframeportlet.pt"
+   />   
 </configure>
 

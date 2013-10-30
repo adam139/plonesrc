@@ -230,7 +230,11 @@ class Orgnizations_annualsurveyView(Orgnizations_adminView):
             outhtml = outhtml + out
         return outhtml        
 
-           
+class AnnualsurveyFullView(Orgnizations_annualsurveyView):
+    grok.context(IOrgnizationFolder)
+    grok.template('orgnization_annual_survey_fullview')
+    grok.name('orgnizations_survey_fullview')
+    grok.require('zope2.View')           
  
 class Orgnizations_administrativeView(Orgnizations_adminView):
     grok.context(IOrgnizationFolder)
@@ -269,7 +273,12 @@ class Orgnizations_administrativeView(Orgnizations_adminView):
                                             audit_result=audit_result)           
             outhtml = outhtml + out
         return outhtml
-             
+
+class AdministrativeFullView(Orgnizations_administrativeView):
+    grok.context(IOrgnizationFolder)
+    grok.template('orgnization_administrative_licence_fullview')
+    grok.name('orgnizations_administrative_fullview')
+    grok.require('zope2.View')              
     
 class SiteRootOrgnizationListingView(Orgnizations_adminView):
     grok.context(ISiteRoot)
