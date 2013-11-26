@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
+      i18n:domain="my315ok.socialorgnization">        
+      <head>
+   		<metal:block fill-slot="style_slot">
+      	<metal:block use-macro="context/@@my315ok-socialorgnization-macros/macros/styles"/>
+   		</metal:block>
+		</head>
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+       <section id="profile">
+			<div class="page-header">
+           <h3><span tal:content="python:context.title">社团</span></h3>           
+       </div>  
+     
+       <div class="span12" tal:define="itemlist python:view.getTableList();num python:len(itemlist)">
+       	<div tal:condition="num" tal:content="structure python:itemlist">
+            		               		
+                	</div>    
+      </div>
+      </section>          
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>

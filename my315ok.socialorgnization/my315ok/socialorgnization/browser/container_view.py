@@ -6,7 +6,8 @@ from plone.memoize.instance import memoize
 
 from my315ok.socialorgnization.browser.orgnization_listing import OrgnizationsView
 
-from Products.ATContentTypes.interfaces import IATFolder,IATFile
+from Products.ATContentTypes.interfaces import IATFolder,IATFile,IATDocument
+
 from Products.Five.utilities.marker import mark
 from Products.CMFCore.interfaces import ISiteRoot
 
@@ -22,6 +23,11 @@ from plone.i18n.normalizer.interfaces import IUserPreferredFileNameNormalizer
 class IContainerdownloadablelist(Interface):
     """
     This is really just a marker interface.search container all downloadable files,render them as table
+    """
+
+class IContainerTablelist(Interface):
+    """
+    This is really just a marker interface.search container all contents,render them as table
     """
 
 grok.templatedir('templates') 
@@ -186,7 +192,42 @@ class maintainmarkinterface(grok.View):
         
         return "I has marked %s folders!" % (j)         
 
+class addtablemarkinterface(grok.View):
+    grok.context(ISiteRoot)
+    grok.name('addtablelist')
+    grok.require('cmf.ManagePortal')     
+    
+    def getMemberList(self):
+        """获取申请的会议列表"""
+#        mlist = []        
+        catalog = getToolByName(self.context, "portal_catalog")
+        memberbrains = catalog({'id':'shehuizuzhifengcai'})
+        top = memberbrains[0].getPath()
+        allfolders = self.getFolders(top)
+         
+        return allfolders
+    
+    def getFolders(self,path):
+        """获取行政许可列表"""       
+        catalog = getToolByName(self.context, "portal_catalog")
 
+        braindata = catalog({'object_provides':IATFolder.__identifier__,
+                             'path':path,                                  
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}                              
+                                              )
+        return braindata
+    
+    def render(self):
+        j = 0
+        for obj in self.getMemberList():
+            j = j+1
+            folder = obj.getObject()
+
+            mark(folder,IContainerTablelist)
+        
+        return "I has marked %s folders!" % (j) 
+    
 class ContainerDownloadableListView(OrgnizationsView):
     grok.context(IContainerdownloadablelist)
     grok.template('container_downloadable_list')
@@ -251,6 +292,65 @@ class ContainerDownloadableListView(OrgnizationsView):
             outhtml = outhtml + out
         outhtml = outhtml + "</tbody></table>"
         return outhtml        
+
+class ContainerTableListView(OrgnizationsView):
+    grok.context(IContainerTablelist)
+    grok.template('container_table_list')
+    grok.name('view')
+    grok.require('zope2.View')
+    
+
+        
+
+    def getFolders(self):
+        """获取当前目录所有文件夹对象"""       
+
+        braindata = self.catalog()({'object_provides':IATFolder.__identifier__,
+                             'path':"/".join(self.context.getPhysicalPath()),                                  
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}                              
+                                              )
+ 
+    def getATDocuments(self):
+        """获取所有页面"""
+
+        braindata = self.catalog()({'object_provides':IATDocument.__identifier__,
+                             'path':"/".join(self.context.getPhysicalPath()),                                  
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}                              
+                                              ) 
+
+        return braindata 
+
+    @memoize
+    def getTableList(self):
+        """获取行政许可列表"""
+       
+        
+        braindata = self.catalog()({'object_provides':IATDocument.__identifier__,
+                             'path':"/".join(self.context.getPhysicalPath()),                                     
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}                              
+                                              )
+        outhtml = """<table class="table table-striped table-bordered table-condensed"><thead>
+        <tr><th class="span9">标题</th><th class="span3" >发布时间</th></tr>
+        </thead><tbody>"""
+        brainnum = len(braindata)
+        
+        for i in range(brainnum):
+            objurl = braindata[i].getURL()
+            objtitle = braindata[i].Title
+            pubtime = braindata[i].created.strftime('%Y-%m-%d')
+#            downloadlink = objurl + "/download"
+
+            
+            out = """<tr>
+            <td class="span9 title"><a href="%(url)s">%(title)s</a></td>
+            <td class="span3 item">%(pubtime)s</td>
+            </tr>""" % dict(url = objurl,title = objtitle,pubtime = pubtime)           
+            outhtml = outhtml + out
+        outhtml = outhtml + "</tbody></table>"
+        return outhtml 
 
 class AdministrativeLicenceFolderView(OrgnizationsView):
     grok.context(IAdministrativeLicenceFolder)
