@@ -40,7 +40,8 @@ class TestView(unittest.TestCase):
                                                    organization_type="shetuan",
                                                    announcement_type="chengli",
                                                    legal_person=u"张建明",
-                                                   passDate="2013-09-16"
+                                                   passDate="2013-09-16",
+                                                   belondto_area='yuhuqu', 
                                                    )    
         portal['orgnizationfolder1'].invokeFactory('my315ok.socialorgnization.orgnization','orgnization2',
                                                    title=u"宝庆商会2",
@@ -51,7 +52,8 @@ class TestView(unittest.TestCase):
                                                    organization_type="minfei",
                                                    announcement_type="biangeng",
                                                    legal_person=u"张建明",
-                                                   passDate="2013-09-16"                                                   
+                                                   passDate="2013-09-16" ,
+                                                   belondto_area='yuhuqu',                                                   
                                                    ) 
         portal['orgnizationfolder1'].invokeFactory('my315ok.socialorgnization.orgnization','orgnization3',
                                                    title=u"宝庆商会3",
@@ -62,7 +64,8 @@ class TestView(unittest.TestCase):
                                                    organization_type="jijinhui",
                                                    announcement_type="chexiao",
                                                    legal_person=u"张建明",
-                                                   passDate="2013-09-16"                                                   
+                                                   passDate="2013-09-16",
+                                                   belondto_area='yuhuqu',                                                    
                                                    )                                  
         self.portal = portal
         
@@ -86,12 +89,35 @@ class TestView(unittest.TestCase):
                                                                        
                         }
 # Look up and invoke the view via traversal
-        view = self.portal.restrictedTraverse('@@ajaxsearch')
+        view = self.portal.restrictedTraverse('@@oajaxsearch')
         result = view()
         import pdb
         pdb.set_trace()
 
         self.assertEqual(json.loads(result)['size'],10)
 
-               
+    def test_yuhuquajax_search(self):
+        request = self.layer['request']        
+        keyManager = getUtility(IKeyManager)
+        secret = keyManager.secret()
+        auth = hmac.new(secret, TEST_USER_NAME, sha).hexdigest()
+        request.form = {
+                        '_authenticator': auth,
+                        'start': 0,
+                        'size':10 ,
+                        'datetype':'1',                                                
+                        'province': '1',
+                        'type': '1',
+                        'sortcolumn':'created',
+                        'sortdirection':'reverse',
+                        'searchabletext':'orgnization1',
+                                                                       
+                        }
+# Look up and invoke the view via traversal
+        view = self.portal.restrictedTraverse('@@yuhuqusearch')
+        result = view()
+        import pdb
+        pdb.set_trace()
+
+        self.assertEqual(json.loads(result)['size'],10)               
 

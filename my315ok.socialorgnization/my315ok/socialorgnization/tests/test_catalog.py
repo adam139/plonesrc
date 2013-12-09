@@ -38,6 +38,7 @@ class CatalogSetupTest(unittest.TestCase):
                                                    register_code="8341",
                                                    supervisor=u"交通局",
                                                    organization_type="minfei",
+                                                   belondto_area="yuhuqu",
                                                    announcement_type="dengji",                                                   
                                                    law_person=u"张建明",
                                                    passDate="2013-09-18"
@@ -63,7 +64,8 @@ class CatalogSetupTest(unittest.TestCase):
                         self.portal.portal_catalog.indexes())
         self.assertTrue('orgnization_audit_result' in
                         self.portal.portal_catalog.indexes())                                                      
-
+        self.assertTrue('orgnization_belondtoArea' in
+                        self.portal.portal_catalog.indexes())  
     def test_conversation_total_comments(self):
         self.assertTrue(isinstance(catalog.indexer_orgnization_registercode,
                                 DelegatingIndexerFactory))
@@ -74,6 +76,7 @@ class CatalogSetupTest(unittest.TestCase):
 
         self.assertEqual(catalog.indexer_orgnization_orgnizationtype(p1)(), "minfei")
         self.assertEqual(catalog.indexer_orgnization_announcementtype(p1)(), "dengji")
+        self.assertEqual(catalog.indexer_orgnization_belondtoarea(p1)(), "yuhuqu")        
         self.assertEqual(catalog.indexer_orgnization_passdate(p1)(), "2013-09-18")                    
 
     def test_catalogsearch(self):   

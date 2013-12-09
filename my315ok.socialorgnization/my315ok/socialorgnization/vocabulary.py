@@ -20,6 +20,22 @@ class AnnouncementType(object):
 grok.global_utility(AnnouncementType, IVocabularyFactory,
         name="my315ok.socialorgnization.vocabulary.announcementtype")
 
+belondto_area=[   ('yuhuqu','chengli',_(u'chengli')),
+                  ('yuetangqu','yuetangqu',_(u'yuetangqu')),
+                  ('xiangxiangshi','xiangxiangshi',_(u'xiangxiangshi')),
+                  ('shaoshanshi','shaoshanshi',_(u'shaoshanshi')),
+                  ('xiangtanxian','xiangtanxian',_(u'xiangtanxian')),
+                        ]
+belondto_area_terms = [SimpleTerm(value, token, title) for value, token, title in belondto_area ]
+
+class BelondtoArea(object):
+
+    def __call__(self, context):
+        return SimpleVocabulary(belondto_area_terms)
+
+grok.global_utility(AnnouncementType, IVocabularyFactory,
+        name="my315ok.socialorgnization.vocabulary.belondtoarea")
+
 organization_type=[    ('shetuan','shetuan',_(u'shetuan')),
                   ('minfei','minfei',_(u'minfei')),
                   ('jijinhui','jijinhui',_(u'jijinhui')),

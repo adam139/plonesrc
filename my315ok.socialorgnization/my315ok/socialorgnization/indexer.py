@@ -30,6 +30,10 @@ def indexer_orgnization_announcementtype(obj, **kw):
     return obj.announcement_type
 
 @indexer(IOrgnization)
+def indexer_orgnization_belondtoarea(obj, **kw):
+    return obj.belondto_area
+
+@indexer(IOrgnization)
 def indexer_orgnization_passdate(obj, **kw):
     return obj.passDate
 

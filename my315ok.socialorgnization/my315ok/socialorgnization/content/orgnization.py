@@ -55,6 +55,13 @@ class IOrgnization(form.Schema,IBasic):
         title=_(u"organization Type"),
         vocabulary="my315ok.socialorgnization.vocabulary.organizationtype"
     )
+    
+#归属地区：成立/变更/注销            
+    belondto_area = schema.Choice(
+        title=_(u"belondto area"),
+        vocabulary="my315ok.socialorgnization.vocabulary.belondtoarea"
+    ) 
+        
 #公告类别：成立/变更/注销            
     announcement_type = schema.Choice(
         title=_(u"announcement Type"),

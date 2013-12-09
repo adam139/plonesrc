@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-15 07:50+0000\n"
+"POT-Creation-Date: 2013-12-09 01:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,8 +59,8 @@ msgid "Data successfully imported."
 msgstr ""
 
 #: ./browser/templates/orgnization_administrative_licence.pt:24
+#: ./browser/templates/orgnization_administrative_licence_fullview.pt:24
 #: ./browser/templates/orgnization_annual_survey.pt:24
-#: ./browser/templates/orgnization_view.pt:44
 msgid "Edit"
 msgstr ""
 
@@ -90,6 +90,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:123
 #: ./browser/templates/orgnization_listing_admin.pt:46
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:123
 msgid "Number"
 msgstr ""
 
@@ -113,7 +114,7 @@ msgstr ""
 msgid "Orgnization annual survey"
 msgstr ""
 
-#: ./content/orgnization.py:66
+#: ./content/orgnization.py:73
 msgid "Pass Date"
 msgstr ""
 
@@ -123,6 +124,10 @@ msgstr ""
 
 #: ./browser/datainout.pt:51
 msgid "Select your CSV file here. Please respect the syntax of the template available ${here}"
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.shaoshanshifolder.xml
+msgid "Shaoshan Orgnization Folder"
 msgstr ""
 
 #: ./browser/datainout.py:146
@@ -145,8 +150,24 @@ msgstr ""
 msgid "Wrong specification of the CSV file. Please correct it and retry."
 msgstr ""
 
+#: ./profiles/default/types/my315ok.socialorgnization.xiangtanxianfolder.xml
+msgid "Xiangtanxian Orgnization Folder"
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.xiangxiangshifolder.xml
+msgid "Xiangxiangshi Orgnization Folder"
+msgstr ""
+
 #: ./browser/datainout.pt:101
 msgid "You will find below the CSV lines that failed."
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.yuetangqufolder.xml
+msgid "Yuetangqu Orgnization Folder"
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.yuhuqufolder.xml
+msgid "Yuhuqu Orgnization Folder"
 msgstr ""
 
 #: ./profiles/default/types/my315ok.socialorgnization.administrativelicencefolder.xml
@@ -158,31 +179,38 @@ msgid "a folder contain some annual survey information"
 msgstr ""
 
 #: ./profiles/default/types/my315ok.socialorgnization.orgnizationfolder.xml
+#: ./profiles/default/types/my315ok.socialorgnization.shaoshanshifolder.xml
+#: ./profiles/default/types/my315ok.socialorgnization.xiangtanxianfolder.xml
 msgid "a folder contain some orgnizations"
 msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:126
 #: ./browser/templates/orgnization_listing_admin.pt:49
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:126
 msgid "address"
 msgstr ""
 
-#: ./content/orgnization.py:60
+#: ./content/orgnization.py:67
 msgid "announcement Type"
+msgstr ""
+
+#: ./content/orgnization.py:61
+msgid "belondto area"
 msgstr ""
 
 #: ./vocabulary.py:10
 msgid "biangeng"
 msgstr ""
 
-#: ./vocabulary.py:52
+#: ./vocabulary.py:68
 msgid "biangengdengji"
 msgstr ""
 
-#: ./vocabulary.py:39
+#: ./vocabulary.py:55
 msgid "buhege"
 msgstr ""
 
-#: ./vocabulary.py:65
+#: ./vocabulary.py:81
 msgid "buyu"
 msgstr ""
 
@@ -190,7 +218,7 @@ msgstr ""
 msgid "chengli"
 msgstr ""
 
-#: ./vocabulary.py:51
+#: ./vocabulary.py:67
 msgid "chenglidengji"
 msgstr ""
 
@@ -198,7 +226,7 @@ msgstr ""
 msgid "group(s) added."
 msgstr ""
 
-#: ./vocabulary.py:37
+#: ./vocabulary.py:53
 msgid "hege"
 msgstr ""
 
@@ -211,11 +239,11 @@ msgstr ""
 msgid "here"
 msgstr ""
 
-#: ./vocabulary.py:38
+#: ./vocabulary.py:54
 msgid "jibenhege"
 msgstr ""
 
-#: ./vocabulary.py:25
+#: ./vocabulary.py:41
 msgid "jijinhui"
 msgstr ""
 
@@ -226,7 +254,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:128
 #: ./browser/templates/orgnization_listing_admin.pt:51
-#: ./content/orgnization.py:37
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:128
 msgid "legal person"
 msgstr ""
 
@@ -234,7 +262,7 @@ msgstr ""
 msgid "member(s) added."
 msgstr ""
 
-#: ./vocabulary.py:24
+#: ./vocabulary.py:40
 msgid "minfei"
 msgstr ""
 
@@ -243,7 +271,8 @@ msgid "organization Type"
 msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:124
-#: ./content/orgnization.py:93
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:124
+#: ./browser/templates/xiangtanxian_allorgnization_listings.pt:124
 msgid "organization name"
 msgstr ""
 
@@ -257,6 +286,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:129
 #: ./browser/templates/orgnization_listing_admin.pt:52
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:129
 msgid "pass date"
 msgstr ""
 
@@ -266,6 +296,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:125
 #: ./browser/templates/orgnization_listing_admin.pt:48
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:125
 msgid "register code"
 msgstr ""
 
@@ -273,12 +304,17 @@ msgstr ""
 msgid "sector"
 msgstr ""
 
-#: ./vocabulary.py:23
+#: ./vocabulary.py:26
+msgid "shaoshanshi"
+msgstr ""
+
+#: ./vocabulary.py:39
 msgid "shetuan"
 msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:127
 #: ./browser/templates/orgnization_listing_admin.pt:50
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:127
 msgid "sponsor"
 msgstr ""
 
@@ -286,23 +322,35 @@ msgstr ""
 msgid "supervisor organization"
 msgstr ""
 
-#: ./content/orgnization.py:124
+#: ./content/orgnization.py:131
 msgid "the item had been audited"
 msgstr ""
 
-#: ./content/orgnization.py:100
+#: ./content/orgnization.py:107
 msgid "the result of annual survey"
 msgstr ""
 
-#: ./content/orgnization.py:130
+#: ./content/orgnization.py:137
 msgid "the result of item that had been audited"
 msgstr ""
 
-#: ./content/orgnization.py:105
+#: ./content/orgnization.py:112
 msgid "the year for survey"
 msgstr ""
 
-#: ./vocabulary.py:64
+#: ./vocabulary.py:27
+msgid "xiangtanxian"
+msgstr ""
+
+#: ./vocabulary.py:25
+msgid "xiangxiangshi"
+msgstr ""
+
+#: ./vocabulary.py:24
+msgid "yuetangqu"
+msgstr ""
+
+#: ./vocabulary.py:80
 msgid "zhunyu"
 msgstr ""
 

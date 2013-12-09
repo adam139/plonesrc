@@ -36,6 +36,7 @@
    <adapter name="orgnization_registerCode" factory=".indexer.indexer_orgnization_registercode"/>
    <adapter name="orgnization_orgnizationType" factory=".indexer.indexer_orgnization_orgnizationtype"/>  
    <adapter name="orgnization_announcementType" factory=".indexer.indexer_orgnization_announcementtype"/>  
+   <adapter name="orgnization_belondtoArea" factory=".indexer.indexer_orgnization_belondtoarea"/>    
    <adapter name="orgnization_passDate" factory=".indexer.indexer_orgnization_passdate"/> 
    
    <adapter name="orgnization_annual_survey" factory=".indexer.indexer_orgnization_annual_survey"/>

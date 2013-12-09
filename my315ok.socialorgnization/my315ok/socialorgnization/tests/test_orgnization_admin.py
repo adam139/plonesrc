@@ -28,7 +28,10 @@ class TestView(unittest.TestCase):
         portal.invokeFactory('my315ok.socialorgnization.administrativelicencefolder', 'licencefolder1',
                              title="orgnizationfolder1",description="demo orgnizationfolder") 
         portal.invokeFactory('my315ok.socialorgnization.annualsurveyfolder', 'surveyfolder1',
-                             title="orgnizationfolder1",description="demo orgnizationfolder")          
+                             title="orgnizationfolder1",description="demo orgnizationfolder") 
+        
+        portal.invokeFactory('my315ok.socialorgnization.yuhuqufolder', 'yuhuqu',
+                             title="yuhuqu",description="demo yuhuqu")                  
    
         portal['orgnizationfolder1'].invokeFactory('my315ok.socialorgnization.orgnization','orgnization1',
                                                    title=u"宝庆商会",
@@ -38,7 +41,8 @@ class TestView(unittest.TestCase):
                                                    supervisor=u"交通局",
                                                    organization_type="minfei",
                                                    legal_person=u"张建明",
-                                                   passDate =datetime.datetime.today() 
+                                                   passDate =datetime.datetime.today(),
+                                                   belondto_area='yuhuqu', 
                                                    )
         portal['orgnizationfolder1']['orgnization1'].invokeFactory('my315ok.socialorgnization.orgnizationsurvey','orgnizationsurvey1',
                                                    title=u"宝庆商会1",
@@ -52,6 +56,7 @@ class TestView(unittest.TestCase):
                                                    description=u"运输业",
                                                    annual_survey="buhege",
                                                    year="2013",
+                                                   
 
                                                    )   
         portal['orgnizationfolder1']['orgnization1'].invokeFactory('my315ok.socialorgnization.orgnizationadministrative','orgnizationadministrative1',
@@ -71,7 +76,24 @@ class TestView(unittest.TestCase):
                   
         self.portal = portal
                 
+       
+    def test_yuhuqu_view(self):
 
+        app = self.layer['app']
+        portal = self.layer['portal']
+       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
+        
+        import transaction
+        transaction.commit()
+        obj = portal['yuhuqu'].absolute_url() + '/@@view'        
+        browser.open(obj)
+
+        outstr = "8341"        
+        self.assertTrue(outstr in browser.contents)
+        
        
     def test_conferencelisting_admin_view(self):
 

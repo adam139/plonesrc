@@ -12,8 +12,12 @@ class Allcontents(unittest.TestCase):
         setRoles(portal, TEST_USER_ID, ('Manager',))
 
         portal.invokeFactory('my315ok.socialorgnization.orgnizationfolder', 'orgnizationfolder1')
-        import pdb
-        pdb.set_trace()
+        portal.invokeFactory('my315ok.socialorgnization.shaoshanshifolder', 'shaoshanshi')
+        portal.invokeFactory('my315ok.socialorgnization.xiangxiangshifolder', 'xiangxiangshi')
+        portal.invokeFactory('my315ok.socialorgnization.xiangtanxianfolder', 'xiangtanxian')
+        portal.invokeFactory('my315ok.socialorgnization.yuetangqufolder', 'yuetangqu')
+        portal.invokeFactory('my315ok.socialorgnization.yuhuqufolder', 'yuhuqu')                                        
+
         
         portal['orgnizationfolder1'].invokeFactory('my315ok.socialorgnization.orgnization','orgnization1',
                                                    title="organization1")
@@ -28,6 +32,11 @@ class Allcontents(unittest.TestCase):
                 
     def test_marketfolder(self):
         self.assertEqual(self.portal['orgnizationfolder1'].id,'orgnizationfolder1')
+        self.assertEqual(self.portal['shaoshanshi'].id,'shaoshanshi')
+        self.assertEqual(self.portal['xiangxiangshi'].id,'xiangxiangshi')
+        self.assertEqual(self.portal['xiangtanxian'].id,'xiangtanxian')
+        self.assertEqual(self.portal['yuhuqu'].id,'yuhuqu')
+        self.assertEqual(self.portal['yuetangqu'].id,'yuetangqu')                                        
     
 
     

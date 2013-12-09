@@ -26,7 +26,12 @@
         <indexed_attr value="orgnization_orgnizationType"/>
     </index>
     <column value="orgnization_orgnizationType"/>    
-            
+
+    <index name="orgnization_belondtoArea" meta_type="FieldIndex">
+        <indexed_attr value="orgnization_belondtoArea"/>
+    </index>
+    <column value="orgnization_belondtoArea"/> 
+                
     <index name="orgnization_passDate" meta_type="DateIndex">
         <indexed_attr value="orgnization_passDate"/>
     </index>
