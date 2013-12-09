@@ -33,7 +33,7 @@ class BelondtoArea(object):
     def __call__(self, context):
         return SimpleVocabulary(belondto_area_terms)
 
-grok.global_utility(AnnouncementType, IVocabularyFactory,
+grok.global_utility(BelondtoArea, IVocabularyFactory,
         name="my315ok.socialorgnization.vocabulary.belondtoarea")
 
 organization_type=[    ('shetuan','shetuan',_(u'shetuan')),
