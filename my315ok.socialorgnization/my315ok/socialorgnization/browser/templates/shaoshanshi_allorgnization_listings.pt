@@ -11,6 +11,8 @@
    </metal:block>
 </head>
 <body>
+	<div metal:fill-slot="column_one_slot" tal:replace="nothing"></div>
+	<div metal:fill-slot="column_two_slot" tal:replace="nothing"></div>	
 	<div metal:fill-slot="main">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@shaoshanshisearch"></div>
 		<div id="ajaxmorearea" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-province"></div>		
