@@ -57,5 +57,5 @@ class EditOrgnization(dexterity.EditForm):
         pass
     @property
     def fields(self):
-        return field.Fields(IOrgnization).select('title', 'description','address','legal_person',
+        return field.Fields(IOrgnization).select('title', 'description','address','belendto_area','legal_person',
                                                 'supervisor','register_code','organization_type','passDate')  
