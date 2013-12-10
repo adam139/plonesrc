@@ -20,7 +20,7 @@ class AnnouncementType(object):
 grok.global_utility(AnnouncementType, IVocabularyFactory,
         name="my315ok.socialorgnization.vocabulary.announcementtype")
 
-belondto_area=[   ('yuhuqu','chengli',_(u'chengli')),
+belondto_area=[   ('yuhuqu','yuhuqu',_(u'yuhuqu')),
                   ('yuetangqu','yuetangqu',_(u'yuetangqu')),
                   ('xiangxiangshi','xiangxiangshi',_(u'xiangxiangshi')),
                   ('shaoshanshi','shaoshanshi',_(u'shaoshanshi')),

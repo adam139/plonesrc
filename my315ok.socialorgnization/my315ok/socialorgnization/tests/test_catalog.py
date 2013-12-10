@@ -86,6 +86,8 @@ class CatalogSetupTest(unittest.TestCase):
         self.assertEqual(len(results2), 1)
         results2 = list(catalog2({'orgnization_announcementType': "dengji"}))
         self.assertEqual(len(results2), 1)        
-         
+        results2 = list(catalog2({'orgnization_belondtoArea': "yuhuqu"}))
+        self.assertEqual(len(results2), 1)  
+                 
 def test_suite():
     return unittest.defaultTestLoader.loadTestsFromName(__name__)
