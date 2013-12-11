@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-12-09 01:49+0000\n"
+"POT-Creation-Date: 2013-12-11 01:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,7 +90,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:123
 #: ./browser/templates/orgnization_listing_admin.pt:46
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:123
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:125
 msgid "Number"
 msgstr ""
 
@@ -186,7 +186,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:126
 #: ./browser/templates/orgnization_listing_admin.pt:49
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:126
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:128
 msgid "address"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:128
 #: ./browser/templates/orgnization_listing_admin.pt:51
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:128
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:130
 msgid "legal person"
 msgstr ""
 
@@ -271,8 +271,8 @@ msgid "organization Type"
 msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:124
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:124
-#: ./browser/templates/xiangtanxian_allorgnization_listings.pt:124
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:126
+#: ./browser/templates/xiangtanxian_allorgnization_listings.pt:126
 msgid "organization name"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:129
 #: ./browser/templates/orgnization_listing_admin.pt:52
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:129
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:131
 msgid "pass date"
 msgstr ""
 
@@ -296,7 +296,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:125
 #: ./browser/templates/orgnization_listing_admin.pt:48
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:125
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:127
 msgid "register code"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:127
 #: ./browser/templates/orgnization_listing_admin.pt:50
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:127
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:129
 msgid "sponsor"
 msgstr ""
 
@@ -348,6 +348,10 @@ msgstr ""
 
 #: ./vocabulary.py:24
 msgid "yuetangqu"
+msgstr ""
+
+#: ./vocabulary.py:23
+msgid "yuhuqu"
 msgstr ""
 
 #: ./vocabulary.py:80

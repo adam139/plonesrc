@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: my315ok.products\n"
-"POT-Creation-Date: 2013-12-09 01:49+0000\n"
-"PO-Revision-Date: 2013-12-09 09:52+0800\n"
+"POT-Creation-Date: 2013-12-11 01:11+0000\n"
+"PO-Revision-Date: 2013-12-11 09:14+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,7 @@ msgstr "导入"
 
 #: ./browser/templates/allorgnization_listings.pt:123
 #: ./browser/templates/orgnization_listing_admin.pt:46
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:123
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:125
 msgid "Number"
 msgstr "序号"
 
@@ -187,7 +187,7 @@ msgstr "一个包含社会组织信息的文件夹"
 
 #: ./browser/templates/allorgnization_listings.pt:126
 #: ./browser/templates/orgnization_listing_admin.pt:49
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:126
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:128
 msgid "address"
 msgstr "住所"
 
@@ -255,7 +255,7 @@ msgstr "登记证号"
 
 #: ./browser/templates/allorgnization_listings.pt:128
 #: ./browser/templates/orgnization_listing_admin.pt:51
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:128
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:130
 msgid "legal person"
 msgstr "法人"
 
@@ -272,8 +272,8 @@ msgid "organization Type"
 msgstr "社会组织类型"
 
 #: ./browser/templates/allorgnization_listings.pt:124
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:124
-#: ./browser/templates/xiangtanxian_allorgnization_listings.pt:124
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:126
+#: ./browser/templates/xiangtanxian_allorgnization_listings.pt:126
 msgid "organization name"
 msgstr "社会组织名称"
 
@@ -287,7 +287,7 @@ msgstr "社会组织名称"
 
 #: ./browser/templates/allorgnization_listings.pt:129
 #: ./browser/templates/orgnization_listing_admin.pt:52
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:129
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:131
 msgid "pass date"
 msgstr "批准时间"
 
@@ -297,7 +297,7 @@ msgstr "快速查询"
 
 #: ./browser/templates/allorgnization_listings.pt:125
 #: ./browser/templates/orgnization_listing_admin.pt:48
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:125
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:127
 msgid "register code"
 msgstr "登记证号"
 
@@ -315,7 +315,7 @@ msgstr "社会团体"
 
 #: ./browser/templates/allorgnization_listings.pt:127
 #: ./browser/templates/orgnization_listing_admin.pt:50
-#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:127
+#: ./browser/templates/shaoshanshi_allorgnization_listings.pt:129
 msgid "sponsor"
 msgstr "业务主管单位"
 
@@ -349,6 +349,10 @@ msgstr "湘乡市"
 
 #: ./vocabulary.py:24
 msgid "yuetangqu"
+msgstr "岳塘区"
+
+#: ./vocabulary.py:23
+msgid "yuhuqu"
 msgstr "雨湖区"
 
 #: ./vocabulary.py:80
