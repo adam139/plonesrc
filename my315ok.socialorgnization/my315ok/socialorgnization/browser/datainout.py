@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 import csv
 from StringIO import StringIO
 
@@ -26,6 +27,7 @@ CSV_HEADER = [
     'legal_person',        
     'supervisor',
     'register_code',
+    'belondto_area',
     'organization_type',
     'announcement_type',
     'passDate'
@@ -116,6 +118,7 @@ class DataInOut (BrowserView):
                 legal_person = datas['legal_person']
                 supervisor = datas.pop('supervisor')
                 register_code = datas.pop('register_code')
+                belondto_area = datas.pop('belondto_area')
                 organization_type = datas['organization_type']
                 announcement_type = datas.pop('announcement_type')
                 passDate = datas.pop('passDate')
@@ -127,7 +130,7 @@ class DataInOut (BrowserView):
                     event.notify(CreateOrgEvent(
                                                 id,title,description,
                                                 address,legal_person,supervisor,register_code,
-                                                organization_type,announcement_type,passDate))
+                                                belondto_area,organization_type,announcement_type,passDate))
 
                 except (AttributeError, ValueError), err:
                     logging.exception(err)
@@ -176,7 +179,7 @@ class DataInOut (BrowserView):
                                                   mapping={},
                                                   target_language='zh_CN',
                                                   context=self.context,
-                                                  default="chengli")
+                                                  default=u"湘潭市")
         return title 
 
     def _getDataInfos(self):
@@ -192,7 +195,7 @@ class DataInOut (BrowserView):
 
                 for p in data_PROPERTIES: # data properties
                     
-                    if p == "organization_type" or p == "announcement_type":
+                    if p == "organization_type" or p == "announcement_type" or p == "belondto_area":
                         props.append(self.tranVoc(getattr(dataobj,p)))
                     else:
                         props.append(getattr(dataobj,p))

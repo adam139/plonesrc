@@ -9,7 +9,7 @@ class CreateOrgEvent(object):
     interface.implements(ICreateOrgEvent)
     
     def __init__(self,id,title,description,address,legal_person,supervisor,\
-                 register_code,organization_type,announcement_type,passDate):
+                 register_code,belondto_area,organization_type,announcement_type,passDate):
         """角色,级别,备注"""
         self.id = id
         self.title = title
@@ -18,6 +18,7 @@ class CreateOrgEvent(object):
         self.legal_person = legal_person
         self.supervisor = supervisor
         self.register_code = register_code
+        self.belondto_area = belondto_area
         self.organization_type = organization_type 
         self.announcement_type = announcement_type
         self.passDate = passDate

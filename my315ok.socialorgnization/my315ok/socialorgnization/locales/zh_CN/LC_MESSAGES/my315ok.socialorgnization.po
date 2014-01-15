@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: my315ok.products\n"
 "POT-Creation-Date: 2013-12-11 01:11+0000\n"
-"PO-Revision-Date: 2013-12-11 09:14+0800\n"
+"PO-Revision-Date: 2014-01-15 10:26+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -238,7 +238,7 @@ msgstr "每个社会组织有唯一的登记证号"
 
 #: ./browser/datainout.pt:52
 msgid "here"
-msgstr ""
+msgstr "这里"
 
 #: ./vocabulary.py:54
 msgid "jibenhege"

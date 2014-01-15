@@ -53,6 +53,20 @@ def CreateOrgEvent(event):
         item.legal_person = event.legal_person 
         item.supervisor = event.supervisor
         item.register_code = event.register_code
+        ot = event.belondto_area 
+        if  isinstance(ot, unicode):
+            ot = ot.encode("utf-8")
+        if ot == '\xe5\xb2\xb3\xe5\xa1\x98\xe5\x8c\xba':  # 岳塘区
+            item.belondto_area == "yuetangqu"
+        elif ot == '\xe9\x9b\xa8\xe6\xb9\x96\xe5\x8c\xba':  #雨湖区
+            item.belondto_area == "yuhuqu"
+        elif ot == '\xe9\x9f\xb6\xe5\xb1\xb1\xe5\xb8\x82':  #韶山市
+            item.belondto_area == "shaoshanshi"
+        elif ot == '\xe6\xb9\x98\xe4\xb9\xa1\xe5\xb8\x82':  #湘乡市
+            item.belondto_area == "xiangxiangshi"                        
+        else:
+            item.belondto_area == "xiangtanshi"             #湘潭市  
+#        item.belondto_area = event.belondto_area        
         ot = event.organization_type
         if  isinstance(ot, unicode):
             ot = ot.encode("utf-8")
