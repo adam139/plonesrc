@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-12-11 01:11+0000\n"
+"POT-Creation-Date: 2014-01-15 15:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Data In/Out"
 msgstr ""
 
-#: ./browser/datainout.py:149
+#: ./browser/datainout.py:152
 msgid "Data successfully imported."
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Shaoshan Orgnization Folder"
 msgstr ""
 
-#: ./browser/datainout.py:146
+#: ./browser/datainout.py:149
 msgid "Some errors occured. Please check your CSV syntax and retry."
 msgstr ""
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Users import and export as CSV files."
 msgstr ""
 
-#: ./browser/datainout.py:88
+#: ./browser/datainout.py:90
 msgid "Wrong specification of the CSV file. Please correct it and retry."
 msgstr ""
 
@@ -202,15 +202,15 @@ msgstr ""
 msgid "biangeng"
 msgstr ""
 
-#: ./vocabulary.py:68
+#: ./vocabulary.py:69
 msgid "biangengdengji"
 msgstr ""
 
-#: ./vocabulary.py:55
+#: ./vocabulary.py:56
 msgid "buhege"
 msgstr ""
 
-#: ./vocabulary.py:81
+#: ./vocabulary.py:82
 msgid "buyu"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 msgid "chengli"
 msgstr ""
 
-#: ./vocabulary.py:67
+#: ./vocabulary.py:68
 msgid "chenglidengji"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "group(s) added."
 msgstr ""
 
-#: ./vocabulary.py:53
+#: ./vocabulary.py:54
 msgid "hege"
 msgstr ""
 
@@ -239,11 +239,11 @@ msgstr ""
 msgid "here"
 msgstr ""
 
-#: ./vocabulary.py:54
+#: ./vocabulary.py:55
 msgid "jibenhege"
 msgstr ""
 
-#: ./vocabulary.py:41
+#: ./vocabulary.py:42
 msgid "jijinhui"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgstr ""
 msgid "member(s) added."
 msgstr ""
 
-#: ./vocabulary.py:40
+#: ./vocabulary.py:41
 msgid "minfei"
 msgstr ""
 
@@ -308,7 +308,7 @@ msgstr ""
 msgid "shaoshanshi"
 msgstr ""
 
-#: ./vocabulary.py:39
+#: ./vocabulary.py:40
 msgid "shetuan"
 msgstr ""
 
@@ -339,6 +339,10 @@ msgid "the year for survey"
 msgstr ""
 
 #: ./vocabulary.py:27
+msgid "xiangtanshi"
+msgstr ""
+
+#: ./vocabulary.py:28
 msgid "xiangtanxian"
 msgstr ""
 
@@ -354,7 +358,7 @@ msgstr ""
 msgid "yuhuqu"
 msgstr ""
 
-#: ./vocabulary.py:80
+#: ./vocabulary.py:81
 msgid "zhunyu"
 msgstr ""
 

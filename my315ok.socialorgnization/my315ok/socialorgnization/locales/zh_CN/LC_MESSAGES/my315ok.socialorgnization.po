@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: my315ok.products\n"
-"POT-Creation-Date: 2013-12-11 01:11+0000\n"
-"PO-Revision-Date: 2014-01-15 10:26+0800\n"
+"POT-Creation-Date: 2014-01-15 15:34+0000\n"
+"PO-Revision-Date: 2014-01-15 23:35+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Data In/Out"
 msgstr "数据导入导出"
 
-#: ./browser/datainout.py:149
+#: ./browser/datainout.py:152
 msgid "Data successfully imported."
 msgstr "数据已成功导入"
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Shaoshan Orgnization Folder"
 msgstr "韶山市"
 
-#: ./browser/datainout.py:146
+#: ./browser/datainout.py:149
 msgid "Some errors occured. Please check your CSV syntax and retry."
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Users import and export as CSV files."
 msgstr ""
 
-#: ./browser/datainout.py:88
+#: ./browser/datainout.py:90
 msgid "Wrong specification of the CSV file. Please correct it and retry."
 msgstr ""
 
@@ -203,15 +203,15 @@ msgstr "所属区县"
 msgid "biangeng"
 msgstr "变更"
 
-#: ./vocabulary.py:68
+#: ./vocabulary.py:69
 msgid "biangengdengji"
 msgstr "变更登记"
 
-#: ./vocabulary.py:55
+#: ./vocabulary.py:56
 msgid "buhege"
 msgstr "不合格"
 
-#: ./vocabulary.py:81
+#: ./vocabulary.py:82
 msgid "buyu"
 msgstr "不予"
 
@@ -219,7 +219,7 @@ msgstr "不予"
 msgid "chengli"
 msgstr "成立"
 
-#: ./vocabulary.py:67
+#: ./vocabulary.py:68
 msgid "chenglidengji"
 msgstr "成立登记"
 
@@ -227,7 +227,7 @@ msgstr "成立登记"
 msgid "group(s) added."
 msgstr ""
 
-#: ./vocabulary.py:53
+#: ./vocabulary.py:54
 msgid "hege"
 msgstr "合格"
 
@@ -240,11 +240,11 @@ msgstr "每个社会组织有唯一的登记证号"
 msgid "here"
 msgstr "这里"
 
-#: ./vocabulary.py:54
+#: ./vocabulary.py:55
 msgid "jibenhege"
 msgstr "基本合格"
 
-#: ./vocabulary.py:41
+#: ./vocabulary.py:42
 msgid "jijinhui"
 msgstr "基金会"
 
@@ -263,7 +263,7 @@ msgstr "法人"
 msgid "member(s) added."
 msgstr "成员已添加"
 
-#: ./vocabulary.py:40
+#: ./vocabulary.py:41
 msgid "minfei"
 msgstr "民非"
 
@@ -309,7 +309,7 @@ msgstr "行业"
 msgid "shaoshanshi"
 msgstr "韶山市"
 
-#: ./vocabulary.py:39
+#: ./vocabulary.py:40
 msgid "shetuan"
 msgstr "社会团体"
 
@@ -340,6 +340,10 @@ msgid "the year for survey"
 msgstr "年度"
 
 #: ./vocabulary.py:27
+msgid "xiangtanshi"
+msgstr "湘潭市"
+
+#: ./vocabulary.py:28
 msgid "xiangtanxian"
 msgstr "湘潭县"
 
@@ -355,7 +359,7 @@ msgstr "岳塘区"
 msgid "yuhuqu"
 msgstr "雨湖区"
 
-#: ./vocabulary.py:80
+#: ./vocabulary.py:81
 msgid "zhunyu"
 msgstr "准予"
 

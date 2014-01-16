@@ -57,25 +57,27 @@ def CreateOrgEvent(event):
         if  isinstance(ot, unicode):
             ot = ot.encode("utf-8")
         if ot == '\xe5\xb2\xb3\xe5\xa1\x98\xe5\x8c\xba':  # 岳塘区
-            item.belondto_area == "yuetangqu"
+            item.belondto_area = "yuetangqu"
         elif ot == '\xe9\x9b\xa8\xe6\xb9\x96\xe5\x8c\xba':  #雨湖区
-            item.belondto_area == "yuhuqu"
+            item.belondto_area = "yuhuqu"
         elif ot == '\xe9\x9f\xb6\xe5\xb1\xb1\xe5\xb8\x82':  #韶山市
-            item.belondto_area == "shaoshanshi"
+            item.belondto_area = "shaoshanshi"
         elif ot == '\xe6\xb9\x98\xe4\xb9\xa1\xe5\xb8\x82':  #湘乡市
-            item.belondto_area == "xiangxiangshi"                        
+            item.belondto_area = "xiangxiangshi"  
+        elif ot == '\xe6\xb9\x98\xe6\xbd\xad\xe5\x8e\xbf':  #湘潭县
+            item.belondto_area = "xiangtanxian"                                   
         else:
-            item.belondto_area == "xiangtanshi"             #湘潭市  
+            item.belondto_area = "xiangtanshi"             #湘潭市  
 #        item.belondto_area = event.belondto_area        
         ot = event.organization_type
         if  isinstance(ot, unicode):
             ot = ot.encode("utf-8")
         if ot == '\xe6\xb0\x91\xe9\x9d\x9e':  # 民非
-            item.organization_type == "minfei"
+            item.organization_type = "minfei"
         elif ot == '\xe7\xa4\xbe\xe4\xbc\x9a\xe5\x9b\xa2\xe4\xbd\x93':  #社会团体
-            item.organization_type == "shetuan"
+            item.organization_type = "shetuan"
         else:
-            item.organization_type == "jijinhui"
+            item.organization_type = "jijinhui"
         
 
 #        item.announcement_type = event.announcement_type

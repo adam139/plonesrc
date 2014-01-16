@@ -24,6 +24,7 @@ belondto_area=[   ('yuhuqu','yuhuqu',_(u'yuhuqu')),
                   ('yuetangqu','yuetangqu',_(u'yuetangqu')),
                   ('xiangxiangshi','xiangxiangshi',_(u'xiangxiangshi')),
                   ('shaoshanshi','shaoshanshi',_(u'shaoshanshi')),
+                  ('xiangtanshi','xiangtanshi',_(u'xiangtanshi')),                  
                   ('xiangtanxian','xiangtanxian',_(u'xiangtanxian')),
                         ]
 belondto_area_terms = [SimpleTerm(value, token, title) for value, token, title in belondto_area ]
