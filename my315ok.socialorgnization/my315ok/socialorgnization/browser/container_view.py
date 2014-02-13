@@ -243,8 +243,9 @@ class addFoldertablemarkinterface(grok.View):
 #        pdb.set_trace()
         if not IContainerTablelist.providedBy(folder):
             mark(folder,IContainerTablelist)
-
             return "I has marked the folders as Foldertablelist!" 
+        else:
+            return "It has been marked as Foldertablelist!"
 
 class ContainerDownloadableListView(OrgnizationsView):
     grok.context(IContainerdownloadablelist)
