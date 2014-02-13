@@ -201,7 +201,10 @@ class addtablemarkinterface(grok.View):
         """获取申请的会议列表"""
 #        mlist = []        
         catalog = getToolByName(self.context, "portal_catalog")
-        memberbrains = catalog({'id':'shehuizuzhifengcai'})
+#        memberbrains = catalog({'id':'shehuizuzhifengcai'})
+        memberbrains = catalog({'id':'chachujieguogonggao','object_provides':IATFolder.__identifier__})
+#        import pdb
+#        pdb.set_trace()        
         top = memberbrains[0].getPath()
         allfolders = self.getFolders(top)
          
@@ -228,6 +231,21 @@ class addtablemarkinterface(grok.View):
         
         return "I has marked %s folders!" % (j) 
     
+class addFoldertablemarkinterface(grok.View):
+## mark the current folder     
+    grok.context(IATFolder)
+    grok.name('addtable')
+    grok.require('cmf.ManagePortal') 
+    
+    def render(self):
+        folder = self.context
+#        import pdb
+#        pdb.set_trace()
+        if not IContainerTablelist.providedBy(folder):
+            mark(folder,IContainerTablelist)
+
+            return "I has marked the folders as Foldertablelist!" 
+
 class ContainerDownloadableListView(OrgnizationsView):
     grok.context(IContainerdownloadablelist)
     grok.template('container_downloadable_list')
