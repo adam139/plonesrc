@@ -123,10 +123,10 @@
             					<th class="span1" i18n:translate="">Number</th>
             					<th class="span2" i18n:translate="">organization name</th>
             					<th class="span1" i18n:translate="">register code</th>
-            					<th class="span4" i18n:translate="">address</th>
+            					<th class="span2" i18n:translate="">address</th>
             					<th class="span2" i18n:translate="">sponsor</th>
-            					<th class="span1" i18n:translate="">legal person</th>
-            					<th class="span1" i18n:translate="">pass date</th>
+            					<th class="span2" i18n:translate="">legal person</th>
+            					<th class="span2" i18n:translate="">pass date</th>
             				</tr>
             			</thead>
             			<tbody id="searchResultDiv">
@@ -134,10 +134,10 @@
             					<td class="span1">1</td>
             					<td class="span2">市宝庆商会</td>
             					<td class="span1">8341</td>
-            					<td class="span4">建设北路55号</td>
+            					<td class="span2">建设北路55号</td>
             					<td class="span2">市民政局</td>
-            					<td class="span1">王明</td>
-            					<td class="span1">2013-07-13</td>            					
+            					<td class="span2">王明</td>
+            					<td class="span2">2013-07-13</td>            					
             				</tr>            				
             			</tbody>            			
             		</table>

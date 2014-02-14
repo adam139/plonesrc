@@ -125,16 +125,18 @@
                 		<table width="100%" cellspacing="1" cellpadding="0" border="0" bgcolor="#cfcfcf" align="center">
                 			<thead>
                 				<tr>
-                					<th width="55%" valign="middle" height="25" bgcolor="#ededed" align="center">社会组织名称</th>
+                					<th width="50%" valign="middle" height="25" bgcolor="#ededed" align="center">社会组织名称</th>
                 					<th width="25%" valign="middle" bgcolor="#ededed" align="center">许可事项</th>
-                					<th width="20%" valign="middle" bgcolor="#ededed" align="center">结果</th>
+                					<th width="10%" valign="middle" bgcolor="#ededed" align="center">结果</th>
+                					<th width="15%" valign="middle" bgcolor="#ededed" align="center">登记时间</th>                					
                 				</tr>
                 			</thead>
                 			<tbody tal:content="structure python:datalist" >
                 					<tr style="font-size:12px;">
-                						<td width="55%" height="28" bgcolor="#FFFFFF" align="left">中国中亚友好协会</td>
+                						<td width="50%" height="28" bgcolor="#FFFFFF" align="left">中国中亚友好协会</td>
                 						<td width="25%" bgcolor="#FFFFFF" align="center">成立登记</td>
-                						<td width="20%" bgcolor="#FFFFFF" align="center">准予</td>
+                						<td width="10%" bgcolor="#FFFFFF" align="center">准予</td>
+                						<td width="15%" bgcolor="#FFFFFF" align="center">2012-12-12</td>                						
                 					</tr>
                 			</tbody>
                 		</table>                		

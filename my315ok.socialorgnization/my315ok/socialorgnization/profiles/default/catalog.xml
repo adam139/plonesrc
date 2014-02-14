@@ -52,6 +52,11 @@
     <index name="orgnization_audit_result" meta_type="FieldIndex">
         <indexed_attr value="orgnization_audit_result"/>
     </index>
-    <column value="orgnization_audit_result"/>                  
+    <column value="orgnization_audit_result"/> 
+    
+    <index name="orgnization_audit_date" meta_type="DateIndex">
+        <indexed_attr value="orgnization_audit_date"/>
+    </index>
+    <column value="orgnization_audit_date"/>                       
 
 </object>

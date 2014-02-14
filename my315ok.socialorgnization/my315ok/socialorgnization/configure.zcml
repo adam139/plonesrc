@@ -43,5 +43,6 @@
    <adapter name="orgnization_survey_year" factory=".indexer.indexer_orgnization_survey_year"/>  
    <adapter name="orgnization_audit_item" factory=".indexer.indexer_orgnization_audit_item"/>  
    <adapter name="orgnization_audit_result" factory=".indexer.indexer_orgnization_audit_result"/>                
+   <adapter name="orgnization_audit_date" factory=".indexer.indexer_orgnization_audit_date"/>                
 
 </configure>

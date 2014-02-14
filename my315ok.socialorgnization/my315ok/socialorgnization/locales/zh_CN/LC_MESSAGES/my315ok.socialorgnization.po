@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: my315ok.products\n"
 "POT-Creation-Date: 2014-01-15 15:34+0000\n"
-"PO-Revision-Date: 2014-01-15 23:35+0800\n"
+"PO-Revision-Date: 2014-02-13 20:56+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgstr "登记证号"
 #: ./browser/templates/orgnization_listing_admin.pt:51
 #: ./browser/templates/shaoshanshi_allorgnization_listings.pt:130
 msgid "legal person"
-msgstr "法人"
+msgstr "法定代表人"
 
 #: ./browser/datainout.pt:89
 msgid "member(s) added."

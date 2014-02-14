@@ -22,16 +22,18 @@
 									<table class="table table-striped table-bordered table-condensed">
 										<thead>
                 				<tr>
-                					<th class="span7">社会组织名称</th>
+                					<th class="span6">社会组织名称</th>
                 					<th class="span3" >许可事项</th>
-                					<th class="span2" >结果</th>
+                					<th class="span1" >结果</th>
+                					<th class="span2" >登记时间</th>                					
                 				</tr>
                 			</thead>
                 			<tbody tal:content="structure python:datalist" >
                 					<tr>
-                						<td class="span7">中国中亚友好协会</td>
+                						<td class="span6">中国中亚友好协会</td>
                 						<td class="span3">成立登记</td>
-                						<td class="span2">准予</td>
+                						<td class="span1">准予</td>
+                						<td class="span2">2012-12-12</td>
                 					</tr>
                 			</tbody>
                 		</table>                		

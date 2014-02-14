@@ -47,6 +47,11 @@ def indexer_orgnization_survey_year(obj, **kw):
 @indexer(IOrgnization_administrative_licence)
 def indexer_orgnization_audit_item(obj, **kw):
     return obj.audit_item
+
+@indexer(IOrgnization_administrative_licence)
+def indexer_orgnization_audit_date(obj, **kw):
+    return obj.audit_date
+
 @indexer(IOrgnization_administrative_licence)
 def indexer_orgnization_audit_result(obj, **kw):
     return obj.audit_result
