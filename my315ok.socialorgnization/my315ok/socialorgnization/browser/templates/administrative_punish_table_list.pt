@@ -30,9 +30,8 @@
 				i18n:translate="">Add</a>
 						</span>
 					</div>
-       </div>
-            
-       <div class="span12" tal:define="itemlist python:view.getDownloadFileList();num python:len(itemlist)">
+       </div>     
+       <div class="span12" tal:define="itemlist python:view.getTableList();num python:len(itemlist)">
        	<div tal:condition="num" tal:content="structure python:itemlist">
             		               		
                 	</div>    

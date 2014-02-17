@@ -31,6 +31,11 @@ class IContainerTablelist(Interface):
     This is really just a marker interface.search container all contents,render them as table
     """
 
+class IPunishTablelist(Interface):
+    """
+    This is really just a marker interface.search container all contents,render them as table
+    """
+
 grok.templatedir('templates') 
 
 class maintain(grok.View):
@@ -240,8 +245,7 @@ class addFolderDownloadablelistmarkinterface(grok.View):
     
     def render(self):
         folder = self.context
-#        import pdb
-#        pdb.set_trace()
+
         if not IContainerdownloadablelist.providedBy(folder):
             mark(folder,IContainerdownloadablelist)
             return "I has marked the folders as Containerdownloadablelist!" 
@@ -256,13 +260,28 @@ class addFoldertablemarkinterface(grok.View):
     
     def render(self):
         folder = self.context
-#        import pdb
-#        pdb.set_trace()
+
         if not IContainerTablelist.providedBy(folder):
             mark(folder,IContainerTablelist)
             return "I has marked the folders as Foldertablelist!" 
         else:
             return "It has been marked as Foldertablelist!"
+
+class addFolderPunishtablemarkinterface(grok.View):
+## mark the current folder     
+    grok.context(IATFolder)
+    grok.name('addpunishtable')
+    grok.require('cmf.ManagePortal') 
+    
+    def render(self):
+        folder = self.context
+
+        if not IPunishTablelist.providedBy(folder):
+            mark(folder,IPunishTablelist)
+            return "I has marked the folders as FolderPunishtablelist!" 
+        else:
+            return "It has been marked as FolderPunishtablelist!"
+        
 
 class ContainerDownloadableListView(OrgnizationsView):
     grok.context(IContainerdownloadablelist)
@@ -270,10 +289,7 @@ class ContainerDownloadableListView(OrgnizationsView):
     grok.name('view')
     grok.require('zope2.View')
     
-#    @memoize   
-#    def catalog(self):                
-#        catalog = getToolByName(self.context, "portal_catalog")
-#        return catalog
+
         
 
     def getFolders(self):
@@ -333,10 +349,7 @@ class ContainerTableListView(OrgnizationsView):
     grok.context(IContainerTablelist)
     grok.template('container_table_list')
     grok.name('view')
-    grok.require('zope2.View')
-    
-
-        
+    grok.require('zope2.View')        
 
     def getFolders(self):
         """获取当前目录所有文件夹对象"""       
@@ -388,6 +401,44 @@ class ContainerTableListView(OrgnizationsView):
         outhtml = outhtml + "</tbody></table>"
         return outhtml 
 
+class AdminstrativePunishTableListView(ContainerTableListView):
+    grok.context(IPunishTablelist)
+    grok.template('administrative_punish_table_list')
+    grok.name('view')
+    grok.require('zope2.View')
+    
+    
+    @memoize
+    def getTableList(self):
+        """获取行政许可列表"""
+       
+        
+        braindata = self.catalog()({'object_provides':IATDocument.__identifier__,
+                             'path':"/".join(self.context.getPhysicalPath()),                                     
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}                              
+                                              )
+        outhtml = """<table class="table table-striped table-bordered table-condensed"><thead>
+        <tr><th class="span9">社会组织名称</th><th class="span3" >发布时间</th></tr>
+        </thead><tbody>"""
+        brainnum = len(braindata)
+        
+        for i in range(brainnum):
+            objurl = braindata[i].getURL()
+            objtitle = braindata[i].Title
+            pubtime = braindata[i].created.strftime('%Y-%m-%d')
+            
+            out = """<tr>
+            <td class="span9 title"><a href="%(url)s">%(title)s</a></td>
+            <td class="span3 item">%(pubtime)s</td>
+            </tr>""" % dict(url = objurl,title = objtitle,pubtime = pubtime)           
+            outhtml = outhtml + out
+        outhtml = outhtml + "</tbody></table>"
+        return outhtml     
+    
+    
+    
+    
 class AdministrativeLicenceFolderView(OrgnizationsView):
     grok.context(IAdministrativeLicenceFolder)
     grok.template('administrative_licence_folder')
