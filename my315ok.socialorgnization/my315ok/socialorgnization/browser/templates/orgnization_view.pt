@@ -62,7 +62,7 @@
                 	<span class="content" tal:content="python:context.register_code">8341</span>
                 </td>                
                 <td class="span3 title" >
-                	<span class="label">法人：</span>
+                	<span class="label">法定代表人：</span>
                 	<span class="content" tal:content="python:context.legal_person"></span>
                 </td>
              </tr>
