@@ -77,9 +77,10 @@ class TestView(unittest.TestCase):
                                                    )   
         portal['orgnizationfolder1']['orgnization1'].invokeFactory('my315ok.socialorgnization.orgnizationadministrative','orgnizationadministrative1',
                                                    title=u"宝庆商会",
-                                                   description=u"运输业",
+                                                   description=u"biangen",
                                                    audit_item="chenglidengji",
                                                    audit_result="zhunyu",
+                                                   audit_date =datetime.datetime.today(),
 
                                                    )  
         portal['orgnizationfolder1']['orgnization1'].invokeFactory('my315ok.socialorgnization.orgnizationadministrative','orgnizationadministrative2',
@@ -87,6 +88,7 @@ class TestView(unittest.TestCase):
                                                    description=u"运输业",
                                                    audit_item="chenglidengji",
                                                    audit_result="buyu",
+                                                   audit_date =datetime.datetime.today(),
 
                                                    )                         
                   
@@ -203,6 +205,23 @@ class TestView(unittest.TestCase):
 #        outstr = outstr.decode('utf-8')  # plone output page use utf-8
       
         self.assertTrue(outstr in browser.contents)    
+
+    def test_orgnization_administrative_view(self):
+        app = self.layer['app']
+        portal = self.layer['portal']
+       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
+        
+        import transaction
+        transaction.commit()
+        obj = portal['orgnizationfolder1']['orgnization1']['orgnizationadministrative1'].absolute_url() + '/@@view'        
+        import pdb
+        pdb.set_trace()
+        browser.open(obj)
+        outstr = "biangen"        
+        self.assertTrue(outstr in browser.contents) 
         
     def test_orgnizations_administrative_view(self):
         app = self.layer['app']

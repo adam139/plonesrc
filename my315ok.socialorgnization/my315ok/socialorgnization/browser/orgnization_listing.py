@@ -269,6 +269,8 @@ class Orgnizations_administrativeView(Orgnizations_adminView):
         brainnum = len(braindata)
         
         for i in range(brainnum):
+#            import pdb
+#            pdb.set_trace()
             objurl = braindata[i].getURL()
             objtitle = braindata[i].Title
             audit_item = self.tranVoc(braindata[i].orgnization_audit_item)

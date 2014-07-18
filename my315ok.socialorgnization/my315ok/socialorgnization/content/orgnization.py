@@ -59,7 +59,8 @@ class IOrgnization(form.Schema,IBasic):
 #归属地区：成立/变更/注销            
     belondto_area = schema.Choice(
         title=_(u"belondto area"),
-        vocabulary="my315ok.socialorgnization.vocabulary.belondtoarea"
+        vocabulary="my315ok.socialorgnization.vocabulary.belondtoarea",
+        default ="xiangtanshi"
     ) 
         
 #公告类别：成立/变更/注销            

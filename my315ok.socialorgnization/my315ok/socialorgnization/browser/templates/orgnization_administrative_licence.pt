@@ -34,7 +34,7 @@
         <tbody>
              <tr>
                 <td class="span2" >
-                	<span class="label">许可事项：</span>
+                	<span class="label">许可类型：</span>
                 </td>
                 <td class="span2" >
                 	<span class="content" tal:content="python:view.tranVoc(context.audit_item)">变更登记</span>
@@ -43,17 +43,27 @@
                 	<span class="label">结果：</span>
                 </td>
                 <td class="span2" >
-
                 	<span class="content" tal:content="python:view.tranVoc(context.audit_result)">准予</span>
                 </td>                                 
                 <td class="span2" >
-                	<span class="label">发布时间：</span>
+                	<span class="label">批准时间：</span>
                 </td>
                 <td class="span2" >
-                	<span class="content" tal:content="python:context.CreationDate().split('T')[0]"></span>
+                	<span class="content" tal:content="python:context.audit_date.strftime('%Y-%m-%d')"></span>
                 </td>                
              </tr>
-<tr><td><span><a href="" tal:attributes="href python:context.getParentNode().absolute_url()">查看详细信息</a></span></td></tr>
+             <tr>
+             	   <td class="span2" >
+                	<span class="label">许可事项：</span>
+                </td>
+             	   <td colspan="5" class="span10">
+             	    	<span class="content" tal:content="python:context.description"></span>
+             	   </td>
+             	</tr>             
+             <tr>
+             	    <td colspan="6"><span><a href="" tal:attributes="href python:context.getParentNode().absolute_url()">查看详细信息</a></span>
+             	    </td>
+             	</tr>
         </tbody>
       </table>      
       </div>
