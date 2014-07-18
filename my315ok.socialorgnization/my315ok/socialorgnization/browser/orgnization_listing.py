@@ -25,6 +25,7 @@ from my315ok.socialorgnization.content.yuetangqufolder import IYuetangquOrgnizat
 from my315ok.socialorgnization.content.xiangxiangshifolder import IXiangxiangshiOrgnizationFolder
 from my315ok.socialorgnization.content.xiangtanxianfolder import IXiangtanxianOrgnizationFolder
 from my315ok.socialorgnization.content.shaoshanshifolder import IShaoshanshiOrgnizationFolder
+from my315ok.socialorgnization.content.shibenjifolder import IShibenjiOrgnizationFolder
 
 from plone.memoize.instance import memoize
 
@@ -444,7 +445,21 @@ class xiangtanxianorgnizations(SiteRootAllOrgnizationListingView):
         return self.catalog()({'object_provides': IOrgnization.__identifier__,
                              'orgnization_belondtoArea':'xiangtanxian',
                              'sort_order': 'reverse',
-                             'sort_on':'created'})                           
+                             'sort_on':'created'})
+           
+class shibenjiorgnizations(SiteRootAllOrgnizationListingView):
+    grok.context(IShibenjiOrgnizationFolder)     
+    grok.template('xiangtanshi_allorgnization_listings')
+    grok.name('view')   
+    
+    def getorgnizations(self):
+ 
+        """返回 all conference
+        """
+        return self.catalog()({'object_provides': IOrgnization.__identifier__,
+                             'orgnization_belondtoArea':'xiangtanshi',
+                             'sort_order': 'reverse',
+                             'sort_on':'created'})                                 
                       
  # ajax multi-condition search       
 class ajaxsearch(grok.View):
@@ -991,4 +1006,91 @@ class xiangtanxiansearchlist(ajaxsearch):
            
         data = {'searchresult': outhtml,'start':start,'size':size,'total':totalnum}        
         self.request.response.setHeader('Content-Type', 'application/json')
-        return json.dumps(data)               
+        return json.dumps(data) 
+    
+class xiangtanshisearchlist(ajaxsearch):
+    grok.name('xiangtanshisearch')
+    
+    def render(self):    
+        self.portal_state = getMultiAdapter((self.context, self.request), name=u"plone_portal_state")
+        searchview = getMultiAdapter((self.context, self.request),name=u"allorgnization_listings")        
+        
+        datadic = self.request.form
+        start = int(datadic['start']) # batch search start position
+        datekey = int(datadic['datetype'])  # 对应 最近一周，一月，一年……
+        size = int(datadic['size'])      # batch search size          
+        provincekey = int(datadic['province'])  # 对应 成立公告，变更公告，注销公告
+        typekey = int(datadic['type']) # 对应 社会团体，民非，基金会
+        sortcolumn = datadic['sortcolumn']
+        sortdirection = datadic['sortdirection']
+        keyword = (datadic['searchabletext']).strip()     
+
+        origquery = {'object_provides': IOrgnization.__identifier__}
+        origquery['sort_on'] = sortcolumn  
+        origquery['sort_order'] = sortdirection
+#        origquery['b_size'] = size 
+#        origquery['b_start'] = start                 
+        
+        if keyword != "":
+            origquery['SearchableText'] = '*'+keyword+'*'        
+
+        if provincekey != 0:
+            conference_province = searchview.getProvince(provincekey)
+            origquery['orgnization_announcementType'] = conference_province
+        if datekey != 0:
+            origquery['orgnization_passDate'] = self.Datecondition(datekey)           
+        if typekey != 0:
+            origquery['orgnization_orgnizationType'] = searchview.getType(typekey)          
+
+        origquery['orgnization_belondtoArea'] = 'xiangtanshi'
+        totalquery = origquery.copy()
+        origquery['b_size'] = size 
+        origquery['b_start'] = start                         
+        totalbrains = searchview.search_multicondition(totalquery)
+        totalnum = len(totalbrains)         
+        braindata = searchview.search_multicondition(origquery)
+        brainnum = len(braindata)         
+        del origquery 
+        del totalquery,totalbrains            
+       
+        # Capture a status message and translate it
+#        translation_service = getToolByName(self.context, 'translation_service')        
+#        searchview = getMultiAdapter((self.context, self.request),name=u"allconference_listings")         
+        outhtml = ""
+
+#        import pdb
+#        pdb.set_trace()
+        
+        for i in range(brainnum):
+            objurl = braindata[i].getURL()
+            objtitle = braindata[i].Title
+            address = braindata[i].orgnization_address
+            register_code = braindata[i].orgnization_registerCode
+            legal_person = braindata[i].orgnization_legalPerson
+            objdate = braindata[i].orgnization_passDate.strftime('%Y-%m-%d')
+            sponsor = braindata[i].orgnization_supervisor            
+#            objid = braindata[i].id.replace('.','_')
+            numindex = str(i + 1)
+            
+            out = """<tr>
+                                <td class="span1">%(num)s</td>
+                                <td class="span2"><a href="%(objurl)s">%(title)s</a></td>
+                                <td class="span1">%(code)s</td>
+                                <td class="span2">%(address)s</td>
+                                <td class="span2">%(sponsor)s</td>
+                                <td class="span2">%(legal_person)s</td>
+                                <td class="span2">%(pass_date)s</td>                                
+                            </tr> """% dict(objurl=objurl,
+                                            num=numindex,
+                                            title=objtitle,
+                                            code= register_code,
+                                            address=address,
+                                            sponsor=sponsor,
+                                            legal_person = legal_person,
+                                            pass_date = objdate)
+           
+            outhtml = outhtml + out 
+           
+        data = {'searchresult': outhtml,'start':start,'size':size,'total':totalnum}        
+        self.request.response.setHeader('Content-Type', 'application/json')
+        return json.dumps(data)                   

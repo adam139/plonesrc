@@ -31,7 +31,10 @@ class TestView(unittest.TestCase):
                              title="orgnizationfolder1",description="demo orgnizationfolder") 
         
         portal.invokeFactory('my315ok.socialorgnization.yuhuqufolder', 'yuhuqu',
-                             title="yuhuqu",description="demo yuhuqu")                  
+                             title="yuhuqu",description="demo yuhuqu")
+        
+        portal.invokeFactory('my315ok.socialorgnization.shibenjifolder', 'shibenji',
+                             title="shibenji",description="demo shibenji")                            
    
         portal['orgnizationfolder1'].invokeFactory('my315ok.socialorgnization.orgnization','orgnization1',
                                                    title=u"宝庆商会",
@@ -44,6 +47,19 @@ class TestView(unittest.TestCase):
                                                    passDate =datetime.datetime.today(),
                                                    belondto_area='yuhuqu', 
                                                    )
+        
+        portal['orgnizationfolder1'].invokeFactory('my315ok.socialorgnization.orgnization','orgnization2',
+                                                   title=u"宝庆商会",
+                                                   description=u"运输业",
+                                                   address=u"建设北路",
+                                                   register_code="834100",
+                                                   supervisor=u"交通局",
+                                                   organization_type="minfei",
+                                                   legal_person=u"张建明",
+                                                   passDate =datetime.datetime.today(),
+                                                   belondto_area='xiangtanshi', 
+                                                   )
+                
         portal['orgnizationfolder1']['orgnization1'].invokeFactory('my315ok.socialorgnization.orgnizationsurvey','orgnizationsurvey1',
                                                    title=u"宝庆商会1",
                                                    description=u"运输业",
@@ -91,8 +107,28 @@ class TestView(unittest.TestCase):
         obj = portal['yuhuqu'].absolute_url() + '/@@view'        
         browser.open(obj)
 
-        outstr = "8341"        
+        outstr = "8341" 
+        import pdb
+        pdb.set_trace()       
         self.assertTrue(outstr in browser.contents)
+        
+    def test_shibenji_view(self):
+
+        app = self.layer['app']
+        portal = self.layer['portal']
+       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
+        
+        import transaction
+        transaction.commit()
+        obj = portal['shibenji'].absolute_url() + '/@@view'        
+        browser.open(obj)
+        import pdb
+        pdb.set_trace()
+        outstr = "834100"        
+        self.assertTrue(outstr in browser.contents)        
         
        
     def test_conferencelisting_admin_view(self):

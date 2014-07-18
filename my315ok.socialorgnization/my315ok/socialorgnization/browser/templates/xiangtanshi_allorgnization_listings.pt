@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
+      i18n:domain="my315ok.socialorgnization">        
+<head>
+   <metal:block fill-slot="style_slot">
+      <metal:block use-macro="context/@@my315ok-socialorgnization-macros/macros/styles"/>
+   </metal:block>
+</head>
+<body>
+	<div metal:fill-slot="column_one_slot" tal:replace="nothing"></div>
+	<div metal:fill-slot="column_two_slot" tal:replace="nothing"></div>	
+	<div metal:fill-slot="main">
+		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@xiangtanshisearch"></div>
+		<div id="ajaxmorearea" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-province"></div>		
+		<div id="ajaxmoretype" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-type"></div>			
+
+        <!--左边内容-->
+        <div class="event_list_page container">
+            <!--搜索框、搜索条件选择-->
+            <div class="event_list_search">
+                <ul class="search row-fluid hidden-phone">
+                    <li class="a">
+                        <input type="text" onkeypress="if(event.keyCode==13) {searchEventParent();return false}" id="searchKeyword">
+                    </li>
+                    <!-- onkeydown="enterSearch(event,'searchKeyword','currEventText');"-->
+                    <li class="b">
+                        <a href="javascript:searchEventParent()">&nbsp;&nbsp;搜索</a><!-- 搜索 -->
+                    </li>
+                </ul>
+                <input type="hidden" value="0" id="dateSearch">
+                <input type="hidden" value="0" id="addressSearch">
+                <input type="hidden" value="0" id="categorySearch">                      	                
+                <input type="hidden" value="orgnization_passDate" id="solrSortColumn">
+                <input type="hidden" value="reverse" id="solrSortDirection">
+                
+                <ul class="fenlei row-fluid" id="dateRangeSearchUl">
+                    <li class="title">
+                        按日期：<!-- 按日期： -->
+                    </li>
+                    <li name="0" class="all over">
+                        <a href="javascript:void(0)">所有</a><!-- 所有 -->
+                    </li>
+                    <li name="1">
+                        <a href="javascript:void(0)">最近一周</a><!-- 今天 -->
+                    </li>
+                    <li name="2">
+                        <a href="javascript:void(0)">最近一月</a><!-- 明天 -->
+                    </li>
+                    <li name="3">
+                        <a href="javascript:void(0)">最近一年</a><!-- 7天内 -->
+                    </li>
+                </ul>
+                <ul id="categorySelectSearch" class="fenlei row-fluid">
+                    <li class="title">
+                        按分类：<!-- 按分类： -->
+                    </li>
+                    <!--活动列表循环-->
+                    <li class="all">
+                        <span name="0" class="over"><a href="javascript:void(0)">所有</a></span><!-- 所有 -->
+                    </li>                    
+                    <li id="event_category_div" class="fenlei_a" style="background: none;padding: 0">
+                    	<span name="1"><a href="javascript:void(0)">社会团体</a></span>
+                    	<span name="2"><a href="javascript:void(0)">民非</a></span>
+                    	<span name="3"><a href="javascript:void(0)">基金会</a></span>
+                    </li>
+                </ul>        
+
+                <ul id="addressSelectSearch" class="fenlei row-fluid">                	
+                    <li class="title">
+                    				按公告类别：
+                    </li>
+                    <li class="all">
+                        <span class="over" name="0"><a href="javascript:void(0)">所有</a></span><!-- 所有 -->
+                    </li>
+                    <li id="province_list_div" class="fenlei_a" style="background: none;padding: 0">
+                    	<span name="1"><a href="javascript:void(0)">成立公告</a></span>
+                    	<span name="2"><a href="javascript:void(0)">变更公告</a></span>
+                    	<span name="3"><a href="javascript:void(0)">注销公告</a></span>
+                    </li>                   
+                </ul>
+            </div>
+            <!--搜索框、搜索条件选择 End-->
+            <!--搜索选择结果-->
+            <div class="event_list_search_select">
+                <ul class="row-fluid" id="all_result_recordinfo">
+                	<li class="a">已选择：</li>
+                	<li id="show_site_result">
+                		<div onclick="closeSearchEventsDiv(1)" class="select">时间：<span style="cursor: pointer;vertical-align: middle;">2天内&nbsp;</span>
+                		</div>
+                	</li>
+                	<li id="searchresultinfor" class="info">的信息有“<span id="searchresult_count">0</span>”条！</li>
+                </ul>
+            </div>
+            <!--搜索选择结果 End-->
+            <!--搜索选择结果排序-->
+            <div class="event_list_search_paixu row-fluid">
+                <div id="eventListSort" class="paixu span9">
+                    <span>排序：</span><!-- 排序： -->                    
+                    <a class="a" name="orgnization_passDate" id="startTimestamp" href="javascript:void(0)">批准时间</a><!-- 开始时间 -->
+                    <a class="b" name="created" id="publishTimestamp" href="javascript:void(0)">发布时间</a>
+                </div>
+                <!--快速翻页-->
+                <div id="fastPageList" class="q_page span3">
+                	<a href="javascript:void(0)">
+                		<img tal:attributes="src string:++resource++my315ok.socialorgnization/event_list_bg10.png"/>
+                	</a>
+                	<span>1/16</span>
+                	<a href="javascript:searchEvent(2,10)">
+                		<img tal:attributes="src string:++resource++my315ok.socialorgnization/event_list_bg11.png"/>
+                	</a>
+                </div>
+            </div>
+                <!--快速翻页 End-->             
+            <!--搜索选择结果排序 End-->
+            <!--搜索结果列表-->
+            <div  class="row-fluid">
+            	<div class="event_list_search_list">
+            		<table class="table table-striped table-bordered table-condensed">
+            			<thead>
+            				<tr>
+            					<th class="span1" i18n:translate="">Number</th>
+            					<th class="span2" i18n:translate="">organization name</th>
+            					<th class="span1" i18n:translate="">register code</th>
+            					<th class="span4" i18n:translate="">address</th>
+            					<th class="span2" i18n:translate="">sponsor</th>
+            					<th class="span1" i18n:translate="">legal person</th>
+            					<th class="span1" i18n:translate="">pass date</th>
+            				</tr>
+            			</thead>
+            			<tbody id="searchResultDiv">
+            				<tr>
+            					<td class="span1">1</td>
+            					<td class="span2">市宝庆商会</td>
+            					<td class="span1">8341</td>
+            					<td class="span4">建设北路55号</td>
+            					<td class="span2">市民政局</td>
+            					<td class="span1">王明</td>
+            					<td class="span1">2013-07-13</td>            					
+            				</tr>            				
+            			</tbody>            			
+            		</table>
+						</div>
+					</div>
+            <!--搜索结果列表 End-->
+           <div class="row">
+            <div id="bottomPageId" class="page_div offset5 pagination pagination-centered">
+            	<a class="page" href="javascript:void(0)">首页</a>
+            	<a class="page" href="javascript:void(0)">上一页</a>
+            	<a class="page_over num" href="#">1</a>
+            	<a class="page num" href="javascript:searchEvent(2,10)">2</a>
+            	<a class="page num" href="javascript:searchEvent(3,10)">3</a>
+            	<a class="page" href="javascript:searchEvent(2,10)">下一页</a>
+            	<a class="page" href="javascript:searchEvent(16,10)">末页</a>
+            </div>
+				  </div>
+		</div>
+        <!--左边内容 End-->		
+	</div>
+  <metal:js fill-slot="javascript_bottom_slot">
+	<script type="text/javascript"
+		tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+     tal:attributes="src string:${navroot}/++resource++my315ok.socialorgnization/ajaxsearch.min.js">
+	  	
+	</script>	
+	</metal:js>
+</body>
+</html>
