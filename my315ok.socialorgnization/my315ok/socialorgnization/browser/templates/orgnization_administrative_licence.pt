@@ -57,7 +57,7 @@
                 	<span class="label">许可事项：</span>
                 </td>
              	   <td colspan="5" class="span10">
-             	    	<span class="content" tal:content="python:context.description"></span>
+             	    	<span class="text-left" tal:content="python:context.description"></span>
              	   </td>
              	</tr>             
              <tr>

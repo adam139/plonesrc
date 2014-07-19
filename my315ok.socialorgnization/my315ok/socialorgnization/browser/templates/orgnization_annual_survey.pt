@@ -52,7 +52,15 @@
                 	<span class="content" tal:content="python:context.CreationDate().split('T')[0]"></span>
                 </td>                
              </tr>
-             <tr><td calspan="6"><span><a href="" tal:attributes="href python:context.getParentNode().absolute_url()">查看详细信息</a></span></td></tr>
+             <tr>
+             	   <td class="span2" >
+                	<span class="label">备注：</span>
+                </td>
+             	   <td colspan="5" class="span10">
+             	    	<span class="text-left" tal:content="python:context.description"></span>
+             	   </td>
+             	</tr>              
+             <tr><td colspan="6"><span><a href="" tal:attributes="href python:context.getParentNode().absolute_url()">查看详细信息</a></span></td></tr>
         </tbody>
       </table>      
       </div>
