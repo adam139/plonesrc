@@ -363,7 +363,16 @@ class ContainerTableListView(OrgnizationsView):
     def getATDocuments(self):
         """获取所有页面"""
 
-        braindata = self.catalog()({'object_provides':IATDocument.__identifier__,
+        try:
+            from my315ok.products.product import Iproduct
+            braindata = self.catalog()({'object_provides':[IATDocument.__identifier__,Iproduct.__identifier__],
+                             'path':"/".join(self.context.getPhysicalPath()),                                  
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}                              
+                                              ) 
+        except:
+            
+            braindata = self.catalog()({'object_provides':IATDocument.__identifier__,
                              'path':"/".join(self.context.getPhysicalPath()),                                  
                              'sort_order': 'reverse',
                              'sort_on': 'created'}                              
@@ -376,11 +385,12 @@ class ContainerTableListView(OrgnizationsView):
         """获取行政许可列表"""
        
         
-        braindata = self.catalog()({'object_provides':IATDocument.__identifier__,
-                             'path':"/".join(self.context.getPhysicalPath()),                                     
-                             'sort_order': 'reverse',
-                             'sort_on': 'created'}                              
-                                              )
+#        braindata = self.catalog()({'object_provides':IATDocument.__identifier__,
+#                             'path':"/".join(self.context.getPhysicalPath()),                                     
+#                             'sort_order': 'reverse',
+#                             'sort_on': 'created'}                              
+#                                              )
+        braindata = self.getATDocuments()
         outhtml = """<table class="table table-striped table-bordered table-condensed"><thead>
         <tr><th class="span9">标题</th><th class="span3" >发布时间</th></tr>
         </thead><tbody>"""
