@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: my315ok.products\n"
-"POT-Creation-Date: 2014-01-15 15:34+0000\n"
+"POT-Creation-Date: 2014-07-18 11:27+0000\n"
 "PO-Revision-Date: 2014-02-13 20:56+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,7 +79,7 @@ msgstr "编辑年检信息"
 
 #: ./browser/datainout.pt:100
 msgid "Errors detail"
-msgstr ""
+msgstr "详细错误信息"
 
 #: ./browser/datainout.pt:125
 msgid "Export"
@@ -115,13 +115,13 @@ msgstr "社会组织行政许可"
 msgid "Orgnization annual survey"
 msgstr "社会组织年检"
 
-#: ./content/orgnization.py:73
+#: ./content/orgnization.py:74
 msgid "Pass Date"
 msgstr "批准时间"
 
 #: ./browser/datainout.pt:82
 msgid "Results"
-msgstr ""
+msgstr "结果"
 
 #: ./browser/datainout.pt:51
 msgid "Select your CSV file here. Please respect the syntax of the template available ${here}"
@@ -130,6 +130,10 @@ msgstr ""
 #: ./profiles/default/types/my315ok.socialorgnization.shaoshanshifolder.xml
 msgid "Shaoshan Orgnization Folder"
 msgstr "韶山市"
+
+#: ./profiles/default/types/my315ok.socialorgnization.shibenjifolder.xml
+msgid "Shi ben ji Orgnization Folder"
+msgstr "市本级" 
 
 #: ./browser/datainout.py:149
 msgid "Some errors occured. Please check your CSV syntax and retry."
@@ -141,7 +145,7 @@ msgstr "组织名称"
 
 #: ./browser/datainout.pt:16
 msgid "Users In/Out"
-msgstr ""
+msgstr "导入导出"
 
 #: ./browser/datainout.pt:30
 msgid "Users import and export as CSV files."
@@ -181,7 +185,7 @@ msgstr "包含年检结果信息的页面"
 
 #: ./profiles/default/types/my315ok.socialorgnization.orgnizationfolder.xml
 #: ./profiles/default/types/my315ok.socialorgnization.shaoshanshifolder.xml
-#: ./profiles/default/types/my315ok.socialorgnization.xiangtanxianfolder.xml
+#: ./profiles/default/types/my315ok.socialorgnization.shibenjifolder.xml
 msgid "a folder contain some orgnizations"
 msgstr "一个包含社会组织信息的文件夹"
 
@@ -191,7 +195,7 @@ msgstr "一个包含社会组织信息的文件夹"
 msgid "address"
 msgstr "住所"
 
-#: ./content/orgnization.py:67
+#: ./content/orgnization.py:68
 msgid "announcement Type"
 msgstr "公告类型"
 
@@ -273,7 +277,7 @@ msgstr "社会组织类型"
 
 #: ./browser/templates/allorgnization_listings.pt:124
 #: ./browser/templates/shaoshanshi_allorgnization_listings.pt:126
-#: ./browser/templates/xiangtanxian_allorgnization_listings.pt:126
+#: ./browser/templates/xiangtanshi_allorgnization_listings.pt:126
 msgid "organization name"
 msgstr "社会组织名称"
 
@@ -323,19 +327,19 @@ msgstr "业务主管单位"
 msgid "supervisor organization"
 msgstr "业务主管单位"
 
-#: ./content/orgnization.py:131
+#: ./content/orgnization.py:132
 msgid "the item had been audited"
 msgstr "审批事项"
 
-#: ./content/orgnization.py:107
+#: ./content/orgnization.py:108
 msgid "the result of annual survey"
 msgstr "年检结果"
 
-#: ./content/orgnization.py:137
+#: ./content/orgnization.py:138
 msgid "the result of item that had been audited"
 msgstr "审核结果"
 
-#: ./content/orgnization.py:112
+#: ./content/orgnization.py:113
 msgid "the year for survey"
 msgstr "年度"
 

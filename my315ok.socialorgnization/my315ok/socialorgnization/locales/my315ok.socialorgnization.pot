@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-15 15:34+0000\n"
+"POT-Creation-Date: 2014-07-18 11:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Orgnization annual survey"
 msgstr ""
 
-#: ./content/orgnization.py:73
+#: ./content/orgnization.py:74
 msgid "Pass Date"
 msgstr ""
 
@@ -128,6 +128,10 @@ msgstr ""
 
 #: ./profiles/default/types/my315ok.socialorgnization.shaoshanshifolder.xml
 msgid "Shaoshan Orgnization Folder"
+msgstr ""
+
+#: ./profiles/default/types/my315ok.socialorgnization.shibenjifolder.xml
+msgid "Shi ben ji Orgnization Folder"
 msgstr ""
 
 #: ./browser/datainout.py:149
@@ -180,7 +184,7 @@ msgstr ""
 
 #: ./profiles/default/types/my315ok.socialorgnization.orgnizationfolder.xml
 #: ./profiles/default/types/my315ok.socialorgnization.shaoshanshifolder.xml
-#: ./profiles/default/types/my315ok.socialorgnization.xiangtanxianfolder.xml
+#: ./profiles/default/types/my315ok.socialorgnization.shibenjifolder.xml
 msgid "a folder contain some orgnizations"
 msgstr ""
 
@@ -190,7 +194,7 @@ msgstr ""
 msgid "address"
 msgstr ""
 
-#: ./content/orgnization.py:67
+#: ./content/orgnization.py:68
 msgid "announcement Type"
 msgstr ""
 
@@ -272,7 +276,7 @@ msgstr ""
 
 #: ./browser/templates/allorgnization_listings.pt:124
 #: ./browser/templates/shaoshanshi_allorgnization_listings.pt:126
-#: ./browser/templates/xiangtanxian_allorgnization_listings.pt:126
+#: ./browser/templates/xiangtanshi_allorgnization_listings.pt:126
 msgid "organization name"
 msgstr ""
 
@@ -322,19 +326,19 @@ msgstr ""
 msgid "supervisor organization"
 msgstr ""
 
-#: ./content/orgnization.py:131
+#: ./content/orgnization.py:132
 msgid "the item had been audited"
 msgstr ""
 
-#: ./content/orgnization.py:107
+#: ./content/orgnization.py:108
 msgid "the result of annual survey"
 msgstr ""
 
-#: ./content/orgnization.py:137
+#: ./content/orgnization.py:138
 msgid "the result of item that had been audited"
 msgstr ""
 
-#: ./content/orgnization.py:112
+#: ./content/orgnization.py:113
 msgid "the year for survey"
 msgstr ""
 
