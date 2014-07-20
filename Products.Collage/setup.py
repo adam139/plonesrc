@@ -6,12 +6,12 @@ def _textOfModuleFile(filename):
     return open(filename, 'r').read().strip()
 
 setup(name='Products.Collage',
-      version='1.3.10.dev0',
+      version='1.3.11.dev0',
       description=("A product to create page compositions in Plone."),
       long_description='\n\n'.join([
           _textOfModuleFile(name)
           for name in (
-               'README.txt',
+               'README.rst',
                os.path.join('docs', 'DEVELOPERS.txt'),
                os.path.join('docs', 'HISTORY.txt'))]),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -43,6 +43,11 @@ setup(name='Products.Collage',
           # -*- Extra requirements: -*-
           'Products.Archetypes',
       ],
+      extras_require={
+          'test': [
+              'Products.PloneTestCase',
+              ],
+          },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
